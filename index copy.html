@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>もくもく(仮)</title>
+    <link rel="stylesheet" href="css/ress.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <header>
+        <h1><img src="" alt="もくもく(仮)"></h1>
+        <p><small>&copy; 2020 akahoshi</small></p>
+    </header>
+    <main>
+        <div class="wrapper">
+            <div class="contents">
+                <div class="first-term"></div>
+                <!-- <div class="grid"></div>
+                <div class="grid"></div>
+                <div class="grid"></div>
+                <div class="grid"></div> -->
+            </div>
+            <div class="NavTools">
+                <div class="tools">
+                    <div class="edit">
+                        <div class="preview output_div"></div>
+                        <form>
+                            <div class="textarea">
+                                <div class="FlexTextarea input_textarea">
+                                    <div class="FlexTextarea__dummy" aria-hidden="true"></div>
+                                    <textarea id="flexTextarea__textarea" class="FlexTextarea__textarea"
+                                        onkeypress="if(event.shiftKey==true){if(event.keyCode==13){event.returnValue=false}}"></textarea>
+                                </div>
+                                <div class="Button btn-enter">Shift + Enter</div>
+                            </div>
+                        </form>
+
+                        <form class="shape" action="#" method="post">
+                            <p>シェイプ：</p>
+                            <select name="sample">
+                                <option value="1">かどまる</option>
+                                <option value="2">もくもく</option>
+                                <option value="3">とげとげ</option>
+                            </select>
+                        </form>
+
+                        <div class="shortcut">
+                            <p>shortcuts</p>
+                            <ul>
+                                <li><span>Undo</span></li>
+                                <li>
+                                    <span>Ctrl + Z</span>
+                                </li>
+                                <li><span>Redo</span></li>
+                                <li>
+                                    <span>Ctrl + Shift + Z</span>
+                                </li>
+                                <li><span>Close</span></li>
+                                <li>
+                                    <span>command + [+]</span>
+                                </li>
+                                <li><span>Leave</span></li>
+                                <li>
+                                    <span>command + Shift + [+]</span>
+                                </li>
+                                <li><span>Save</span></li>
+                                <li>
+                                    <span>Ctrl + S</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="save" style="display: none;">
+                        <div class="Button btn-newsave">名前をつけて保存</div>
+                        <div class="Button btn-save">上書き保存</div>
+
+                        <form class="shape" action="#" method="post">
+                            <p>書き出し:</p>
+                            <select name="sample">
+                                <option value="1">PNG</option>
+                                <option value="2">JPEG</option>
+                                <option value="3">PDF</option>
+                            </select>
+                            <button type="submit" class="download" style="width: 100%;">ダウンロード</button>
+                        </form>
+                    </div>
+                    <div class="help" style="display: none;">
+
+                    </div>
+                    <div class="issue" style="display: none;">
+
+                    </div>
+                    <div class="list" style="display: none;">
+
+                    </div>
+                </div>
+                <div class="navigation">
+                    <nav>
+                        <ul>
+                            <li data-open="open" id="btn-edit" class="open" title="Edit"><img src="images/edit.svg"
+                                    alt="編集"></li>
+                            <li data-open="close" id="btn-save" class="open" title="save"><img src="images/save.svg"
+                                    alt="保存"></li>
+                            <li data-open="close" id="btn-help" class="open" title="help"><img src="images/help.svg"
+                                    alt="ヘルプ"></li>
+                            <li data-open="close" id="btn-issue" class="open" title="issue"><img src="images/issue.svg"
+                                    alt="不具合報告">
+                            </li>
+                            <li data-open="close" id="btn-list" class="open" title="list"><img src="images/list.svg"
+                                    alt="単語リスト">
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+            <!--NavTools-->
+        </div>
+        <!--wrapper-->
+    </main>
+
+    <script src="BtnOpen.js"></script>
+    <script>
+
+        //textarea
+        function flexTextarea(el) {
+            const dummy = el.querySelector('.FlexTextarea__dummy')
+            el.querySelector('.FlexTextarea__textarea').addEventListener('input', e => {
+                dummy.textContent = e.target.value + '\u200b'
+            })
+        }
+
+        document.querySelectorAll('.FlexTextarea').forEach(flexTextarea)
+        /////////////////////////////////////////
+
+        //textの代入
+        const ContentsArea = document.getElementsByClassName('contents')[0];
+        const Contents = document.getElementById('flexTextarea__textarea');
+        const Log = document.getElementsByClassName('output_div')[0];
+        //previewコンテナの取得
+        const Preview = document.getElementsByClassName('preview')[0];
+
+        //送るボタン
+        const Button = document.getElementsByClassName('btn-enter')[0];
+
+        //second-termのdivをつくる(first-termの前に)
+        function clone() {
+            const TermBox = document.createElement('div');
+            TermBox.className = 'second-term';
+            ContentsArea.appendChild(TermBox);
+        }
+        //second-termの取得
+        const TermBoxes = document.querySelectorAll(".second-term");
+
+        //const FirstTermBox = document.getElementsByClassName('first-term')[0];
+
+        const ContentsTextArray = [];
+        const TermBoxesArray = [];
+
+
+
+
+        //Enter時の処理
+        function WordPush() {
+            //textareaを作る
+            clone();
+            //作ったsecond-termを取得する
+            const TermBoxes = document.querySelectorAll(".second-term");
+            //代入する
+            for (let i = 0; i < TermBoxes.length; i++) {
+                Log.textContent = Contents.value;
+                Preview.textContent = Contents.value;
+                TermBoxes[i].textContent = Contents.value;
+            }
+            Contents.value = "";//textboxを空にする
+
+        }
+
+        // for (let i = 0; i < TermBoxes.length; i++) {
+        //     TermBoxes[i].addEventListener('click', function () {
+        //         Contents.value = TermBoxes[i].textContent;
+        //         Preview.value = TermBoxes[i].textContent;
+        //         console.log(TermBoxes[i]);
+        //     });
+
+        //     Preview.addEventListener('click', function () {
+        //         Contents.value = TermBoxes[i].textContent;
+        //     });
+
+        // }
+
+        Contents.addEventListener("keydown", function () {
+            if (event.shiftKey == true) {
+                if (event.keyCode == 13) {
+                    WordPush();
+                }
+            }
+        });
+
+        Button.addEventListener("click", function () {
+            WordPush();
+        });
+
+
+
+
+    </script>
+</body>
+
+</html>
