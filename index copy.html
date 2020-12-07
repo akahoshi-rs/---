@@ -17,11 +17,10 @@
     <main>
         <div class="wrapper">
             <div class="contents">
-                <div class="first-term"></div>
-                <!-- <div class="grid"></div>
-                <div class="grid"></div>
-                <div class="grid"></div>
-                <div class="grid"></div> -->
+                <div id="first-term"></div>
+                <div id="outer-dropzone" class="dropzone space1"></div>
+                <div id="outer-dropzone" class="dropzone space2"></div>
+                <div id="outer-dropzone" class="dropzone space3"></div>
             </div>
             <div class="NavTools">
                 <div class="tools">
@@ -94,7 +93,9 @@
 
                     </div>
                     <div class="list" style="display: none;">
-
+                        <ul id="TermList">
+                            <li class="first-term"></li>
+                        </ul>
                     </div>
                 </div>
                 <div class="navigation">
@@ -109,7 +110,7 @@
                             <li data-open="close" id="btn-issue" class="open" title="issue"><img src="images/issue.svg"
                                     alt="不具合報告">
                             </li>
-                            <li data-open="close" id="btn-list" class="open" title="list"><img src="images/list.svg"
+                            <li data-open="close" id="btn-list" class="open" title="list"><img src="images/list1.svg"
                                     alt="単語リスト">
                             </li>
                         </ul>
@@ -121,90 +122,14 @@
         <!--wrapper-->
     </main>
 
+
+
     <script src="BtnOpen.js"></script>
+    <script src="PushList.js"></script>
+    <script src="https://unpkg.com/interactjs/dist/interact.min.js"></script>
+    <script src="DragAndDrop.js"></script>
     <script>
-
-        //textarea
-        function flexTextarea(el) {
-            const dummy = el.querySelector('.FlexTextarea__dummy')
-            el.querySelector('.FlexTextarea__textarea').addEventListener('input', e => {
-                dummy.textContent = e.target.value + '\u200b'
-            })
-        }
-
-        document.querySelectorAll('.FlexTextarea').forEach(flexTextarea)
-        /////////////////////////////////////////
-
-        //textの代入
-        const ContentsArea = document.getElementsByClassName('contents')[0];
-        const Contents = document.getElementById('flexTextarea__textarea');
-        const Log = document.getElementsByClassName('output_div')[0];
-        //previewコンテナの取得
-        const Preview = document.getElementsByClassName('preview')[0];
-
-        //送るボタン
-        const Button = document.getElementsByClassName('btn-enter')[0];
-
-        //second-termのdivをつくる(first-termの前に)
-        function clone() {
-            const TermBox = document.createElement('div');
-            TermBox.className = 'second-term';
-            ContentsArea.appendChild(TermBox);
-        }
-        //second-termの取得
-        const TermBoxes = document.querySelectorAll(".second-term");
-
-        //const FirstTermBox = document.getElementsByClassName('first-term')[0];
-
-        const ContentsTextArray = [];
-        const TermBoxesArray = [];
-
-
-
-
-        //Enter時の処理
-        function WordPush() {
-            //textareaを作る
-            clone();
-            //作ったsecond-termを取得する
-            const TermBoxes = document.querySelectorAll(".second-term");
-            //代入する
-            for (let i = 0; i < TermBoxes.length; i++) {
-                Log.textContent = Contents.value;
-                Preview.textContent = Contents.value;
-                TermBoxes[i].textContent = Contents.value;
-            }
-            Contents.value = "";//textboxを空にする
-
-        }
-
-        // for (let i = 0; i < TermBoxes.length; i++) {
-        //     TermBoxes[i].addEventListener('click', function () {
-        //         Contents.value = TermBoxes[i].textContent;
-        //         Preview.value = TermBoxes[i].textContent;
-        //         console.log(TermBoxes[i]);
-        //     });
-
-        //     Preview.addEventListener('click', function () {
-        //         Contents.value = TermBoxes[i].textContent;
-        //     });
-
-        // }
-
-        Contents.addEventListener("keydown", function () {
-            if (event.shiftKey == true) {
-                if (event.keyCode == 13) {
-                    WordPush();
-                }
-            }
-        });
-
-        Button.addEventListener("click", function () {
-            WordPush();
-        });
-
-
-
+        ////////////////////////////////////////////
 
     </script>
 </body>
