@@ -1,3 +1,6 @@
+let target = document.querySelectorAll('.dropzone');
+console.log(target);
+
 function dragMoveListener(event) {
     var target = event.target
     // keep the dragged position in the data-x/data-y attributes
@@ -19,7 +22,7 @@ interact('.dropzone').dropzone({
     // only accept elements matching this CSS selector
     accept: '.second-term',
     // Require a 75% element overlap for a drop to be possible
-    overlap: 0.75,
+    overlap: 0.35,
 
     // listen for drop related events:
 
