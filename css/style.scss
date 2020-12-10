@@ -1,0 +1,22 @@
+$shadow: 0 2px 6px rgba(34,0,102,0.2);
+$shadowIn: inset 0 2px 6px rgba(34,0,102,0.2);
+$L-text-color: #505055;
+$D-text-color: #fff;
+$Second-color: #206;
+
+@mixin ShadowIn {
+    box-shadow: $shadowIn;
+    background-color: #fff;
+    color: $text-color;
+}
+
+@mixin ShadowOut {
+    box-shadow: $shadow;
+    background-color: #fff;
+    color: $text-color;
+}
+
+@mixin Button {
+    background-color: $Second-color;
+    color: $D-text-color;
+}
