@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>もくもく(仮)</title>
     <link rel="stylesheet" href="css/ress.min.css">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style2.css">
 </head>
 
 <body>
@@ -39,10 +39,13 @@
 
                         <form class="shape" action="#" method="post">
                             <p>シェイプ：</p>
-                            <select name="sample">
+                            <select id="select-shape" name="shape">
                                 <option value="1">かどまる</option>
                                 <option value="2">もくもく</option>
                                 <option value="3">とげとげ</option>
+                            </select>
+                            <p>スペース：</p>
+                            <select id="select_space" name="space">
                             </select>
                         </form>
 
@@ -128,12 +131,49 @@
     <script src="PushList.js"></script>
     <script src="https://unpkg.com/interactjs/dist/interact.min.js"></script>
     <script src="DragAndDrop.js"></script>
+
+
     <script>
-        ////////////////////////////////////////////
+        const select_space = document.getElementById('select_space');
+
+        function space_num() {
+            const currentSpace = 3;
+
+            for (i = 1; i <= 6; i++) {
+                let op = document.createElement('option');
+                op.value = i;
+                op.text = i;
+                select_space.appendChild(op);
+            }
+
+            if (currentSpace == 3) {
+
+            } else if (currentSpace == 6) {
+
+            }
+        }
+
+        space_num();
 
     </script>
+
+    <!-- .space1 {
+    background-color: #ffffa0;
+    box-shadow: inset 2px 2px 6px rgba(34,0,102,0.2);
+    top: 40px;
+    }
+
+    .space2 {
+    background-color: #a0ffff;
+    box-shadow: inset 2px 2px 6px rgba(34,0,102,0.2);
+    top: calc(((100vh - 40px)/3) + 40px);
+    }
+
+    .space3 {
+    background-color: #ffa0ff;
+    box-shadow: inset 2px 2px 6px rgba(34,0,102,0.2);
+    bottom: 0;
+    } -->
 </body>
 
 </html>
-
-<!-- 22matumura--JPG,PNG書き出し -->
