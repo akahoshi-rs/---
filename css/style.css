@@ -77,6 +77,7 @@ header {
 ------------------------------- */
 .contents {
     width: calc(100% - 340px);
+    overflow-x: scroll;
 }
 
 div.output_div,#first-term,.second-term {
