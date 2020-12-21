@@ -1,3 +1,4 @@
+@charset "UTF-8";
 body {
   height: 100vh;
   overflow: hidden;
@@ -305,12 +306,20 @@ div.preview {
 }
 
 #firstTermWindow {
+  display: none;
   position: absolute;
   background-color: #fff;
   border-radius: 30px;
   padding: 20px;
   z-index: 3;
   box-shadow: 2px 2px 6px rgba(34, 0, 102, 0.2);
+  top: calc(((100vh - 40px)/2) - 100px);
+  left: calc(((100vw - 40px)/2) - 200px);
+  transition: all .3s ease-out;
+}
+
+#firstTermWindow.show {
+  display: block;
 }
 
 #op-form {
@@ -318,6 +327,16 @@ div.preview {
   flex-direction: column;
   justify-content: center;
   text-align: center;
+  position: relative;
+}
+
+#op-form:after {
+  content: '※空白可';
+  position: absolute;
+  font-size: 12px;
+  color: red;
+  bottom: 30px;
+  right: 0px;
 }
 
 #op-form div {
@@ -338,5 +357,19 @@ div.preview {
 
 #op-form input[type="text"]:focus {
   box-shadow: none;
+}
+
+#op-form #batu {
+  background: #f0f0f0;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  position: relative;
+  bottom: -16px;
+  left: calc(50% - 15px);
+  box-shadow: 1px 1px 3px rgba(34, 0, 102, 0.2);
 }
 /*# sourceMappingURL=style.css.map */

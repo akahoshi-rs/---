@@ -20,6 +20,10 @@ const Log = document.getElementsByClassName('output_div')[0];
 const Preview = document.getElementsByClassName('preview')[0];
 //送信ボタン(shift+enter)
 const Button = document.getElementsByClassName('btn-enter')[0];
+//body部
+let body = document.body;
+//閉じるボタン
+const CloseWindow = document.getElementById('batu');
 
 //second-termのdivをつくる
 function clone() {
@@ -51,9 +55,25 @@ const FirstTermList = document.querySelector('#TermList .first-term');
 let _firstterm = ['first'];
 FirstTermList.innerHTML = _firstterm;
 FirstTerm.innerHTML = _firstterm;
-FirstTerm.addEventListener('click', function () {
+//
+const FTWindow = document.getElementById('firstTermWindow');
+FirstTerm.addEventListener('click', function (e) {
     Preview.textContent = _firstterm;
     Contents.value = _firstterm;
+    FTWindow.style.left = (e.pageX - 200) + 'px';
+    FTWindow.style.top = (e.pageY - 100) + 'px';
+    //メニューをblockで表示
+    FTWindow.classList.add('show');
+    CloseWindow.style.boxShadow = '1px 1px 3px rgba(34,0,102,0.2)';
+});
+
+CloseWindow.addEventListener('mousedown', function () {
+    CloseWindow.style.boxShadow = 'inset 2px 2px 6px rgba(34,0,102,0.2)';
+});
+CloseWindow.addEventListener('mouseup', function () {
+    if (FTWindow.classList.contains('show')) {
+        FTWindow.classList.remove('show');
+    }
 });
 
 //
@@ -61,8 +81,6 @@ document.oncontextmenu = function () { return false; }
 
 //オリジナル コンテキストメニュー
 let con = document.getElementById('conmenu');
-//body部
-let body = document.body;
 //sakuzyo
 const Sakuzyo = document.getElementById('sakuzyo');
 //innyou
@@ -135,7 +153,6 @@ function WordPush() {
                 if (ListPushes[i].classList.contains('delete-list')) {
                     ListPushes[i].classList.remove('delete-list');
                 }
-
             });
         });
 
