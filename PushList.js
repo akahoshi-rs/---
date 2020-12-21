@@ -51,15 +51,9 @@ let _ContentsTextArray = [];
 //first-termの取得
 const FirstTerm = document.getElementById('first-term');
 const FirstTermList = document.querySelector('#TermList .first-term');
-//firsttermのみの処理
-let _firstterm = ['first'];
-FirstTermList.innerHTML = _firstterm;
-FirstTerm.innerHTML = _firstterm;
 //
 const FTWindow = document.getElementById('firstTermWindow');
 FirstTerm.addEventListener('click', function (e) {
-    Preview.textContent = _firstterm;
-    Contents.value = _firstterm;
     FTWindow.style.left = (e.pageX - 200) + 'px';
     FTWindow.style.top = (e.pageY - 100) + 'px';
     //メニューをblockで表示
@@ -68,7 +62,17 @@ FirstTerm.addEventListener('click', function (e) {
 });
 
 CloseWindow.addEventListener('mousedown', function () {
+    const Main = document.getElementById('Main');
+    const Sub1 = document.getElementById('Sub-1');
+    const Sub2 = document.getElementById('Sub-2');
+    const Sub3 = document.getElementById('Sub-3');
     CloseWindow.style.boxShadow = 'inset 2px 2px 6px rgba(34,0,102,0.2)';
+    let _firstterm = Main.value;
+    FirstTermList.innerHTML = _firstterm;
+    FirstTerm.innerHTML = _firstterm;
+    Preview.textContent = _firstterm;
+    Contents.value = _firstterm;
+
 });
 CloseWindow.addEventListener('mouseup', function () {
     if (FTWindow.classList.contains('show')) {
