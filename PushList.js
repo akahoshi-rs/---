@@ -115,6 +115,7 @@ function WordPush() {
         });
 
         TermBoxes[i].addEventListener('contextmenu', function (e) {
+            Preview.textContent = TermBoxes[i].innerHTML;
             //マウスの位置を使ってスタイルを設定する
             con.style.left = e.pageX + 'px';
             con.style.top = e.pageY + 'px';
