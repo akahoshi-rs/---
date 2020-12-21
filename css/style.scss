@@ -323,3 +323,35 @@ div.preview {
     .delete, .delete-list {
         background: #aaffff;
     }
+
+    #firstTermWindow {
+        position: absolute;
+        background-color: #fff;
+        border-radius: 30px;
+        padding: 20px;
+        z-index: 3;
+        box-shadow: 2px 2px 6px rgba(34,0,102,0.2);
+    }
+
+    #op-form {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+        & div {
+            margin: 6px 0;
+            display: flex;
+            justify-content: space-between;
+        }
+        label {
+            margin-right: 10px;
+        }
+        input[type="text"] {
+            background-color: #f0f0f0;
+            border-radius: 4px;
+            box-shadow: inset 2px 2px 6px rgba(34,0,102,0.2);
+            &:focus {
+                box-shadow: none;
+            }
+        }
+    }

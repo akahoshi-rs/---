@@ -52,14 +52,8 @@ let _firstterm = ['first'];
 FirstTermList.innerHTML = _firstterm;
 FirstTerm.innerHTML = _firstterm;
 FirstTerm.addEventListener('click', function () {
-    Log.textContent = _firstterm;
     Preview.textContent = _firstterm;
-    //Contents.value = _firstterm;
-    FirstTerm.style.borderStyle = 'solid';
-    FirstTerm.style.borderWidth = '2px';
-    // if (onClick == 0) {
-    // } else if (onClick == 1) {
-    // }
+    Contents.value = _firstterm;
 });
 
 //
@@ -71,7 +65,8 @@ let con = document.getElementById('conmenu');
 let body = document.body;
 //sakuzyo
 const Sakuzyo = document.getElementById('sakuzyo');
-
+//innyou
+const innyou = document.getElementById('innyou');
 
 //Enter時の処理
 function WordPush() {
@@ -109,6 +104,10 @@ function WordPush() {
             const TermDelete = document.getElementsByClassName('delete');
             const ListDelete = document.getElementsByClassName('delete-list');
             let innerTerm = TermDelete[0].innerHTML;
+
+            innyou.addEventListener('click', function () {
+                Contents.value = TermBoxes[i].innerHTML;
+            });
 
             Sakuzyo.addEventListener('click', function () {
                 let result = _ContentsTextArray.filter(function (item, index, arr) {
