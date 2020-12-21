@@ -85,10 +85,6 @@ header {
     box-shadow: 2px 2px 6px rgba(34,0,102,0.2);
 }
 
-#inner-dropzone.drop-target {
-    background: #f00;
-}
-
 /* contents
 ------------------------------- */
 .contents {
@@ -132,17 +128,17 @@ div.preview {
 /* nav
 ---------------------------- */
 
-nav {
+.navigation nav {
     width: 60px;
     background-color: #7188aa;
     height: 100%;
 }
 
-nav li {
+.navigation li {
     padding: 14px;
 }
 
-nav li img {
+.navigation li img {
     width: 30px;
 }
 
