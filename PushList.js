@@ -92,14 +92,10 @@ function WordPush() {
         Log.textContent = _ContentsTextArray[i];
         Preview.textContent = _ContentsTextArray[i];
 
-        //クリックされた値を返す
-        TermBoxes[i].addEventListener('click', function (index) {
-            //TermBoxes[index].style.backgroundColor = '#ffff00';
-            //let CurentClick = TermBoxes[index].innerHTML;
-            //Log.textContent = CurentClick;
-            //Preview.textContent = CurentClick;
-            //Contents.value = CurentClick;
-        }.bind(null, i));
+        ListPushes[i].addEventListener('click', function () {
+            Contents.value = ListPushes[i].innerHTML;
+            Preview.textContent = ListPushes[i].innerHTML;
+        });
 
         TermBoxes[i].addEventListener('contextmenu', function (e) {
             //マウスの位置を使ってスタイルを設定する
@@ -109,6 +105,7 @@ function WordPush() {
             con.classList.add('show');
             TermBoxes[i].classList.add('delete');
             ListPushes[i].classList.add('delete-list');
+
             const TermDelete = document.getElementsByClassName('delete');
             const ListDelete = document.getElementsByClassName('delete-list');
             let innerTerm = TermDelete[0].innerHTML;
@@ -133,13 +130,13 @@ function WordPush() {
                     //非表示に戻す
                     con.classList.remove('show');
                 }
-
                 if (TermBoxes[i].classList.contains('delete')) {
                     TermBoxes[i].classList.remove('delete');
                 }
                 if (ListPushes[i].classList.contains('delete-list')) {
                     ListPushes[i].classList.remove('delete-list');
                 }
+
             });
         });
 

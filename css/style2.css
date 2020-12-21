@@ -286,29 +286,34 @@ nav li img {
 
 /*  */
 
- #conmenu {
-    display:none;
-    position:fixed;
-    left:0px;
-    top:40px;
-    widows: 150px;
-    border-radius: 2px;
-    z-index: 100;
-    background-color: #d5d5d5;
-  }
+    #conmenu {
+        display:none;
+        position:fixed;
+        left:0px;
+        top:40px;
+        widows: 150px;
+        border-radius: 2px;
+        z-index: 100;
+        background-color: #d5d5d5;
+    }
 
-  #conmenu.show {
-    display: block;
-  }
+    #conmenu.show {
+        display: block;
+    }
 
-  #conmenu li {
-    list-style: none;
-    border-top: 1px dotted #eee;
-    margin: 0px;
-    padding: 5px;
-    cursor:pointer;
-  }
+    #conmenu li {
+        list-style: none;
+        border-top: 1px dotted #eee;
+        margin: 0px;
+        padding: 5px;
+        cursor:pointer;
+    }
 
     #conmenu li:first-child {
         border: none;
+    }
+
+
+    .delete, .delete-list {
+        background: #aaffff;
     }
