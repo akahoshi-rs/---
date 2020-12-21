@@ -17,14 +17,34 @@
     <main>
         <div class="wrapper">
             <div class="contents">
-                <div id="first-term"></div>
-                <div id="outer-dropzone" class="dropzone space1"></div>
-                <div id="outer-dropzone" class="dropzone space2"></div>
-                <div id="outer-dropzone" class="dropzone space3"></div>
+                <nav id="conmenu">
+                    <ul>
+                        <li class="list-group-item" id="innyou">引用</li>
+                        <li class="list-group-item" id="sakuzyo">削除</li>
+                    </ul>
+                </nav>
+                <div id="first-term" class="dropzpne"></div>
+                <div id="firstTermWindow" class="show">
+                    <form id="op-form">
+                        <div><label for="Main">Main Term</label>
+                            <input type="text" id="Main">
+                        </div>
+                        <div><label for="Sub-1">Sub Area 1</label>
+                            <input type="text" id="Sub-1">
+                        </div>
+                        <div><label for="Sub-2">Sub Area 2</label>
+                            <input type="text" id="Sub-2">
+                        </div>
+                        <div><label for="Sub-3">Sub Area 3</label>
+                            <input type="text" id="Sub-3">
+                        </div>
+                        <div id="batu">×</div>
+                    </form>
+                </div>
             </div>
             <div class="NavTools">
                 <div class="tools">
-                    <div class="edit">
+                    <div class="edit" style="display: block;">
                         <div class="preview output_div"></div>
                         <form>
                             <div class="textarea">
@@ -39,10 +59,13 @@
 
                         <form class="shape" action="#" method="post">
                             <p>シェイプ：</p>
-                            <select name="sample">
+                            <select id="select-shape" name="shape">
                                 <option value="1">かどまる</option>
                                 <option value="2">もくもく</option>
                                 <option value="3">とげとげ</option>
+                            </select>
+                            <p>スペース：</p>
+                            <select id="select_space" name="space">
                             </select>
                         </form>
 
@@ -87,7 +110,7 @@
                         </form>
                     </div>
                     <div class="help" style="display: none;">
-
+                        <a href="https://osora.work/blog/363" target="_blank" rel="noopener noreferrer">解説ブログのリンク</a>
                     </div>
                     <div class="issue" style="display: none;">
 
@@ -110,7 +133,7 @@
                             <li data-open="close" id="btn-issue" class="open" title="issue"><img src="images/issue.svg"
                                     alt="不具合報告">
                             </li>
-                            <li data-open="close" id="btn-list" class="open" title="list"><img src="images/list1.svg"
+                            <li data-open="close" id="btn-list" class="open" title="list"><img src="images/List1.svg"
                                     alt="単語リスト">
                             </li>
                         </ul>
@@ -128,8 +151,9 @@
     <script src="PushList.js"></script>
     <script src="https://unpkg.com/interactjs/dist/interact.min.js"></script>
     <script src="DragAndDrop.js"></script>
+    <script src="space(devide).js"></script>
+
     <script>
-        ////////////////////////////////////////////
 
     </script>
 </body>
