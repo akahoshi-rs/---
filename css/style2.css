@@ -69,6 +69,26 @@ header {
     box-shadow: inset 2px 2px 6px rgba(34,0,102,0.2);
 }
 
+.drop-target {
+    filter: grayscale(60%);
+    box-shadow: inset 4px 4px 6px rgba(34,0,102,0.2);
+}
+
+#inner-dropzone {
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    border-radius: 50px;
+    background-color: #fff;
+    box-shadow: 2px 2px 6px rgba(34,0,102,0.2);
+}
+
+#inner-dropzone.drop-target {
+    background: #f00;
+}
+
 /* contents
 ------------------------------- */
 .contents {
@@ -262,3 +282,33 @@ nav li img {
     border-radius: 50px;
     cursor: pointer;
 }
+
+
+/*  */
+
+ #conmenu {
+    display:none;
+    position:fixed;
+    left:0px;
+    top:40px;
+    widows: 150px;
+    border-radius: 2px;
+    z-index: 100;
+    background-color: #d5d5d5;
+  }
+
+  #conmenu.show {
+    display: block;
+  }
+
+  #conmenu li {
+    list-style: none;
+    border-top: 1px dotted #eee;
+    margin: 0px;
+    padding: 5px;
+    cursor:pointer;
+  }
+
+    #conmenu li:first-child {
+        border: none;
+    }

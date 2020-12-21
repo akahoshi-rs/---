@@ -62,6 +62,17 @@ FirstTerm.addEventListener('click', function () {
     // }
 });
 
+//
+document.oncontextmenu = function () { return false; }
+
+//オリジナル コンテキストメニュー
+let con = document.getElementById('conmenu');
+//body部
+let body = document.body;
+//sakuzyo
+const Sakuzyo = document.getElementById('sakuzyo');
+
+
 //Enter時の処理
 function WordPush() {
     //_ContentsTextArrayに追加する
@@ -72,6 +83,7 @@ function WordPush() {
     //TermListに追加する
     ListPush();
     const ListPushes = document.querySelectorAll('#TermList .Term-List');
+    const Listterms = document.getElementsByClassName('Term-List');
 
     //代入するやつ
     for (let i = 0; i < _ContentsTextArray.length; i++) {
@@ -90,7 +102,43 @@ function WordPush() {
             //Contents.value = CurentClick;
         }.bind(null, i));
 
+        TermBoxes[i].addEventListener('contextmenu', function (e) {
+            //マウスの位置を使ってスタイルを設定する
+            con.style.left = e.pageX + 'px';
+            con.style.top = e.pageY + 'px';
+            //メニューをblockで表示
+            con.classList.add('show');
+            TermBoxes[i].classList.add('delete');
+            Listterms[i].classList.add('delete-list');
 
+            const TermDelete = document.getElementsByClassName('delete');
+            const ListDelete = document.getElementsByClassName('delete-list');
+            let innerTerm = TermDelete[0].innerHTML;
+
+            Sakuzyo.addEventListener('click', function () {
+                ListDelete[0].remove();
+                let result = _ContentsTextArray.filter(function (item, index, arr) {
+                    arr.pop()
+                    return item.innerHTML !== innerTerm;
+                });
+                result = _ContentsTextArray;
+                if (TermDelete.length > 0) {
+                    TermDelete[0].remove();
+                }
+            });
+        });
+
+        //左クリックで非表示に変更
+        body.addEventListener('click', function () {
+            if (con.classList.contains('show')) {
+                //非表示に戻す
+                con.classList.remove('show');
+            }
+
+            if (TermBoxes[i].classList.contains('delete')) {
+                TermBoxes[i].classList.remove('delete');
+            }
+        });
     }
     //textboxを空にする
     Contents.value = "";
