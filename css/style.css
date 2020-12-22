@@ -50,17 +50,17 @@ header {
 }
 
 .space1 {
-  background-color: #ffffa0;
+  background-color: #ffff99;
   box-shadow: inset 2px 2px 6px rgba(34, 0, 102, 0.2);
 }
 
 .space2 {
-  background-color: #a0ffff;
+  background-color: #99ffff;
   box-shadow: inset 2px 2px 6px rgba(34, 0, 102, 0.2);
 }
 
 .space3 {
-  background-color: #ffa0ff;
+  background-color: #ff9999;
   box-shadow: inset 2px 2px 6px rgba(34, 0, 102, 0.2);
 }
 
@@ -163,34 +163,40 @@ div.preview {
   border: 1px solid #b6c3c6;
 }
 
-.shortcut {
+.HowToUse {
   text-align: center;
-  padding: 10px;
+  padding: 20px;
   border-radius: 10px;
-  border: 1px solid;
   font-size: 14px;
+  box-shadow: inset 0 2px 6px rgba(34, 0, 102, 0.2);
 }
 
-.shortcut p {
+.HowToUse p {
   background-color: #7188aa;
   color: #fff;
-  width: 100px;
-  margin: -20px auto 10px;
+  width: 120px;
+  margin: -30px auto 10px;
+  padding: 2px 0 1px;
+  border-radius: 12px;
 }
 
-.shortcut ul {
+.HowToUse ul {
   display: flex;
   flex-direction: column;
 }
 
-.shortcut li {
-  margin: 4px 0;
+.HowToUse dl {
+  margin: 10px 0;
 }
 
-.shortcut li:nth-child(odd) span {
-  background-color: #fff;
-  padding: 2px 6px;
-  border-radius: 4px;
+.HowToUse dt {
+  background-color: #7188aa;
+  color: #fff;
+  border-radius: 12px;
+}
+
+.HowToUse dd {
+  padding: 8px 0;
 }
 
 #TermList {
@@ -258,10 +264,6 @@ div.preview {
   outline: 0;
 }
 
-.enter img {
-  height: 14px;
-}
-
 .Button, .download {
   text-align: center;
   margin: 20px auto;
@@ -270,6 +272,17 @@ div.preview {
   color: #fff;
   border-radius: 50px;
   cursor: pointer;
+  box-shadow: 0 2px 6px rgba(34, 0, 102, 0.2);
+  transition: all .3s;
+}
+
+.Button:hover, .download:hover {
+  background-color: #607494;
+}
+
+.Button:active, .download:active {
+  box-shadow: inset 0 2px 6px rgba(34, 0, 102, 0.2);
+  background-color: #7188aa;
 }
 
 /* dlclick
@@ -339,10 +352,14 @@ div.preview {
   right: 0px;
 }
 
-#op-form div {
+#op-form > div {
   margin: 6px 0;
   display: flex;
   justify-content: space-between;
+}
+
+#op-form :first-child label {
+  margin-right: 22px;
 }
 
 #op-form label {
@@ -357,6 +374,11 @@ div.preview {
 
 #op-form input[type="text"]:focus {
   box-shadow: none;
+}
+
+#op-form input[type="color"] {
+  width: 48px;
+  height: 24px;
 }
 
 #op-form #batu {

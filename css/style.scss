@@ -3,6 +3,9 @@ $shadowIn: inset 0 2px 6px rgba(34,0,102,0.2);
 $L-text-color: #505055;
 $D-text-color: #fff;
 $Second-color: #206;
+$Space1: #ffff99;
+$Space2: #99ffff;
+$Space3: #ff9999;
 
 @mixin ShadowIn {
     box-shadow: $shadowIn;
@@ -77,17 +80,17 @@ header {
 }
 
 .space1 {
-    background-color: #ffffa0;
+    background-color: $Space1;
     box-shadow: inset 2px 2px 6px rgba(34,0,102,0.2);
 }
 
 .space2 {
-    background-color: #a0ffff;
+    background-color: $Space2;
     box-shadow: inset 2px 2px 6px rgba(34,0,102,0.2);
 }
 
 .space3 {
-    background-color: #ffa0ff;
+    background-color: $Space3;
     box-shadow: inset 2px 2px 6px rgba(34,0,102,0.2);
 }
 
@@ -182,35 +185,40 @@ div.preview {
     }
     & select {
         background-color: #fff;
-    border-radius: 4px;
-    padding: 2px 10px;
-    border: 1px solid #b6c3c6;
+        border-radius: 4px;
+        padding: 2px 10px;
+        border: 1px solid #b6c3c6;
     }
 }
 
-.shortcut {
+.HowToUse {
     text-align: center;
-    padding: 10px;
+    padding: 20px;
     border-radius: 10px;
-    border: 1px solid;
     font-size: 14px;
+    box-shadow: inset $shadow;
     & p {
         background-color: #7188aa;
         color: #fff;
-        width: 100px;
-        margin: -20px auto 10px;
+        width: 120px;
+        margin: -30px auto 10px;
+        padding: 2px 0 1px;
+        border-radius: 12px;
     }
     & ul {
         display: flex;
         flex-direction: column;
     }
-    & li {
-        margin: 4px 0;
-        &:nth-child(odd) span {
-            background-color: #fff;
-            padding: 2px 6px;
-            border-radius: 4px;
-        }
+    & dl {
+        margin: 10px 0;
+    }
+    & dt {
+        background-color: #7188aa;
+        color: #fff;
+        border-radius: 12px;
+    }
+    & dd {
+        padding: 8px 0;
     }
 }
 
@@ -279,10 +287,6 @@ div.preview {
     outline: 0;
 }
 
-.enter img {
-    height: 14px;
-}
-
 .Button,.download {
     text-align: center;
     margin: 20px auto;
@@ -291,6 +295,15 @@ div.preview {
     color: #fff;
     border-radius: 50px;
     cursor: pointer;
+    box-shadow: $shadow;
+    transition: all .3s;
+    &:hover {
+        background-color: #607494;
+    }
+    &:active {
+        box-shadow: inset $shadow;
+        background-color: #7188aa;
+    }
 }
 
 /* dlclick
@@ -354,10 +367,13 @@ div.preview {
             bottom: 30px;
             right: 0px;
         }
-        & div {
+        & > div {
             margin: 6px 0;
             display: flex;
             justify-content: space-between;
+        }
+        :first-child label {
+            margin-right: 22px;
         }
         label {
             margin-right: 10px;
@@ -369,6 +385,10 @@ div.preview {
             &:focus {
                 box-shadow: none;
             }
+        }
+        input[type="color"] {
+            width: 48px;
+            height: 24px;
         }
         #batu {
             background: #f0f0f0;

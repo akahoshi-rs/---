@@ -10,9 +10,6 @@ const SaveTools = document.getElementsByClassName('save')[0];
 //helpbtn
 const HelpBtn = document.getElementById('btn-help');
 const HelpTools = document.getElementsByClassName('help')[0];
-//issuesbtn
-const IssueBtn = document.getElementById('btn-issue');
-const IssueTools = document.getElementsByClassName('issue')[0];
 //listbtn
 const ListBtn = document.getElementById('btn-list');
 const ListTools = document.getElementsByClassName('list')[0];
@@ -20,7 +17,6 @@ const ListTools = document.getElementsByClassName('list')[0];
 EditBtn.addEventListener('click', function () {
     SaveTools.style.display = 'none';
     HelpTools.style.display = 'none';
-    IssueTools.style.display = 'none';
     ListTools.style.display = 'none';
 
     if (EditContainerOpen.dataset.open == 'open' && EditTools.style.display == 'block') {
@@ -39,7 +35,6 @@ EditBtn.addEventListener('click', function () {
 SaveBtn.addEventListener('click', function () {
     EditTools.style.display = 'none';
     HelpTools.style.display = 'none';
-    IssueTools.style.display = 'none';
     ListTools.style.display = 'none';
 
     if (EditContainerOpen.dataset.open == 'open' && SaveTools.style.display == 'block') {
@@ -58,7 +53,6 @@ SaveBtn.addEventListener('click', function () {
 HelpBtn.addEventListener('click', function () {
     EditTools.style.display = 'none';
     SaveTools.style.display = 'none';
-    IssueTools.style.display = 'none';
     ListTools.style.display = 'none';
 
     if (EditContainerOpen.dataset.open == 'open' && HelpTools.style.display == 'block') {
@@ -74,30 +68,10 @@ HelpBtn.addEventListener('click', function () {
     }
 });
 
-IssueBtn.addEventListener('click', function () {
-    EditTools.style.display = 'none';
-    SaveTools.style.display = 'none';
-    HelpTools.style.display = 'none';
-    ListTools.style.display = 'none';
-
-    if (EditContainerOpen.dataset.open == 'open' && IssueTools.style.display == 'block') {
-        EditContainerOpen.dataset.open = 'close';
-        EditContainer.style.display = 'none';
-        IssueTools.style.display = 'none';
-        ContentsArea.style.width = 'calc(100% - 60px)';
-    } else {
-        EditContainerOpen.dataset.open = 'open';
-        EditContainer.style.display = 'block';
-        IssueTools.style.display = 'block';
-        ContentsArea.style.width = 'calc(100% - 340px)';
-    }
-});
-
 ListBtn.addEventListener('click', function () {
     EditTools.style.display = 'none';
     SaveTools.style.display = 'none';
     HelpTools.style.display = 'none';
-    IssueTools.style.display = 'none';
 
     if (EditContainerOpen.dataset.open == 'open' && ListTools.style.display == 'block') {
         EditContainerOpen.dataset.open = 'close';
