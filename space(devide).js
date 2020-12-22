@@ -106,7 +106,9 @@ function Color2() {
     Color1();
     Sub2Color.addEventListener('input', function () {
         let _Sub2 = document.getElementsByClassName("space2");
-        _Sub2[0].style.backgroundColor = Sub2Color.value;
+        if (_Sub2 == true) {
+            _Sub2[0].style.backgroundColor = Sub2Color.value;
+        };
     });
 }
 
@@ -114,6 +116,8 @@ function Color3() {
     Color2();
     Sub3Color.addEventListener('input', function () {
         let _Sub3 = document.getElementsByClassName("space3");
-        _Sub3[0].style.backgroundColor = Sub3Color.value;
+        if (_Sub3 == true) {
+            _Sub3[0].style.backgroundColor = Sub3Color.value;
+        };
     });
 }
