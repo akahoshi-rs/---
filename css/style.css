@@ -3,6 +3,7 @@ body {
   height: 100vh;
   overflow: hidden;
   color: #505055;
+  font-family: Helvetica, Arial, sans-serif;
 }
 
 img {
@@ -50,17 +51,14 @@ header {
 }
 
 .space1 {
-  background-color: #ffff99;
   box-shadow: inset 2px 2px 6px rgba(34, 0, 102, 0.2);
 }
 
 .space2 {
-  background-color: #99ffff;
   box-shadow: inset 2px 2px 6px rgba(34, 0, 102, 0.2);
 }
 
 .space3 {
-  background-color: #ff9999;
   box-shadow: inset 2px 2px 6px rgba(34, 0, 102, 0.2);
 }
 
@@ -176,7 +174,7 @@ div.preview {
   color: #fff;
   width: 120px;
   margin: -30px auto 10px;
-  padding: 2px 0 1px;
+  padding: 4px 0;
   border-radius: 12px;
 }
 
@@ -193,6 +191,7 @@ div.preview {
   background-color: #7188aa;
   color: #fff;
   border-radius: 12px;
+  padding: 4px;
 }
 
 .HowToUse dd {
@@ -359,7 +358,7 @@ div.preview {
 }
 
 #op-form :first-child label {
-  margin-right: 22px;
+  margin-right: 15px;
 }
 
 #op-form label {

@@ -177,3 +177,13 @@ Contents.addEventListener("keydown", function () {
 Button.addEventListener("click", function () {
     WordPush();
 });
+
+const MainTermColor = document.getElementById("color");
+const Sub1Color = document.getElementById("color1");
+const Sub2Color = document.getElementById("color2");
+const Sub3Color = document.getElementById("color3");
+
+MainTermColor.addEventListener('input', function () {
+    FirstTerm.style.backgroundColor = MainTermColor.value;
+    FirstTermList.style.backgroundColor = MainTermColor.value;
+});
