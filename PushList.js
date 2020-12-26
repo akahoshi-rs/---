@@ -63,9 +63,10 @@ FirstTerm.addEventListener('click', function (e) {
 
 CloseWindow.addEventListener('mousedown', function () {
     const Main = document.getElementById('Main');
-    const Sub1 = document.getElementById('Sub-1');
-    const Sub2 = document.getElementById('Sub-2');
-    const Sub3 = document.getElementById('Sub-3');
+    // const Sub1Text = document.getElementById('Sub-1');
+    // const Sub2Text = document.getElementById('Sub-2');
+    // const Sub3Text = document.getElementById('Sub-3');
+    let _space = document.getElementsByClassName('space');
     CloseWindow.style.boxShadow = 'inset 2px 2px 6px rgba(34,0,102,0.2)';
     let _firstterm = Main.value;
     FirstTermList.innerHTML = _firstterm;
@@ -182,6 +183,9 @@ const MainTermColor = document.getElementById("color");
 const Sub1Color = document.getElementById("color1");
 const Sub2Color = document.getElementById("color2");
 const Sub3Color = document.getElementById("color3");
+const Sub1Text = document.getElementById("Sub-1");
+const Sub2Text = document.getElementById("Sub-2");
+const Sub3Text = document.getElementById("Sub-3");
 
 MainTermColor.addEventListener('input', function () {
     FirstTerm.style.backgroundColor = MainTermColor.value;

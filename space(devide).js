@@ -16,10 +16,11 @@ function space_num() {
         _space_div.className = 'space dropzone space' + i;
         ContentsArea.appendChild(_space_div);
     }
+    let _space = document.getElementsByClassName('space');
     document.getElementsByClassName('space')[0].style.top = '40px';
     document.getElementsByClassName('space')[0].style.height = 'calc(100vh - 40px)';
     document.getElementsByClassName('space')[0].style.backgroundColor = Sub1Color.value;
-
+    _space[0].dataset.textvalue = '';
 
 }
 
@@ -47,7 +48,7 @@ function space_create() {
         _space[0].style.height = 'calc(100vh - 40px)';
         _space[0].style.backgroundColor = Sub1Color.value;
         Color1();
-
+        _space[0].dataset.textvalue = '';
     } else if (currentSpace == 2) {
         space_delete();
         for (let i = 1; i <= 2; i++) {
@@ -64,6 +65,8 @@ function space_create() {
         _space[0].style.backgroundColor = Sub1Color.value;
         _space[1].style.backgroundColor = Sub2Color.value;
         Color2();
+        _space[0].dataset.textvalue = '';
+        _space[1].dataset.textvalue = '';
 
     } else if (currentSpace == 3) {
         space_delete();
@@ -84,6 +87,9 @@ function space_create() {
         _space[1].style.backgroundColor = Sub2Color.value;
         _space[2].style.backgroundColor = Sub3Color.value;
         Color3();
+        _space[0].dataset.textvalue = '';
+        _space[1].dataset.textvalue = '';
+        _space[2].dataset.textvalue = '';
 
     }
 }
@@ -100,6 +106,10 @@ function Color1() {
         let _Sub1 = document.getElementsByClassName("space1");
         _Sub1[0].style.backgroundColor = Sub1Color.value;
     });
+    // Sub1Text.addEventListener('input', function () {
+    //     console.log(Sub1Text);
+    //     _space[0].dataset.textvalue = Sub1Text.value;
+    // });
 }
 
 function Color2() {
@@ -110,6 +120,7 @@ function Color2() {
             _Sub2[0].style.backgroundColor = Sub2Color.value;
         };
     });
+
 }
 
 function Color3() {
