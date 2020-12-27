@@ -20,6 +20,7 @@ function space_num() {
     document.getElementsByClassName('space')[0].style.top = '40px';
     document.getElementsByClassName('space')[0].style.height = 'calc(100vh - 40px)';
     document.getElementsByClassName('space')[0].style.backgroundColor = Sub1Color.value;
+    Color1();
     _space[0].dataset.textvalue = '';
 
 }
@@ -99,7 +100,7 @@ space_num();
 window.onload = function () {
     select_space.addEventListener('change', space_create);
     let _dropzone = document.getElementsByClassName('space');
-}
+};
 
 function Color1() {
     Sub1Color.addEventListener('input', function () {
@@ -116,18 +117,17 @@ function Color2() {
     Color1();
     Sub2Color.addEventListener('input', function () {
         let _Sub2 = document.getElementsByClassName("space2");
-        if (_Sub2 == true) {
+        if (_Sub2.length == 1) {
             _Sub2[0].style.backgroundColor = Sub2Color.value;
         };
     });
-
 }
 
 function Color3() {
     Color2();
     Sub3Color.addEventListener('input', function () {
         let _Sub3 = document.getElementsByClassName("space3");
-        if (_Sub3 == true) {
+        if (_Sub3.length == 1) {
             _Sub3[0].style.backgroundColor = Sub3Color.value;
         };
     });
