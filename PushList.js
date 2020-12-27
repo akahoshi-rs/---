@@ -63,9 +63,6 @@ FirstTerm.addEventListener('click', function (e) {
 
 CloseWindow.addEventListener('mousedown', function () {
     const Main = document.getElementById('Main');
-    // const Sub1Text = document.getElementById('Sub-1');
-    // const Sub2Text = document.getElementById('Sub-2');
-    // const Sub3Text = document.getElementById('Sub-3');
     let _space = document.getElementsByClassName('space');
     CloseWindow.style.boxShadow = 'inset 2px 2px 6px rgba(34,0,102,0.2)';
     let _firstterm = Main.value;
