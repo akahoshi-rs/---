@@ -52,14 +52,44 @@ header {
 
 .space1 {
   box-shadow: inset 2px 2px 6px rgba(34, 0, 102, 0.2);
+  position: relative;
+}
+
+.space1:after {
+  position: absolute;
+  content: attr(data-textvalue);
+  font-size: 20px;
+  top: 4px;
+  left: 20px;
+  color: #505055;
 }
 
 .space2 {
   box-shadow: inset 2px 2px 6px rgba(34, 0, 102, 0.2);
+  position: relative;
+}
+
+.space2:after {
+  position: absolute;
+  content: attr(data-textvalue);
+  font-size: 20px;
+  top: 4px;
+  left: 20px;
+  color: #505055;
 }
 
 .space3 {
   box-shadow: inset 2px 2px 6px rgba(34, 0, 102, 0.2);
+  position: relative;
+}
+
+.space3:after {
+  position: absolute;
+  content: attr(data-textvalue);
+  font-size: 20px;
+  top: 4px;
+  left: 20px;
+  color: #505055;
 }
 
 .drop-target {
@@ -349,6 +379,10 @@ div.preview {
   color: red;
   bottom: 30px;
   right: 0px;
+}
+
+#op-form label {
+  margin-top: 4px;
 }
 
 #op-form > div {

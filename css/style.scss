@@ -3,9 +3,6 @@ $shadowIn: inset 0 2px 6px rgba(34,0,102,0.2);
 $L-text-color: #505055;
 $D-text-color: #fff;
 $Second-color: #206;
-$Space1: #ffff99;
-$Space2: #99ffff;
-$Space3: #ff9999;
 
 @mixin ShadowIn {
     box-shadow: $shadowIn;
@@ -81,18 +78,42 @@ header {
 }
 
 .space1 {
-    // background-color: $Space1;
     box-shadow: inset 2px 2px 6px rgba(34,0,102,0.2);
+    position: relative;
+    &:after {
+        position: absolute;
+        content: attr(data-textvalue);
+        font-size: 20px;
+        top: 4px;
+        left: 20px;
+        color: $L-text-color;
+    }
 }
 
 .space2 {
-    // background-color: $Space2;
     box-shadow: inset 2px 2px 6px rgba(34,0,102,0.2);
+    position: relative;
+    &:after {
+        position: absolute;
+        content: attr(data-textvalue);
+        font-size: 20px;
+        top: 4px;
+        left: 20px;
+        color: $L-text-color;
+    }
 }
 
 .space3 {
-    // background-color: $Space3;
     box-shadow: inset 2px 2px 6px rgba(34,0,102,0.2);
+    position: relative;
+    &:after {
+        position: absolute;
+        content: attr(data-textvalue);
+        font-size: 20px;
+        top: 4px;
+        left: 20px;
+        color: $L-text-color;
+    }
 }
 
 .drop-target {
@@ -368,6 +389,9 @@ div.preview {
             color: red;
             bottom: 30px;
             right: 0px;
+        }
+        & label {
+            margin-top: 4px;
         }
         & > div {
             margin: 6px 0;
