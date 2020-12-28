@@ -36,12 +36,12 @@ function clone() {
 const TermBoxes = document.querySelectorAll(".second-term");
 
 //TermList
-const TermList = document.getElementById('TermList');
+const TermList = document.querySelectorAll('.ListDetails ol');
 //TermListのliの追加
 function ListPush() {
     const ListPush = document.createElement('li');
     ListPush.className = 'Term-List';
-    TermList.appendChild(ListPush);
+    TermList[0].appendChild(ListPush);
 }
 //ListPushの取得
 const ListPushes = document.querySelectorAll('#TermList .Term-List');

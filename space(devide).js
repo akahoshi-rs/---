@@ -1,7 +1,11 @@
 const select_space = document.getElementById('select_space');
 let _dropzone = document.getElementsByClassName('space');
 let currentSpace = 1;
-
+let _NamedList = document.querySelectorAll('#TermList .ListName');
+_NamedList[0].style.backgroundColor = Sub1Color.value;
+_NamedList[1].style.backgroundColor = Sub2Color.value;
+_NamedList[2].style.backgroundColor = Sub3Color.value;
+let _ListingArea = document.querySelectorAll('.ListDetails ol');
 function space_num() {
 
     for (i = 1; i <= 3; i++) {
@@ -33,7 +37,6 @@ function space_create() {
     let input_space = document.querySelector("select[name='space']")
     let currentSpace = input_space.value;
     space_delete();
-
     if (currentSpace == 1) {
         space_delete();
         for (let i = 1; i <= 1; i++) {
@@ -47,7 +50,11 @@ function space_create() {
         _space[0].style.height = 'calc(100vh - 40px)';
         _space[0].style.backgroundColor = Sub1Color.value;
         _space[0].dataset.textvalue = Sub1Text.value;
+        _NamedList[0].innerHTML = Sub1Text.value;
         Color1();
+        _NamedList[0].style.display = "block";
+        _NamedList[1].style.display = "none";
+        _NamedList[2].style.display = "none";
     } else if (currentSpace == 2) {
         space_delete();
         for (let i = 1; i <= 2; i++) {
@@ -65,7 +72,12 @@ function space_create() {
         _space[1].style.backgroundColor = Sub2Color.value;
         _space[0].dataset.textvalue = Sub1Text.value;
         _space[1].dataset.textvalue = Sub2Text.value;
+        _NamedList[0].innerHTML = Sub1Text.value;
+        _NamedList[1].innerHTML = Sub2Text.value;
         Color2();
+        _NamedList[0].style.display = "block";
+        _NamedList[1].style.display = "block";
+        _NamedList[2].style.display = "none";
     } else if (currentSpace == 3) {
         space_delete();
         for (let i = 1; i <= 3; i++) {
@@ -87,7 +99,13 @@ function space_create() {
         _space[0].dataset.textvalue = Sub1Text.value;
         _space[1].dataset.textvalue = Sub2Text.value;
         _space[2].dataset.textvalue = Sub3Text.value;
+        _NamedList[0].innerHTML = Sub1Text.value;
+        _NamedList[1].innerHTML = Sub2Text.value;
+        _NamedList[2].innerHTML = Sub3Text.value;
         Color3();
+        for (let i = 0; i <= 2; i++) {
+            _NamedList[i].style.display = "block";
+        }
     }
 }
 
@@ -102,10 +120,12 @@ function Color1() {
     Sub1Color.addEventListener('input', function () {
         let _Sub1 = document.getElementsByClassName("space1");
         _Sub1[0].style.backgroundColor = Sub1Color.value;
+        _NamedList[0].style.backgroundColor = Sub1Color.value;
     });
     Sub1Text.addEventListener('input', function () {
         let _space = document.getElementsByClassName('space');
         _space[0].dataset.textvalue = Sub1Text.value;
+        _NamedList[0].innerHTML = Sub1Text.value;
     });
 }
 
@@ -115,11 +135,15 @@ function Color2() {
         let _Sub2 = document.getElementsByClassName("space2");
         if (_Sub2.length == 1) {
             _Sub2[0].style.backgroundColor = Sub2Color.value;
+            _NamedList[1].style.backgroundColor = Sub2Color.value;
         };
     });
     Sub2Text.addEventListener('input', function () {
         let _space = document.getElementsByClassName('space');
         _space[1].dataset.textvalue = Sub2Text.value;
+        if (_space.length >= 2) {
+            _NamedList[1].innerHTML = Sub2Text.value;
+        }
     });
 }
 
@@ -129,10 +153,14 @@ function Color3() {
         let _Sub3 = document.getElementsByClassName("space3");
         if (_Sub3.length == 1) {
             _Sub3[0].style.backgroundColor = Sub3Color.value;
+            _NamedList[2].style.backgroundColor = Sub3Color.value;
         };
     });
     Sub3Text.addEventListener('input', function () {
         let _space = document.getElementsByClassName('space');
         _space[2].dataset.textvalue = Sub3Text.value;
+        if (_space.length == 3) {
+            _NamedList[2].innerHTML = Sub3Text.value;
+        }
     });
 }
