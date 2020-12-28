@@ -144,6 +144,54 @@ function WordPush() {
                 }
             });
 
+
+            //左クリックで非表示に変更
+            body.addEventListener('click', function () {
+                if (con.classList.contains('show')) {
+                    //非表示に戻す
+                    con.classList.remove('show');
+                }
+                if (TermBoxes[i].classList.contains('delete')) {
+                    TermBoxes[i].classList.remove('delete');
+                }
+                if (ListPushes[i].classList.contains('delete-list')) {
+                    ListPushes[i].classList.remove('delete-list');
+                }
+            });
+        });
+        ListPushes[i].addEventListener('contextmenu', function (e) {
+            Preview.textContent = TermBoxes[i].innerHTML;
+            //マウスの位置を使ってスタイルを設定する
+            con.style.left = e.pageX + 'px';
+            con.style.top = e.pageY + 'px';
+            //メニューをblockで表示
+            con.classList.add('show');
+            TermBoxes[i].classList.add('delete');
+            ListPushes[i].classList.add('delete-list');
+
+            const TermDelete = document.getElementsByClassName('delete');
+            const ListDelete = document.getElementsByClassName('delete-list');
+            let innerTerm = TermDelete[0].innerHTML;
+
+            innyou.addEventListener('click', function () {
+                Contents.value = TermBoxes[i].innerHTML;
+            });
+
+            Sakuzyo.addEventListener('click', function () {
+                let result = _ContentsTextArray.filter(function (item, index, arr) {
+                    arr.pop()
+                    return item.innerHTML !== innerTerm;
+                });
+                result = _ContentsTextArray;
+                if (ListDelete.length > 0) {
+                    ListDelete[0].remove();
+                }
+                if (TermDelete.length > 0) {
+                    TermDelete[0].remove();
+                }
+            });
+
+
             //左クリックで非表示に変更
             body.addEventListener('click', function () {
                 if (con.classList.contains('show')) {

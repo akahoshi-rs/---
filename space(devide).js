@@ -5,7 +5,6 @@ let _NamedList = document.querySelectorAll('#TermList .ListName');
 _NamedList[0].style.backgroundColor = Sub1Color.value;
 _NamedList[1].style.backgroundColor = Sub2Color.value;
 _NamedList[2].style.backgroundColor = Sub3Color.value;
-let _ListingArea = document.querySelectorAll('.ListDetails ol');
 function space_num() {
 
     for (i = 1; i <= 3; i++) {
