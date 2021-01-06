@@ -101,27 +101,3 @@ function Area3(event) {
         event.relatedTarget.classList.remove('area1');
     };
 }
-
-// function Append() {
-//     for (let i = 0; i < _ContentsTextArray.length; i++) {
-//         if (TermBoxes[i].classList.contains('area1')) {
-//             ListPushes[i].style.boxShadow = "inset 0 2px 6px" + Sub1Color.value;
-//             this.innerHTML = event.relatedTarget.innerHTML;
-//             TermList[0].appendChild(ListPushes[i]);
-//         };
-//     };
-//     for (let i = 0; i < _ContentsTextArray.length; i++) {
-//         if (TermBoxes[i].classList.contains('area2')) {
-//             ListPushes[i].style.boxShadow = "inset 0 2px 6px" + Sub2Color.value;
-//             this.innerHTML = event.relatedTarget.innerHTML;
-//             TermList[1].appendChild(ListPushes[i]);
-//         };
-//     };
-//     for (let i = 0; i < _ContentsTextArray.length; i++) {
-//         if (TermBoxes[i].classList.contains('area3')) {
-//             ListPushes[i].style.boxShadow = "inset 0 2px 6px" + Sub3Color.value;
-//             this.innerHTML = event.relatedTarget.innerHTML;
-//             TermList[2].appendChild(ListPushes[i]);
-//         };
-//     };
-// }
