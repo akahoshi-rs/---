@@ -112,6 +112,19 @@ function WordPush() {
             Preview.textContent = ListPushes[i].innerHTML;
         });
 
+        TermBoxes[i].addEventListener('mousemove', function () {
+            let _Terget = document.getElementsByClassName('drop-target');
+            if (this.mousedown == ttue) {
+                if (_Terget[0].classList.contains('space1')) {
+                    console.log("111111");
+                } else if (_Terget[0].classList.contains('space2')) {
+                    console.log("22222222");
+                } else if (_Terget[0].classList.contains('space3')) {
+                    console.log("333333333");
+                }
+            };
+        });
+
         TermBoxes[i].addEventListener('contextmenu', function (e) {
             Preview.textContent = TermBoxes[i].innerHTML;
             //マウスの位置を使ってスタイルを設定する
