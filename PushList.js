@@ -112,29 +112,6 @@ function WordPush() {
             Preview.textContent = ListPushes[i].innerHTML;
         });
 
-        // //現在のスペース番号を取得
-        // function Terget() {
-        // let _Terget = document.getElementsByClassName('drop-target');
-        // if (_Terget[0].classList.contains('space1')) {
-        //     console.log("111111");
-        // } else if (_Terget[0].classList.contains('space2')) {
-        //     console.log("22222222");
-        // } else if (_Terget[0].classList.contains('space3')) {
-        //     console.log("333333333");
-        // };
-        // };
-
-        // TermBoxes[i].addEventListener('mousedown', function () {
-        //     TermBoxes[i].addEventListener('mousemove', Terget);
-        // });
-        // TermBoxes[i].addEventListener('click', function () {
-        //     TermBoxes[i].removeEventListener('mousemove', Terget);
-        // });
-        // TermBoxes[i].addEventListener('mouseout', function () {
-        //     TermBoxes[i].removeEventListener('mousemove', Terget);
-        // });
-
-
         TermBoxes[i].addEventListener('contextmenu', function (e) {
             Preview.textContent = TermBoxes[i].innerHTML;
             //マウスの位置を使ってスタイルを設定する

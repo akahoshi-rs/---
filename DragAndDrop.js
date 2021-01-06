@@ -48,11 +48,29 @@ interact('.dropzone').dropzone({
         // event.relatedTarget.textContent = 'Dropped'
         let _Terget = document.getElementsByClassName('drop-target');
         if (_Terget[0].classList.contains('space1')) {
-            console.log("111111");
+            event.relatedTarget.classList.add('area1');
+            event.relatedTarget.style.border = "3px solid" + Sub1Color.value;
+            if (event.relatedTarget.classList.contains('area2')) {
+                event.relatedTarget.classList.remove('area2');
+            } else if (event.relatedTarget.classList.contains('area3')) {
+                event.relatedTarget.classList.remove('area3');
+            }
         } else if (_Terget[0].classList.contains('space2')) {
-            console.log("22222222");
+            event.relatedTarget.classList.add('area2');
+            event.relatedTarget.style.border = "3px solid" + Sub2Color.value;
+            if (event.relatedTarget.classList.contains('area1')) {
+                event.relatedTarget.classList.remove('area2');
+            } else if (event.relatedTarget.classList.contains('area3')) {
+                event.relatedTarget.classList.remove('area3');
+            }
         } else if (_Terget[0].classList.contains('space3')) {
-            console.log("333333333");
+            event.relatedTarget.classList.add('area3');
+            event.relatedTarget.style.border = "3px solid" + Sub3Color.value;
+            if (event.relatedTarget.classList.contains('area2')) {
+                event.relatedTarget.classList.remove('area2');
+            } else if (event.relatedTarget.classList.contains('area1')) {
+                event.relatedTarget.classList.remove('area1');
+            }
         };
     },
     ondropdeactivate: function (event) {
