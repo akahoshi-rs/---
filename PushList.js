@@ -24,6 +24,9 @@ const Button = document.getElementsByClassName('btn-enter')[0];
 let body = document.body;
 //閉じるボタン
 const CloseWindow = document.getElementById('batu');
+//TermList
+const TermList = document.querySelectorAll('.ListDetails ol');
+const BlankList = document.getElementById('blank-list');
 
 //second-termのdivをつくる
 function clone() {
@@ -35,9 +38,6 @@ function clone() {
 //second-termの取得(初期読み込み)
 const TermBoxes = document.querySelectorAll(".second-term");
 
-//TermList
-const TermList = document.querySelectorAll('.ListDetails ol');
-const BlankList = document.getElementById('blank-list');
 //TermListのliの追加
 function ListPush() {
     const ListPush = document.createElement('li');
@@ -206,6 +206,42 @@ function WordPush() {
                     ListPushes[i].classList.remove('delete-list');
                 }
             });
+        });
+
+        TermBoxes[i].addEventListener('mousedown', function () {
+            TermBoxes[i].classList.add('appending');
+        });
+
+        TermBoxes[i].addEventListener('mousemove', function () {
+            if (TermBoxes[i].classList.contains('appending')) {
+                if (TermBoxes[i].classList.contains('area1')) {
+                    TermList[0].appendChild(ListPushes[i]);
+                    TermBoxes[i].style.border = "3px solid" + Sub1Color.value;
+                    ListPushes[i].style.boxShadow = "inset 0 2px 6px" + Sub1Color.value;
+                } else if (TermBoxes[i].classList.contains('area2')) {
+                    TermList[1].appendChild(ListPushes[i]);
+                    TermBoxes[i].style.border = "3px solid" + Sub2Color.value;
+                    ListPushes[i].style.boxShadow = "inset 0 2px 6px" + Sub2Color.value;
+                } else if (TermBoxes[i].classList.contains('area3')) {
+                    TermList[2].appendChild(ListPushes[i]);
+                    TermBoxes[i].style.border = "3px solid" + Sub3Color.value;
+                    ListPushes[i].style.boxShadow = "inset 0 2px 6px" + Sub3Color.value;
+                };
+            }
+        });
+        TermBoxes[i].addEventListener('mouseup', function () {
+            setTimeout(function () {
+                if (TermBoxes[i].classList.contains('appending')) {
+                    TermBoxes[i].classList.remove('appending');
+                }
+            }, 750);
+        });
+        TermBoxes[i].addEventListener('mouseout', function () {
+            setTimeout(function () {
+                if (TermBoxes[i].classList.contains('appending')) {
+                    TermBoxes[i].classList.remove('appending');
+                }
+            }, 750);
         });
 
     };
