@@ -16,31 +16,51 @@
     </header>
     <main>
         <div class="wrapper">
+            <nav id="conmenu">
+                <ul>
+                    <li class="list-group-item" id="innyou">引用</li>
+                    <li class="list-group-item" id="sakuzyo">削除</li>
+                </ul>
+            </nav>
+            <div id="firstTermWindow" class="show">
+                <form id="op-form">
+                    <div><label for="Main">Main Term</label>
+                        <input type="text" id="Main">
+                        <input type="color" id="color" value="#ffffff" list="color-list">
+                        <datalist id="color-list">
+                            <option value="#ffffff">
+                            <option value="#cccccc">
+                            <option value="#ffff99">
+                            <option value="#ff99cc">
+                            <option value="#ff99ff">
+                            <option value="#cc99ff">
+                            <option value="#9999ff">
+                            <option value="#99ccff">
+                            <option value="#99ffff">
+                            <option value="#99ffcc">
+                            <option value="#99ff99">
+                            <option value="#ccff99">
+                            <option value="#ffff99">
+                            <option value="#ffcc99">
+                        </datalist>
+                    </div>
+                    <div><label for="Sub-1">Sub Area 1</label>
+                        <input type="text" id="Sub-1">
+                        <input type="color" id="color1" value="#99ccff" list="color-list">
+                    </div>
+                    <div><label for="Sub-2">Sub Area 2</label>
+                        <input type="text" id="Sub-2">
+                        <input type="color" id="color2" value="#9999ff" list="color-list">
+                    </div>
+                    <div><label for="Sub-3">Sub Area 3</label>
+                        <input type="text" id="Sub-3">
+                        <input type="color" id="color3" value="#99ffff" list="color-list">
+                    </div>
+                    <div id="batu">×</div>
+                </form>
+            </div>
             <div class="contents">
-                <nav id="conmenu">
-                    <ul>
-                        <li class="list-group-item" id="innyou">引用</li>
-                        <li class="list-group-item" id="sakuzyo">削除</li>
-                    </ul>
-                </nav>
-                <div id="first-term" class="dropzpne"></div>
-                <div id="firstTermWindow" class="show">
-                    <form id="op-form">
-                        <div><label for="Main">Main Term</label>
-                            <input type="text" id="Main">
-                        </div>
-                        <div><label for="Sub-1">Sub Area 1</label>
-                            <input type="text" id="Sub-1">
-                        </div>
-                        <div><label for="Sub-2">Sub Area 2</label>
-                            <input type="text" id="Sub-2">
-                        </div>
-                        <div><label for="Sub-3">Sub Area 3</label>
-                            <input type="text" id="Sub-3">
-                        </div>
-                        <div id="batu">×</div>
-                    </form>
-                </div>
+                <div id="first-term"></div>
             </div>
             <div class="NavTools">
                 <div class="tools">
@@ -58,40 +78,36 @@
                         </form>
 
                         <form class="shape" action="#" method="post">
-                            <p>シェイプ：</p>
+                            <!-- <p>シェイプ：</p>
                             <select id="select-shape" name="shape">
                                 <option value="1">かどまる</option>
                                 <option value="2">もくもく</option>
                                 <option value="3">とげとげ</option>
-                            </select>
+                            </select> -->
                             <p>スペース：</p>
                             <select id="select_space" name="space">
                             </select>
                         </form>
 
-                        <div class="shortcut">
-                            <p>shortcuts</p>
+                        <div class="HowToUse">
+                            <p>How To Use ?</p>
                             <ul>
-                                <li><span>Undo</span></li>
-                                <li>
-                                    <span>Ctrl + Z</span>
-                                </li>
-                                <li><span>Redo</span></li>
-                                <li>
-                                    <span>Ctrl + Shift + Z</span>
-                                </li>
-                                <li><span>Close</span></li>
-                                <li>
-                                    <span>command + [+]</span>
-                                </li>
-                                <li><span>Leave</span></li>
-                                <li>
-                                    <span>command + Shift + [+]</span>
-                                </li>
-                                <li><span>Save</span></li>
-                                <li>
-                                    <span>Ctrl + S</span>
-                                </li>
+                                <dl>
+                                    <dt>Add Term</dt>
+                                    <dd>Shift + Enter</dd>
+                                </dl>
+                                <dl>
+                                    <dt>Remove Term</dt>
+                                    <dd>RightClick &gt; 削除</dd>
+                                </dl>
+                                <dl>
+                                    <dt>Quote from Term</dt>
+                                    <dd>RightClick &gt; 引用</dd>
+                                </dl>
+                                <dl>
+                                    <dt>Main Term & BG Color</dt>
+                                    <dd>Click the Center Term</dd>
+                                </dl>
                             </ul>
                         </div>
                     </div>
@@ -100,24 +116,42 @@
                         <div class="Button btn-save">上書き保存</div>
 
                         <form class="shape" action="#" method="post">
-                            <p>書き出し:</p>
+                            <!-- <p>書き出し:</p>
                             <select name="sample">
                                 <option value="1">PNG</option>
                                 <option value="2">JPEG</option>
                                 <option value="3">PDF</option>
-                            </select>
+                            </select> -->
+                            <p>PNG書き出し</p>
                             <button type="submit" class="download" style="width: 100%;">ダウンロード</button>
                         </form>
                     </div>
                     <div class="help" style="display: none;">
                         <a href="https://osora.work/blog/363" target="_blank" rel="noopener noreferrer">解説ブログのリンク</a>
                     </div>
-                    <div class="issue" style="display: none;">
-
-                    </div>
                     <div class="list" style="display: none;">
                         <ul id="TermList">
                             <li class="first-term"></li>
+                            <ul id="blank-list">
+
+                            </ul>
+                            <details open class="ListDetails">
+                                <summary class="ListName"></summary>
+                                <ol>
+                                </ol>
+                            </details>
+
+                            <details open class="ListDetails">
+                                <summary class="ListName" style="display: none;"></summary>
+                                <ol>
+                                </ol>
+                            </details>
+                            <details open class="ListDetails">
+                                <summary class="ListName" style="display: none;"></summary>
+                                <ol>
+
+                                </ol>
+                            </details>
                         </ul>
                     </div>
                 </div>
@@ -126,16 +160,13 @@
                         <ul>
                             <li data-open="open" id="btn-edit" class="open" title="Edit"><img src="images/edit.svg"
                                     alt="編集"></li>
+                            <li data-open="close" id="btn-list" class="open" title="list"><img src="images/List1.svg"
+                                    alt="単語リスト">
+                            </li>
                             <li data-open="close" id="btn-save" class="open" title="save"><img src="images/save.svg"
                                     alt="保存"></li>
                             <li data-open="close" id="btn-help" class="open" title="help"><img src="images/help.svg"
                                     alt="ヘルプ"></li>
-                            <li data-open="close" id="btn-issue" class="open" title="issue"><img src="images/issue.svg"
-                                    alt="不具合報告">
-                            </li>
-                            <li data-open="close" id="btn-list" class="open" title="list"><img src="images/List1.svg"
-                                    alt="単語リスト">
-                            </li>
                         </ul>
                     </nav>
                 </div>

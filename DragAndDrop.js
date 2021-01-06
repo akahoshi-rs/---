@@ -1,5 +1,3 @@
-
-
 function dragMoveListener(event) {
     var target = event.target
     // keep the dragged position in the data-x/data-y attributes
@@ -14,8 +12,7 @@ function dragMoveListener(event) {
     // update the posiion attributes
     target.setAttribute('data-x', x)
     target.setAttribute('data-y', y)
-}
-
+};
 // enable draggables to be dropped into this
 interact('.dropzone').dropzone({
     // only accept elements matching this CSS selector
@@ -46,31 +43,50 @@ interact('.dropzone').dropzone({
     },
     ondrop: function (event) {
         // event.relatedTarget.textContent = 'Dropped'
-        let _Terget = document.getElementsByClassName('drop-target');
-        if (_Terget[0].classList.contains('space1')) {
-            event.relatedTarget.classList.add('area1');
-            event.relatedTarget.style.border = "3px solid" + Sub1Color.value;
-            if (event.relatedTarget.classList.contains('area2')) {
-                event.relatedTarget.classList.remove('area2');
-            } else if (event.relatedTarget.classList.contains('area3')) {
-                event.relatedTarget.classList.remove('area3');
-            }
-        } else if (_Terget[0].classList.contains('space2')) {
-            event.relatedTarget.classList.add('area2');
-            event.relatedTarget.style.border = "3px solid" + Sub2Color.value;
-            if (event.relatedTarget.classList.contains('area1')) {
-                event.relatedTarget.classList.remove('area2');
-            } else if (event.relatedTarget.classList.contains('area3')) {
-                event.relatedTarget.classList.remove('area3');
-            }
-        } else if (_Terget[0].classList.contains('space3')) {
-            event.relatedTarget.classList.add('area3');
-            event.relatedTarget.style.border = "3px solid" + Sub3Color.value;
-            if (event.relatedTarget.classList.contains('area2')) {
-                event.relatedTarget.classList.remove('area2');
-            } else if (event.relatedTarget.classList.contains('area1')) {
-                event.relatedTarget.classList.remove('area1');
-            }
+        const AppendTermBoxes = document.querySelectorAll(".second-term");
+        const AppendListPushes = document.querySelectorAll('#TermList .Term-List');
+        if (document.getElementsByClassName('drop-target')[0].classList.contains('space1')) {
+            Area1(event);
+            for (let i = 0; i < _ContentsTextArray.length; i++) {
+                if (AppendTermBoxes[i].classList.contains('area1')) {
+                    AppendListPushes[i].style.boxShadow = "inset 0 2px 6px" + Sub1Color.value;
+                    TermList[0].appendChild(AppendListPushes[i]);
+                } else if (AppendTermBoxes[i].classList.contains('area2')) {
+                    AppendListPushes[i].style.boxShadow = "inset 0 2px 6px" + Sub2Color.value;
+                    TermList[1].appendChild(AppendListPushes[i]);
+                } else if (AppendTermBoxes[i].classList.contains('area3')) {
+                    AppendListPushes[i].style.boxShadow = "inset 0 2px 6px" + Sub3Color.value;
+                    TermList[2].appendChild(AppendListPushes[i]);
+                };
+            };
+        } else if (document.getElementsByClassName('drop-target')[0].classList.contains('space2')) {
+            Area2(event);
+            for (let i = 0; i < _ContentsTextArray.length; i++) {
+                if (AppendTermBoxes[i].classList.contains('area1')) {
+                    AppendListPushes[i].style.boxShadow = "inset 0 2px 6px" + Sub1Color.value;
+                    TermList[0].appendChild(AppendListPushes[i]);
+                } else if (AppendTermBoxes[i].classList.contains('area2')) {
+                    AppendListPushes[i].style.boxShadow = "inset 0 2px 6px" + Sub2Color.value;
+                    TermList[1].appendChild(AppendListPushes[i]);
+                } else if (AppendTermBoxes[i].classList.contains('area3')) {
+                    AppendListPushes[i].style.boxShadow = "inset 0 2px 6px" + Sub3Color.value;
+                    TermList[2].appendChild(AppendListPushes[i]);
+                };
+            };
+        } else if (document.getElementsByClassName('drop-target')[0].classList.contains('space3')) {
+            Area3(event);
+            for (let i = 0; i < _ContentsTextArray.length; i++) {
+                if (AppendTermBoxes[i].classList.contains('area1')) {
+                    AppendListPushes[i].style.boxShadow = "inset 0 2px 6px" + Sub1Color.value;
+                    TermList[0].appendChild(AppendListPushes[i]);
+                } else if (AppendTermBoxes[i].classList.contains('area2')) {
+                    AppendListPushes[i].style.boxShadow = "inset 0 2px 6px" + Sub2Color.value;
+                    TermList[1].appendChild(AppendListPushes[i]);
+                } else if (AppendTermBoxes[i].classList.contains('area3')) {
+                    AppendListPushes[i].style.boxShadow = "inset 0 2px 6px" + Sub3Color.value;
+                    TermList[2].appendChild(AppendListPushes[i]);
+                };
+            };
         };
     },
     ondropdeactivate: function (event) {
@@ -93,3 +109,33 @@ interact('.drag-drop')
         // dragMoveListener from the dragging demo above
         listeners: { move: dragMoveListener }
     })
+
+function Area1(event) {
+    event.relatedTarget.classList.add('area1');
+    event.relatedTarget.style.border = "3px solid" + Sub1Color.value;
+    if (event.relatedTarget.classList.contains('area2')) {
+        event.relatedTarget.classList.remove('area2');
+    } else if (event.relatedTarget.classList.contains('area3')) {
+        event.relatedTarget.classList.remove('area3');
+    };
+};
+
+function Area2(event) {
+    event.relatedTarget.classList.add('area2');
+    event.relatedTarget.style.border = "3px solid" + Sub2Color.value;
+    if (event.relatedTarget.classList.contains('area1')) {
+        event.relatedTarget.classList.remove('area1');
+    } else if (event.relatedTarget.classList.contains('area3')) {
+        event.relatedTarget.classList.remove('area3');
+    };
+}
+
+function Area3(event) {
+    event.relatedTarget.classList.add('area3');
+    event.relatedTarget.style.border = "3px solid" + Sub3Color.value;
+    if (event.relatedTarget.classList.contains('area2')) {
+        event.relatedTarget.classList.remove('area2');
+    } else if (event.relatedTarget.classList.contains('area1')) {
+        event.relatedTarget.classList.remove('area1');
+    };
+}
