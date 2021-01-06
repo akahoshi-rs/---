@@ -46,6 +46,14 @@ interact('.dropzone').dropzone({
     },
     ondrop: function (event) {
         // event.relatedTarget.textContent = 'Dropped'
+        let _Terget = document.getElementsByClassName('drop-target');
+        if (_Terget[0].classList.contains('space1')) {
+            console.log("111111");
+        } else if (_Terget[0].classList.contains('space2')) {
+            console.log("22222222");
+        } else if (_Terget[0].classList.contains('space3')) {
+            console.log("333333333");
+        };
     },
     ondropdeactivate: function (event) {
         // remove active dropzone feedback
