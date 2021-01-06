@@ -115,7 +115,7 @@ function WordPush() {
         //現在のスペース番号を取得
         TermBoxes[i].addEventListener('mousemove', function () {
             let _Terget = document.getElementsByClassName('drop-target');
-            if (this.mousedown == ttue) {
+            if (this.mousedown == true) {
                 if (_Terget[0].classList.contains('space1')) {
                     console.log("111111");
                 } else if (_Terget[0].classList.contains('space2')) {
