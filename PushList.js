@@ -113,18 +113,24 @@ function WordPush() {
         });
 
         //現在のスペース番号を取得
-        TermBoxes[i].addEventListener('mousemove', function () {
+        function Terget() {
             let _Terget = document.getElementsByClassName('drop-target');
-            if (this.mousedown == true) {
-                if (_Terget[0].classList.contains('space1')) {
-                    console.log("111111");
-                } else if (_Terget[0].classList.contains('space2')) {
-                    console.log("22222222");
-                } else if (_Terget[0].classList.contains('space3')) {
-                    console.log("333333333");
-                }
+            if (_Terget[0].classList.contains('space1')) {
+                console.log("111111");
+            } else if (_Terget[0].classList.contains('space2')) {
+                console.log("22222222");
+            } else if (_Terget[0].classList.contains('space3')) {
+                console.log("333333333");
             };
+        };
+
+        TermBoxes[i].addEventListener('mousedown', function () {
+            TermBoxes[i].addEventListener('mousemove', Terget);
         });
+        TermBoxes[i].addEventListener('mouseup', function () {
+            TermBoxes[i].removeEventListener('mousemove', Terget);
+        });
+
 
         TermBoxes[i].addEventListener('contextmenu', function (e) {
             Preview.textContent = TermBoxes[i].innerHTML;
