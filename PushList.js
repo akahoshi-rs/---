@@ -112,6 +112,7 @@ function WordPush() {
             Preview.textContent = ListPushes[i].innerHTML;
         });
 
+        //現在のスペース番号を取得
         TermBoxes[i].addEventListener('mousemove', function () {
             let _Terget = document.getElementsByClassName('drop-target');
             if (this.mousedown == ttue) {
