@@ -27,6 +27,11 @@ header {
   z-index: 3;
 }
 
+header img {
+  height: 38px;
+  width: 100%;
+}
+
 /* wrapper
 ----------------------------- */
 .wrapper {
