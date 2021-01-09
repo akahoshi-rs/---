@@ -273,3 +273,12 @@ MainTermColor.addEventListener('input', function () {
     FirstTerm.style.backgroundColor = MainTermColor.value;
     FirstTermList.style.backgroundColor = MainTermColor.value;
 });
+
+
+
+// やること:
+// 2.ボタンホバー弄る
+// 3.使い方書く
+// 4: 画像書き出し実装
+// 5: 挙動の修正もしくは全消し
+// 6: テキスト書き出し実装

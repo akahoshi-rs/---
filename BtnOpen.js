@@ -13,6 +13,18 @@ const HelpTools = document.getElementsByClassName('help')[0];
 //listbtn
 const ListBtn = document.getElementById('btn-list');
 const ListTools = document.getElementsByClassName('list')[0];
+//img
+const BtnIMG = document.querySelectorAll('.navigation li');
+const BtnP = document.querySelectorAll('.navigation li p');
+
+// for (let i = 0; i < BtnIMG.length; i++) {
+//     BtnIMG[i].addEventListener('mouseover', function () {
+//         BtnP[i].style.display = 'inline';
+//     });
+//     BtnIMG[i].addEventListener('mouseout', function () {
+//         BtnP[i].style.display = 'none';
+//     });
+// };
 
 EditBtn.addEventListener('click', function () {
     SaveTools.style.display = 'none';
