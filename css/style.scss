@@ -21,6 +21,19 @@ $Second-color: #206;
     color: $D-text-color;
 }
 
+@mixin dropzone {
+    box-shadow: inset 2px 2px 6px rgba(34,0,102,0.2);
+    position: relative;
+    &:after {
+        position: absolute;
+        content: attr(data-textvalue);
+        font-size: 18px;
+        top: 4px;
+        left: 20px;
+        color: $L-text-color;
+    }
+}
+
 //
 
 body {
@@ -38,6 +51,10 @@ img {
 
 ul,ol {
     list-style-type: none;
+}
+
+input::placeholder,textarea::placeholder {
+    font-size: 14px;
 }
 
 //header---------------------------
@@ -82,42 +99,15 @@ header {
 }
 
 .space1 {
-    box-shadow: inset 2px 2px 6px rgba(34,0,102,0.2);
-    position: relative;
-    &:after {
-        position: absolute;
-        content: attr(data-textvalue);
-        font-size: 20px;
-        top: 4px;
-        left: 20px;
-        color: $L-text-color;
-    }
+    @include dropzone();
 }
 
 .space2 {
-    box-shadow: inset 2px 2px 6px rgba(34,0,102,0.2);
-    position: relative;
-    &:after {
-        position: absolute;
-        content: attr(data-textvalue);
-        font-size: 20px;
-        top: 4px;
-        left: 20px;
-        color: $L-text-color;
-    }
+    @include dropzone();
 }
 
 .space3 {
-    box-shadow: inset 2px 2px 6px rgba(34,0,102,0.2);
-    position: relative;
-    &:after {
-        position: absolute;
-        content: attr(data-textvalue);
-        font-size: 20px;
-        top: 4px;
-        left: 20px;
-        color: $L-text-color;
-    }
+    @include dropzone();
 }
 
 .drop-target {

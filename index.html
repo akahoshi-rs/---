@@ -26,7 +26,7 @@
             <div id="firstTermWindow" class="show">
                 <form id="op-form">
                     <div><label for="Main">Main Term</label>
-                        <input type="text" id="Main">
+                        <input type="text" id="Main" placeholder="中央の単語">
                         <input type="color" id="color" value="#ffffff" list="color-list">
                         <datalist id="color-list">
                             <option value="#ffffff">
@@ -46,15 +46,15 @@
                         </datalist>
                     </div>
                     <div><label for="Sub-1">Sub Area 1</label>
-                        <input type="text" id="Sub-1">
+                        <input type="text" id="Sub-1" placeholder="エリア1">
                         <input type="color" id="color1" value="#99ccff" list="color-list">
                     </div>
                     <div><label for="Sub-2">Sub Area 2</label>
-                        <input type="text" id="Sub-2">
+                        <input type="text" id="Sub-2" placeholder="エリア2">
                         <input type="color" id="color2" value="#9999ff" list="color-list">
                     </div>
                     <div><label for="Sub-3">Sub Area 3</label>
-                        <input type="text" id="Sub-3">
+                        <input type="text" id="Sub-3" placeholder="エリア3">
                         <input type="color" id="color3" value="#99ffff" list="color-list">
                     </div>
                     <div id="batu">×</div>
@@ -72,7 +72,8 @@
                                 <div class="FlexTextarea input_textarea">
                                     <div class="FlexTextarea__dummy" aria-hidden="true"></div>
                                     <textarea id="flexTextarea__textarea" class="FlexTextarea__textarea"
-                                        onkeypress="if(event.shiftKey==true){if(event.keyCode==13){event.returnValue=false}}"></textarea>
+                                        onkeypress="if(event.shiftKey==true){if(event.keyCode==13){event.returnValue=false}}"
+                                        placeholder="本文を入力"></textarea>
                                 </div>
                                 <div class="Button btn-enter">Shift + Enter</div>
                             </div>

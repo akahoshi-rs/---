@@ -277,7 +277,6 @@ MainTermColor.addEventListener('input', function () {
 
 
 // やること:
-// 2.ボタンホバー弄る
 // 3.使い方書く
 // 4: 画像書き出し実装
 // 5: 挙動の修正もしくは全消し
