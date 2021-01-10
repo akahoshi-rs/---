@@ -24,7 +24,7 @@
                 </ul>
             </nav>
             <div id="firstTermWindow" class="show">
-                <form id="op-form">
+                <form id="op-form" method="post">
                     <div><label for="Main">Main Term</label>
                         <input type="text" id="Main" placeholder="中央の単語">
                         <input type="color" id="color" value="#ffffff" list="color-list">
@@ -242,9 +242,32 @@
         </div>
         <!--wrapper-->
     </main>
+    <div id="form-input-recover-confirm-modal">
+        <div>
+            <div>
+                <p>入力データを復元する？</p>
+                <ul>
+                    <li><button class="buttonRecover">復元</button></li>
+                    <li><button class="buttonDestroy">破棄</button></li>
+                    <li><button class="buttonClose">閉じる</button></li>
+                </ul>
+            </div>
+        </div>
+    </div>
 
-
-
+    <script src="https://d2t1zo1tr7sobn.cloudfront.net/latest/form-input-recover-view.js"></script>
+    <script>
+        FormInputRecover.executeInputRecover(
+            {
+                formId: '',
+                expiredHour: 1
+            }, // library options
+            {
+                elementId: 'form-input-recover-confirm-modal',
+                lang: 'ja'
+            }  // view options
+        );
+    </script>
     <script src="BtnOpen.js"></script>
     <script src="PushList.js"></script>
     <script src="https://unpkg.com/interactjs/dist/interact.min.js"></script>

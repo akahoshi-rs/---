@@ -499,6 +499,7 @@ details[open] summary.ListName{
         }
     }
 
+// モーダル1
     #op-form {
         display: flex;
         flex-direction: column;
@@ -552,3 +553,36 @@ details[open] summary.ListName{
             box-shadow: 1px 1px 3px rgba(34,0,102,0.2);
         }
     }
+
+//モーダル2
+#form-input-recover-confirm-modal {
+    display: none;
+    background-color: #fff;
+    box-shadow: $shadow;
+    position: absolute;
+    top: 0px;
+    left: calc(50vw - 200px);
+    padding: 20px;
+    font-size: 14px;
+    & ul {
+        text-align: center;
+        & li:first-child {
+            background-color: #99ccff;
+            border-radius: 4px;
+            margin-top: 10px;
+        }
+        & li {
+            background-color: #ff9999;
+            border-radius: 4px;
+            margin-top: 10px;
+        }
+        & li:last-child {
+            background-color: lightgray;
+            border-radius: 4px;
+            margin-top: 10px;
+        }
+        & button {
+            width: 100%;
+        }
+    }
+}
