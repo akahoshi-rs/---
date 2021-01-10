@@ -24,8 +24,8 @@
                 </ul>
             </nav>
             <div id="firstTermWindow" class="show">
-                <form id="op-form" method="post">
-                    <div><label for="Main">Main Term</label>
+                <form id="op-form">
+                    <div class="form-group"><label for="Main">Main Term</label>
                         <input type="text" id="Main" placeholder="中央の単語">
                         <input type="color" id="color" value="#ffffff" list="color-list">
                         <datalist id="color-list">
@@ -45,15 +45,15 @@
                             <option value="#ffcc99">
                         </datalist>
                     </div>
-                    <div><label for="Sub-1">Sub Area 1</label>
+                    <div class="form-group"><label for="Sub-1">Sub Area 1</label>
                         <input type="text" id="Sub-1" placeholder="エリア1">
                         <input type="color" id="color1" value="#99ccff" list="color-list">
                     </div>
-                    <div><label for="Sub-2">Sub Area 2</label>
+                    <div class="form-group"><label for="Sub-2">Sub Area 2</label>
                         <input type="text" id="Sub-2" placeholder="エリア2">
                         <input type="color" id="color2" value="#9999ff" list="color-list">
                     </div>
-                    <div><label for="Sub-3">Sub Area 3</label>
+                    <div class="form-group"><label for="Sub-3">Sub Area 3</label>
                         <input type="text" id="Sub-3" placeholder="エリア3">
                         <input type="color" id="color3" value="#99ffff" list="color-list">
                     </div>
@@ -242,8 +242,8 @@
         </div>
         <!--wrapper-->
     </main>
-    <div id="form-input-recover-confirm-modal">
-        <!-- <div>
+    <!-- <div id="form-input-recover-confirm-modal">
+        <div>
             <div>
                 <p>入力データを復元する？</p>
                 <ul>
@@ -252,57 +252,14 @@
                     <li><button class="buttonClose">閉じる</button></li>
                 </ul>
             </div>
-        </div> -->
-    </div>
+        </div>
+    </div> -->
 
-    <script src="https://d2t1zo1tr7sobn.cloudfront.net/latest/form-input-recover-view.js"></script>
-    <script>
-        // クエリストリングに lang の値が指定されている場合は使用する
-        var url = window.location.search;
-        var hash = url.slice(1).split('&');
-        var max = hash.length;
-        var lang = '';
-        for (var i = 0; i < max; i++) {
-            array = hash[i].split('=');
-            if (array.length > 1 && array[0] === 'lang') {
-                lang = array[1];
-                break;
-            }
-        }
-
-        // 第二引数ありの場合はモーダルでの確認が発生
-        FormInputRecover.executeInputRecover(
-            {
-                expiredHour: 1
-            },
-            {
-                elementId: 'form-input-recover-confirm-modal',
-                lang: lang,
-            }
-        );
-
-    </script>
-    <script>
-        // FormInputRecover.executeInputRecover(
-        //     {
-        //         formId: 'op-form',
-        //         expiredHour: 1
-        //     }, // library options
-        //     {
-        //         elementId: 'form-input-recover-confirm-modal',
-        //         lang: 'ja'
-        //     }  // view options
-        // );
-    </script>
     <script src="BtnOpen.js"></script>
     <script src="PushList.js"></script>
     <script src="https://unpkg.com/interactjs/dist/interact.min.js"></script>
     <script src="DragAndDrop.js"></script>
     <script src="space(devide).js"></script>
-
-    <script>
-
-    </script>
 </body>
 
 </html>
