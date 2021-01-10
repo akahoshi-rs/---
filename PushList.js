@@ -230,6 +230,21 @@ function WordPush() {
             }
         });
         TermBoxes[i].addEventListener('mouseup', function () {
+            if (TermBoxes[i].classList.contains('appending')) {
+                if (TermBoxes[i].classList.contains('area1')) {
+                    TermList[0].appendChild(ListPushes[i]);
+                    TermBoxes[i].style.border = "3px solid" + Sub1Color.value;
+                    ListPushes[i].style.boxShadow = "inset 0 2px 6px" + Sub1Color.value;
+                } else if (TermBoxes[i].classList.contains('area2')) {
+                    TermList[1].appendChild(ListPushes[i]);
+                    TermBoxes[i].style.border = "3px solid" + Sub2Color.value;
+                    ListPushes[i].style.boxShadow = "inset 0 2px 6px" + Sub2Color.value;
+                } else if (TermBoxes[i].classList.contains('area3')) {
+                    TermList[2].appendChild(ListPushes[i]);
+                    TermBoxes[i].style.border = "3px solid" + Sub3Color.value;
+                    ListPushes[i].style.boxShadow = "inset 0 2px 6px" + Sub3Color.value;
+                };
+            }
             setTimeout(function () {
                 if (TermBoxes[i].classList.contains('appending')) {
                     TermBoxes[i].classList.remove('appending');
@@ -237,6 +252,21 @@ function WordPush() {
             }, 750);
         });
         TermBoxes[i].addEventListener('mouseout', function () {
+            if (TermBoxes[i].classList.contains('appending')) {
+                if (TermBoxes[i].classList.contains('area1')) {
+                    TermList[0].appendChild(ListPushes[i]);
+                    TermBoxes[i].style.border = "3px solid" + Sub1Color.value;
+                    ListPushes[i].style.boxShadow = "inset 0 2px 6px" + Sub1Color.value;
+                } else if (TermBoxes[i].classList.contains('area2')) {
+                    TermList[1].appendChild(ListPushes[i]);
+                    TermBoxes[i].style.border = "3px solid" + Sub2Color.value;
+                    ListPushes[i].style.boxShadow = "inset 0 2px 6px" + Sub2Color.value;
+                } else if (TermBoxes[i].classList.contains('area3')) {
+                    TermList[2].appendChild(ListPushes[i]);
+                    TermBoxes[i].style.border = "3px solid" + Sub3Color.value;
+                    ListPushes[i].style.boxShadow = "inset 0 2px 6px" + Sub3Color.value;
+                };
+            }
             setTimeout(function () {
                 if (TermBoxes[i].classList.contains('appending')) {
                     TermBoxes[i].classList.remove('appending');
@@ -277,7 +307,6 @@ MainTermColor.addEventListener('input', function () {
 
 
 // やること:
-// 3.使い方書く
 // 4: 画像書き出し実装
 // 5: 挙動の修正もしくは全消し
 // 6: テキスト書き出し実装
