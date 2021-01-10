@@ -243,7 +243,7 @@
         <!--wrapper-->
     </main>
     <div id="form-input-recover-confirm-modal">
-        <div>
+        <!-- <div>
             <div>
                 <p>入力データを復元する？</p>
                 <ul>
@@ -252,21 +252,47 @@
                     <li><button class="buttonClose">閉じる</button></li>
                 </ul>
             </div>
-        </div>
+        </div> -->
     </div>
 
     <script src="https://d2t1zo1tr7sobn.cloudfront.net/latest/form-input-recover-view.js"></script>
     <script>
+        // クエリストリングに lang の値が指定されている場合は使用する
+        var url = window.location.search;
+        var hash = url.slice(1).split('&');
+        var max = hash.length;
+        var lang = '';
+        for (var i = 0; i < max; i++) {
+            array = hash[i].split('=');
+            if (array.length > 1 && array[0] === 'lang') {
+                lang = array[1];
+                break;
+            }
+        }
+
+        // 第二引数ありの場合はモーダルでの確認が発生
         FormInputRecover.executeInputRecover(
             {
-                formId: '',
                 expiredHour: 1
-            }, // library options
+            },
             {
                 elementId: 'form-input-recover-confirm-modal',
-                lang: 'ja'
-            }  // view options
+                lang: lang,
+            }
         );
+
+    </script>
+    <script>
+        // FormInputRecover.executeInputRecover(
+        //     {
+        //         formId: 'op-form',
+        //         expiredHour: 1
+        //     }, // library options
+        //     {
+        //         elementId: 'form-input-recover-confirm-modal',
+        //         lang: 'ja'
+        //     }  // view options
+        // );
     </script>
     <script src="BtnOpen.js"></script>
     <script src="PushList.js"></script>

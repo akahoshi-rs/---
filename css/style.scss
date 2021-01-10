@@ -555,34 +555,34 @@ details[open] summary.ListName{
     }
 
 //モーダル2
-#form-input-recover-confirm-modal {
-    display: none;
-    background-color: #fff;
-    box-shadow: $shadow;
-    position: absolute;
-    top: 0px;
-    left: calc(50vw - 200px);
-    padding: 20px;
-    font-size: 14px;
-    & ul {
-        text-align: center;
-        & li:first-child {
-            background-color: #99ccff;
-            border-radius: 4px;
-            margin-top: 10px;
-        }
-        & li {
-            background-color: #ff9999;
-            border-radius: 4px;
-            margin-top: 10px;
-        }
-        & li:last-child {
-            background-color: lightgray;
-            border-radius: 4px;
-            margin-top: 10px;
-        }
-        & button {
-            width: 100%;
-        }
-    }
-}
+// #form-input-recover-confirm-modal {
+//     display: none;
+//     background-color: #fff;
+//     box-shadow: $shadow;
+//     position: absolute;
+//     top: 0px;
+//     left: calc(50vw - 200px);
+//     padding: 20px;
+//     font-size: 14px;
+//     & ul {
+//         text-align: center;
+//         & li:first-child {
+//             background-color: #99ccff;
+//             border-radius: 4px;
+//             margin-top: 10px;
+//         }
+//         & li {
+//             background-color: #ff9999;
+//             border-radius: 4px;
+//             margin-top: 10px;
+//         }
+//         & li:last-child {
+//             background-color: lightgray;
+//             border-radius: 4px;
+//             margin-top: 10px;
+//         }
+//         & button {
+//             width: 100%;
+//         }
+//     }
+// }
