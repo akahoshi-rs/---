@@ -34,6 +34,11 @@ $Second-color: #206;
     }
 }
 
+@mixin h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
 //
 
 body {
@@ -302,8 +307,20 @@ details[open] summary.ListName{
 .Term-List {
     min-height: 10px;
 }
-
+//保存
+.save h2 {
+    @include h2();
+}
 // 使い方
+.help {
+    scrollbar-width: none;/* Firefox 対応 */
+    & h2 {
+     @include h2();
+    }
+    &::-webkit-scrollbar {  /* Chrome, Safari 対応 */
+        display:none;
+    }
+}
 .Method {
     & .link {
         width: 230px;
@@ -323,11 +340,22 @@ details[open] summary.ListName{
         width: 230px;
         margin: 0 auto;
         margin-bottom: 20px;
+        text-align: center;
+        & p {
+            position: relative;
+            display: inline-block;
+            border-bottom: 1px solid lightgray;
+            margin-bottom: 4px;
+        }
+        & .margin {
+            margin-top: 30px;
+        }
     }
     & details[open] summary {
         background-color: #ffce31;
     }
     & summary {
+        text-align: left;
         transition: .3s;
         margin-bottom: 20px;
         background: #fff;
@@ -338,16 +366,24 @@ details[open] summary.ListName{
         background-position: 200px center;
         background-size: 20px;
         background-image: url('../images/edit.svg');
-        &:nth-child(3) {
-            background-image: url('../images/List1.svg');
-        }
-        &:nth-child(4) {
-            background-image: url('../images/save.svg');
-        }
         &:hover {
             background-color: #ffce31;
             box-shadow: none;
         }
+    }
+    & li {
+        &:nth-child(3) summary {
+            background-image: url('../images/List1.svg');
+        }
+        &:nth-child(4) summary {
+            background-image: url('../images/save.svg');
+        }
+    }
+    & img {
+        width: 220px;
+        border: 4px solid #505055;
+        border-radius: 16px;
+        margin: 20px 0;
     }
 }
 

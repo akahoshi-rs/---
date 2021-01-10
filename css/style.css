@@ -307,6 +307,26 @@ details[open] summary.ListName {
   min-height: 10px;
 }
 
+.save h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.help {
+  scrollbar-width: none;
+  /* Firefox 対応 */
+}
+
+.help h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.help::-webkit-scrollbar {
+  /* Chrome, Safari 対応 */
+  display: none;
+}
+
 .Method .link {
   width: 230px;
   margin: 0 auto;
@@ -326,6 +346,18 @@ details[open] summary.ListName {
   width: 230px;
   margin: 0 auto;
   margin-bottom: 20px;
+  text-align: center;
+}
+
+.Method details p {
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px solid lightgray;
+  margin-bottom: 4px;
+}
+
+.Method details .margin {
+  margin-top: 30px;
 }
 
 .Method details[open] summary {
@@ -333,6 +365,7 @@ details[open] summary.ListName {
 }
 
 .Method summary {
+  text-align: left;
   transition: .3s;
   margin-bottom: 20px;
   background: #fff;
@@ -345,17 +378,24 @@ details[open] summary.ListName {
   background-image: url("../images/edit.svg");
 }
 
-.Method summary:nth-child(3) {
-  background-image: url("../images/List1.svg");
-}
-
-.Method summary:nth-child(4) {
-  background-image: url("../images/save.svg");
-}
-
 .Method summary:hover {
   background-color: #ffce31;
   box-shadow: none;
+}
+
+.Method li:nth-child(3) summary {
+  background-image: url("../images/List1.svg");
+}
+
+.Method li:nth-child(4) summary {
+  background-image: url("../images/save.svg");
+}
+
+.Method img {
+  width: 220px;
+  border: 4px solid #505055;
+  border-radius: 16px;
+  margin: 20px 0;
 }
 
 /* flexta
