@@ -22,6 +22,7 @@ function space_num() {
     let _space = document.getElementsByClassName('space');
     document.getElementsByClassName('space')[0].style.top = '40px';
     document.getElementsByClassName('space')[0].style.height = 'calc(100vh - 40px)';
+    // document.getElementsByClassName('space')[0].style.width = 'calc(100vw - 60px)';
     document.getElementsByClassName('space')[0].style.backgroundColor = Sub1Color.value;
     Color1();
 }
@@ -47,6 +48,7 @@ function space_create() {
         let _space = document.getElementsByClassName('space');
         _space[0].style.top = '40px';
         _space[0].style.height = 'calc(100vh - 40px)';
+        // _space[0].style.width = 'calc(100vw - 60px)';
         _space[0].style.backgroundColor = Sub1Color.value;
         _space[0].dataset.textvalue = Sub1Text.value;
         _NamedList[0].innerHTML = Sub1Text.value;
@@ -67,6 +69,8 @@ function space_create() {
         let _space = document.getElementsByClassName('space');
         _space[0].style.height = 'calc((100vh - 40px)/2)';
         _space[1].style.height = 'calc((100vh - 40px)/2)';
+        // _space[0].style.width = 'calc(100vw - 60px)';
+        // _space[1].style.width = 'calc(100vw - 60px)';
         _space[0].style.backgroundColor = Sub1Color.value;
         _space[1].style.backgroundColor = Sub2Color.value;
         _space[0].dataset.textvalue = Sub1Text.value;
@@ -92,6 +96,9 @@ function space_create() {
         _space[0].style.height = 'calc((100vh - 40px)/3)';
         _space[1].style.height = 'calc((100vh - 40px)/3)';
         _space[2].style.height = 'calc((100vh - 40px)/3)';
+        // _space[0].style.width = 'calc(100vw - 60px)';
+        // _space[1].style.width = 'calc(100vw - 60px)';
+        // _space[2].style.width = 'calc(100vw - 60px)';
         _space[0].style.backgroundColor = Sub1Color.value;
         _space[1].style.backgroundColor = Sub2Color.value;
         _space[2].style.backgroundColor = Sub3Color.value;

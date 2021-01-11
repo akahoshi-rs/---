@@ -26,12 +26,12 @@ EditBtn.addEventListener('click', function () {
         EditContainerOpen.dataset.open = 'close';
         EditContainer.style.display = 'none';
         EditTools.style.display = 'none';
-        ContentsArea.style.width = 'calc(100% - 60px)';
+        // ContentsArea.style.width = 'calc(100% - 60px)';
     } else {
         EditContainerOpen.dataset.open = 'open';
         EditContainer.style.display = 'block';
         EditTools.style.display = 'block';
-        ContentsArea.style.width = 'calc(100% - 340px)';
+        // ContentsArea.style.width = 'calc(100% - 60px)';
     }
 });
 
@@ -44,12 +44,12 @@ SaveBtn.addEventListener('click', function () {
         EditContainerOpen.dataset.open = 'close';
         EditContainer.style.display = 'none';
         SaveTools.style.display = 'none';
-        ContentsArea.style.width = 'calc(100% - 60px)';
+        // ContentsArea.style.width = 'calc(100% - 60px)';
     } else {
         EditContainerOpen.dataset.open = 'open';
         EditContainer.style.display = 'block';
         SaveTools.style.display = 'block';
-        ContentsArea.style.width = 'calc(100% - 340px)';
+        // ContentsArea.style.width = 'calc(100% - 60px)';
     }
 });
 
@@ -62,12 +62,12 @@ HelpBtn.addEventListener('click', function () {
         EditContainerOpen.dataset.open = 'close';
         EditContainer.style.display = 'none';
         HelpTools.style.display = 'none';
-        ContentsArea.style.width = 'calc(100% - 60px)';
+        // ContentsArea.style.width = 'calc(100% - 60px)';
     } else {
         EditContainerOpen.dataset.open = 'open';
         EditContainer.style.display = 'block';
         HelpTools.style.display = 'block';
-        ContentsArea.style.width = 'calc(100% - 340px)';
+        // ContentsArea.style.width = 'calc(100% - 60px)';
     }
 });
 
@@ -80,12 +80,12 @@ ListBtn.addEventListener('click', function () {
         EditContainerOpen.dataset.open = 'close';
         EditContainer.style.display = 'none';
         ListTools.style.display = 'none';
-        ContentsArea.style.width = 'calc(100% - 60px)';
+        // ContentsArea.style.width = 'calc(100% - 60px)';
     } else {
         EditContainerOpen.dataset.open = 'open';
         EditContainer.style.display = 'block';
         ListTools.style.display = 'block';
-        ContentsArea.style.width = 'calc(100% - 340px)';
+        // ContentsArea.style.width = 'calc(100% - 60px)';
     }
 });
 
