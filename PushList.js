@@ -52,7 +52,8 @@ let _ContentsTextArray = [];
 //first-termの取得
 const FirstTerm = document.getElementById('first-term');
 const FirstTermList = document.querySelector('#TermList .first-term');
-//
+
+//op-formの取得
 const FTWindow = document.getElementById('firstTermWindow');
 FirstTerm.addEventListener('click', function (e) {
     FTWindow.style.left = (e.pageX - 200) + 'px';
@@ -61,7 +62,6 @@ FirstTerm.addEventListener('click', function (e) {
     FTWindow.classList.add('show');
     CloseWindow.style.boxShadow = '1px 1px 3px rgba(34,0,102,0.2)';
 });
-
 CloseWindow.addEventListener('mousedown', function () {
     const Main = document.getElementById('Main');
     let _space = document.getElementsByClassName('space');
@@ -79,7 +79,7 @@ CloseWindow.addEventListener('mouseup', function () {
     }
 });
 
-//
+//右クリックの非表示
 document.oncontextmenu = function () { return false; }
 
 //オリジナル コンテキストメニュー
@@ -93,6 +93,7 @@ const innyou = document.getElementById('innyou');
 function WordPush() {
     //_ContentsTextArrayに追加する
     _ContentsTextArray[_ContentsTextArray.length] = [Contents.value];
+    console.log(_ContentsTextArray);
     //second-termに追加する
     clone();
     const TermBoxes = document.querySelectorAll(".second-term");
@@ -160,6 +161,7 @@ function WordPush() {
                 }
             });
         });
+
         ListPushes[i].addEventListener('contextmenu', function (e) {
             Preview.textContent = TermBoxes[i].innerHTML;
             //マウスの位置を使ってスタイルを設定する
@@ -206,8 +208,10 @@ function WordPush() {
                     ListPushes[i].classList.remove('delete-list');
                 }
             });
+
         });
 
+        //移動の取得
         TermBoxes[i].addEventListener('mousedown', function () {
             TermBoxes[i].classList.add('appending');
         });
@@ -245,6 +249,7 @@ function WordPush() {
                     ListPushes[i].style.boxShadow = "inset 0 2px 6px" + Sub3Color.value;
                 };
             }
+            console.log(_ContentsTextArray);
             setTimeout(function () {
                 if (TermBoxes[i].classList.contains('appending')) {
                     TermBoxes[i].classList.remove('appending');
@@ -291,6 +296,8 @@ Button.addEventListener("click", function () {
     WordPush();
 });
 
+
+//op-formのテキストと色を読み込み
 const MainTermColor = document.getElementById("color");
 const Sub1Color = document.getElementById("color1");
 const Sub2Color = document.getElementById("color2");
