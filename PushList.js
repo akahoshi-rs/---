@@ -305,6 +305,28 @@ MainTermColor.addEventListener('input', function () {
 });
 
 
+//画像書き出しの実装
+
+const loading = document.getElementById('loading');
+const save = document.getElementById('btn-save');
+const SeeingArea = document.getElementById("contentsArea");
+
+save.addEventListener('click', function () {
+    html2canvas(document.getElementById("contentsArea")).then(canvas => {
+        var imageData = canvas.toDataURL();
+        document.getElementById('result').setAttribute("src", canvas.toDataURL());
+        document.getElementById("plotter").href = imageData;
+    });
+});
+
+loading.addEventListener('click', function () {
+    html2canvas(document.getElementById("contentsArea")).then(canvas => {
+        var imageData = canvas.toDataURL();
+        document.getElementById('result').setAttribute("src", canvas.toDataURL());
+        document.getElementById("plotter").href = imageData;
+    });
+
+});
 
 // やること:
 // 4: 画像書き出し実装

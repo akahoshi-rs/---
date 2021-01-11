@@ -60,7 +60,7 @@
                     <div id="batu">×</div>
                 </form>
             </div>
-            <div class="contents">
+            <div class="contents" id="contentsArea">
                 <div id="first-term"></div>
             </div>
             <div class="NavTools">
@@ -119,8 +119,12 @@
                                 <option value="2">JPEG</option>
                                 <option value="3">PDF</option>
                             </select> -->
-                        <p>PNG書き出し</p>
-                        <button type="submit" class="download" style="width: 100%;">ダウンロード</button>
+                        <div class="save-top">
+                            <p>PNG書き出し</p>
+                            <div class="Button" id="loading">更新</div>
+                        </div>
+                        <img src="" id="result" alt="" />
+                        <a href="" class="download" id="plotter" download="html_plotter.png">ダウンロード</a>
                         </form>
                     </div>
                     <div class="help" style="display: none;">
@@ -179,7 +183,9 @@
                                     <summary>保存タブ</summary>
                                     <div>
                                         <p>画面をPNGとして保存できるよ</p>
-                                        <img src="" alt="">
+                                        <img src="images/7.png" alt="">
+                                        <p>画面が反映されていないときは</p>
+                                        <p>更新ボタンを押そう</p>
                                     </div>
                                 </details>
                             </li>
@@ -260,6 +266,7 @@
     <script src="https://unpkg.com/interactjs/dist/interact.min.js"></script>
     <script src="DragAndDrop.js"></script>
     <script src="space(devide).js"></script>
+    <script src="html2canvas.min.js"></script>
 </body>
 
 </html>
