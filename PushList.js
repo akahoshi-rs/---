@@ -329,6 +329,5 @@ loading.addEventListener('click', function () {
 });
 
 // やること:
-// 4: 画像書き出し実装
 // 5: 挙動の修正もしくは全消し
 // 6: テキスト書き出し実装
