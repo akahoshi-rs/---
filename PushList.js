@@ -96,6 +96,13 @@ function WordPush() {
     //TermListに追加する
     ListPush();
     const ListPushes = document.querySelectorAll('#TermList .Term-List');
+
+    //管理番号を追加
+    for (let i = 0; i < _ContentsTextArray.length; i++) {
+        TermBoxes[i].classList.add('term_' + (i + 1));
+        ListPushes[i].classList.add('list_' + (i + 1));
+    }
+
     // console.log(_ContentsTextArray);
     // console.log(ListPushes);
     // console.log(TermBoxes);
@@ -109,12 +116,22 @@ function WordPush() {
         //Previewコンテナに一時的に表示
         Preview.textContent = _ContentsTextArray[i];
 
-        //         ListPushes[i].addEventListener('click', function () {
-        //             Contents.value = ListPushes[i].innerHTML;
-        //             Preview.textContent = ListPushes[i].innerHTML;
-        //         });
+        //1. previewコンテナへの代入
+        // テキストエリアへの引用
+        // 削除の実装(コンテンツエリアとtermリスト)
+        // arrayの変容が確認されなかったのがわからん……じゃあなんでfor文が機能不全に？
+        // 複数リスト内のtermが反応してしまう……
+        // term→array→listで逆引きすれば良い気がする。(同じvalueを持つlistをfor文で検索する)
+        //2. テキスト書き出しは、submitで別のページに遷移させて、そこに_ConentsTextArrayと、none, 1, 2, 3エリア別に取得したarrayを表示すればいい。
+
+
+        //listからプレビューの表示
+        // ListPushes[i].addEventListener('click', function () {
+        //     Preview.textContent = ListPushes[i].innerHTML;
+        // });
 
         //         TermBoxes[i].addEventListener('contextmenu', function (e) {
+        // プレビューの表示
         //             Preview.textContent = TermBoxes[i].innerHTML;
         //             //マウスの位置を使ってスタイルを設定する
         //             con.style.left = e.pageX + 'px';
@@ -211,44 +228,50 @@ function WordPush() {
 
         //         });
 
-        //移動の取得
+        //エリア移動の取得
         TermBoxes[i].addEventListener('mousedown', function () {
-            TermBoxes[i].classList.add('appending');
+            TermBoxes[i].classList.add('appending');//問題なし
         });
 
         TermBoxes[i].addEventListener('mousemove', function () {
-            if (TermBoxes[i].classList.contains('appending')) {
-                if (TermBoxes[i].classList.contains('area1')) {
-                    TermList[0].appendChild(ListPushes[i]);
-                    TermBoxes[i].style.border = "3px solid" + Sub1Color.value;
-                    ListPushes[i].style.boxShadow = "inset 0 2px 6px" + Sub1Color.value;
-                } else if (TermBoxes[i].classList.contains('area2')) {
-                    TermList[1].appendChild(ListPushes[i]);
-                    TermBoxes[i].style.border = "3px solid" + Sub2Color.value;
-                    ListPushes[i].style.boxShadow = "inset 0 2px 6px" + Sub2Color.value;
-                } else if (TermBoxes[i].classList.contains('area3')) {
-                    TermList[2].appendChild(ListPushes[i]);
-                    TermBoxes[i].style.border = "3px solid" + Sub3Color.value;
-                    ListPushes[i].style.boxShadow = "inset 0 2px 6px" + Sub3Color.value;
-                };
-            }
+            // if (TermBoxes[i].classList.contains('appending')) {
+            //     if (TermBoxes[i].classList.contains('area1')) {
+            //         // console.log(TermBoxes[i]);//問題なし
+            //         console.log(ListPushes[i]);
+            //         TermList[0].appendChild(ListPushes[i]);
+            //         TermBoxes[i].style.border = "3px solid" + Sub1Color.value;
+            //         ListPushes[i].style.boxShadow = "inset 0 2px 6px" + Sub1Color.value;
+            //     } else if (TermBoxes[i].classList.contains('area2')) {
+            //         // console.log(TermBoxes[i]);
+            //         console.log(ListPushes[i]);
+            //         TermList[1].appendChild(ListPushes[i]);
+            //         TermBoxes[i].style.border = "3px solid" + Sub2Color.value;
+            //         ListPushes[i].style.boxShadow = "inset 0 2px 6px" + Sub2Color.value;
+            //     } else if (TermBoxes[i].classList.contains('area3')) {
+            //         // console.log(TermBoxes[i]);
+            //         console.log(ListPushes[i]);
+            //         TermList[2].appendChild(ListPushes[i]);
+            //         TermBoxes[i].style.border = "3px solid" + Sub3Color.value;
+            //         ListPushes[i].style.boxShadow = "inset 0 2px 6px" + Sub3Color.value;
+            //     };
+            // }
         });
         TermBoxes[i].addEventListener('mouseup', function () {
-            if (TermBoxes[i].classList.contains('appending')) {
-                if (TermBoxes[i].classList.contains('area1')) {
-                    TermList[0].appendChild(ListPushes[i]);
-                    TermBoxes[i].style.border = "3px solid" + Sub1Color.value;
-                    ListPushes[i].style.boxShadow = "inset 0 2px 6px" + Sub1Color.value;
-                } else if (TermBoxes[i].classList.contains('area2')) {
-                    TermList[1].appendChild(ListPushes[i]);
-                    TermBoxes[i].style.border = "3px solid" + Sub2Color.value;
-                    ListPushes[i].style.boxShadow = "inset 0 2px 6px" + Sub2Color.value;
-                } else if (TermBoxes[i].classList.contains('area3')) {
-                    TermList[2].appendChild(ListPushes[i]);
-                    TermBoxes[i].style.border = "3px solid" + Sub3Color.value;
-                    ListPushes[i].style.boxShadow = "inset 0 2px 6px" + Sub3Color.value;
-                };
-            }
+            // if (TermBoxes[i].classList.contains('appending')) {
+            //     if (TermBoxes[i].classList.contains('area1')) {
+            //         TermList[0].appendChild(ListPushes[i]);
+            //         TermBoxes[i].style.border = "3px solid" + Sub1Color.value;
+            //         ListPushes[i].style.boxShadow = "inset 0 2px 6px" + Sub1Color.value;
+            //     } else if (TermBoxes[i].classList.contains('area2')) {
+            //         TermList[1].appendChild(ListPushes[i]);
+            //         TermBoxes[i].style.border = "3px solid" + Sub2Color.value;
+            //         ListPushes[i].style.boxShadow = "inset 0 2px 6px" + Sub2Color.value;
+            //     } else if (TermBoxes[i].classList.contains('area3')) {
+            //         TermList[2].appendChild(ListPushes[i]);
+            //         TermBoxes[i].style.border = "3px solid" + Sub3Color.value;
+            //         ListPushes[i].style.boxShadow = "inset 0 2px 6px" + Sub3Color.value;
+            //     };
+            // }
             setTimeout(function () {
                 if (TermBoxes[i].classList.contains('appending')) {
                     TermBoxes[i].classList.remove('appending');
@@ -256,21 +279,21 @@ function WordPush() {
             }, 750);
         });
         TermBoxes[i].addEventListener('mouseout', function () {
-            if (TermBoxes[i].classList.contains('appending')) {
-                if (TermBoxes[i].classList.contains('area1')) {
-                    TermList[0].appendChild(ListPushes[i]);
-                    TermBoxes[i].style.border = "3px solid" + Sub1Color.value;
-                    ListPushes[i].style.boxShadow = "inset 0 2px 6px" + Sub1Color.value;
-                } else if (TermBoxes[i].classList.contains('area2')) {
-                    TermList[1].appendChild(ListPushes[i]);
-                    TermBoxes[i].style.border = "3px solid" + Sub2Color.value;
-                    ListPushes[i].style.boxShadow = "inset 0 2px 6px" + Sub2Color.value;
-                } else if (TermBoxes[i].classList.contains('area3')) {
-                    TermList[2].appendChild(ListPushes[i]);
-                    TermBoxes[i].style.border = "3px solid" + Sub3Color.value;
-                    ListPushes[i].style.boxShadow = "inset 0 2px 6px" + Sub3Color.value;
-                };
-            }
+            // if (TermBoxes[i].classList.contains('appending')) {
+            //     if (TermBoxes[i].classList.contains('area1')) {
+            //         TermList[0].appendChild(ListPushes[i]);
+            //         TermBoxes[i].style.border = "3px solid" + Sub1Color.value;
+            //         ListPushes[i].style.boxShadow = "inset 0 2px 6px" + Sub1Color.value;
+            //     } else if (TermBoxes[i].classList.contains('area2')) {
+            //         TermList[1].appendChild(ListPushes[i]);
+            //         TermBoxes[i].style.border = "3px solid" + Sub2Color.value;
+            //         ListPushes[i].style.boxShadow = "inset 0 2px 6px" + Sub2Color.value;
+            //     } else if (TermBoxes[i].classList.contains('area3')) {
+            //         TermList[2].appendChild(ListPushes[i]);
+            //         TermBoxes[i].style.border = "3px solid" + Sub3Color.value;
+            //         ListPushes[i].style.boxShadow = "inset 0 2px 6px" + Sub3Color.value;
+            //     };
+            // }
             setTimeout(function () {
                 if (TermBoxes[i].classList.contains('appending')) {
                     TermBoxes[i].classList.remove('appending');
