@@ -458,6 +458,15 @@ details[open] summary.ListName {
   margin: 20px auto;
 }
 
+.save-text {
+  margin: 20px 0;
+}
+
+.save-text .small {
+  font-size: 14px;
+  color: red;
+}
+
 .Button {
   text-align: center;
   margin: 20px auto;
