@@ -102,10 +102,11 @@ function WordPush() {
     let ListPushes = document.querySelectorAll('#TermList .Term-List');
 
     //LISTとTERMのVALUEをARRAYから持ってくる
-    TermBoxes[_classCount - 1].innerHTML = _ContentsTextArray[_length];
+    TermBoxes[_length].innerHTML = _ContentsTextArray[_length];
+    console.log(_length);
     // TermBoxesと同じクラス名を持つListPushesに代入
     for (let i = 0; i < _ContentsTextArray.length; i++) {
-        if (ListPushes[i].classList.contains(TermBoxes[_classCount - 1].classList[2])) {
+        if (ListPushes[i].classList.contains(TermBoxes[_length].classList[2])) {
             ListPushes[i].innerHTML = _ContentsTextArray[_length];
         }
     }
@@ -132,9 +133,11 @@ function WordPush() {
             con.style.top = e.pageY + 'px';
             //メニューをblockで表示
             con.classList.add('show');
-            TermBoxes[i].classList.add('delete');
+            e.target.classList.add('delete');
+            console.log(e.target);
             for (let i = 0; i < _ContentsTextArray.length; i++) {
                 let ListPushes = document.querySelectorAll('#TermList .Term-List');
+                // console.log(ListPushes[i]);
                 let _ListIn = ListPushes[i].classList.contains(e.target.classList[2]);
                 if (_ListIn == true) {
                     ListPushes[i].classList.add('delete-list');
@@ -143,31 +146,20 @@ function WordPush() {
 
             const TermDelete = document.getElementsByClassName('delete');
             const ListDelete = document.getElementsByClassName('delete-list');
-            let innerTerm = TermDelete[0].innerHTML;
 
             innyou.addEventListener('click', function () {
                 Contents.value = TermBoxes[i].innerHTML;
             });
 
             Sakuzyo.addEventListener('click', function () {
-                let result = _ContentsTextArray.filter(function (item, index, arr) {
-                    arr.pop()
-                    return item.innerHTML !== innerTerm;
-                });
+                let result = _ContentsTextArray.splice(i, TermDelete.length);
                 result = _ContentsTextArray;
+                console.log(result);
                 if (ListDelete.length > 0) {
                     ListDelete[0].remove();
                 }
                 if (TermDelete.length > 0) {
                     TermDelete[0].remove();
-                }
-                //LISTとTERMのVALUEをARRAYから持ってくる
-                TermBoxes[_length].innerHTML = _ContentsTextArray[_length];
-                // TermBoxesと同じクラス名を持つListPushesに代入
-                for (let i = 0; i < _ContentsTextArray.length; i++) {
-                    if (ListPushes[i].classList.contains(TermBoxes[_length].classList[2])) {
-                        ListPushes[i].innerHTML = _ContentsTextArray[_length];
-                    }
                 }
             });
 
@@ -218,24 +210,14 @@ function WordPush() {
             });
 
             Sakuzyo.addEventListener('click', function () {
-                let result = _ContentsTextArray.filter(function (item, index, arr) {
-                    arr.pop()
-                    return item.innerHTML !== innerTerm;
-                });
+                let result = _ContentsTextArray.splice(i, TermDelete.length);
                 result = _ContentsTextArray;
+                console.log(result);
                 if (ListDelete.length > 0) {
                     ListDelete[0].remove();
                 }
                 if (TermDelete.length > 0) {
                     TermDelete[0].remove();
-                }
-                //LISTとTERMのVALUEをARRAYから持ってくる
-                TermBoxes[_length].innerHTML = _ContentsTextArray[_length];
-                // TermBoxesと同じクラス名を持つListPushesに代入
-                for (let i = 0; i < _ContentsTextArray.length; i++) {
-                    if (ListPushes[i].classList.contains(TermBoxes[_length].classList[2])) {
-                        ListPushes[i].innerHTML = _ContentsTextArray[_length];
-                    }
                 }
             });
 
