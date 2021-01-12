@@ -1,5 +1,8 @@
 $shadow: 0 2px 6px rgba(34,0,102,0.2);
+$shadow-large: 2px 4px 8px rgba(34,0,102,0.4);
 $shadowIn: inset 0 2px 6px rgba(34,0,102,0.2);
+$shadowIn-large: inset 3px 3px 6px rgba(34,0,102,0.4),
+                 inset -3px -3px 12px rgba(34,0,102,0.2);
 $L-text-color: #505055;
 $D-text-color: #fff;
 $Second-color: #206;
@@ -137,7 +140,6 @@ header {
 /* contents
 ------------------------------- */
 .contents {
-    // width: calc(100% - 340px);
     width: calc(100% - 60px);
     height: calc(100vh - 40px);
 }
@@ -452,6 +454,27 @@ details[open] summary.ListName{
     & .small {
         font-size: 14px;
         color: red;
+        text-align: right;
+        margin-top: -20px;
+    }
+    & .edit-text {
+        text-decoration: none;
+        display: inline-block;
+        width: 240px;
+        text-align: center;
+        margin: 20px auto;
+        padding: 4px;
+        border-radius: 50px;
+        background-color: #ffce31;
+        color: #505055;
+        box-shadow: none;
+        &:hover {
+            background-color: #ff9b30;
+        }
+        &:active {
+            box-shadow: inset $shadow;
+            background-color: #ffce31;
+        }
     }
 }
 
@@ -646,3 +669,70 @@ details[open] summary.ListName{
 //         }
 //     }
 // }
+
+// select-area
+
+#text-body {
+    overflow-y: scroll;
+    height: calc(100vh - 40px);
+}
+
+// textareaはダミーを流用
+
+.FlexTextarea__textarea {
+    border-radius: 24px;
+    min-height: 200px;
+    padding: 12px;
+    box-shadow: $shadowIn-large;
+}
+.FlexTextarea {
+    border-radius: 24px;
+    min-height: 200px;
+    width: 94%;
+}
+
+// radiobutton
+
+.inline-radio {
+  display: flex;
+  border-radius: 10px;
+  overflow: hidden;
+width: 200px;
+
+  div {
+    width: 60px;
+    position: relative;
+    flex: 1;
+  }
+
+  input {
+    width: 100%;
+    height: 40px;
+    opacity: 0;
+  }
+
+  label {
+    position: absolute;
+    top: 0; left: 0;
+    color: #505055;
+    width: 100%;
+    height: 100%;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+    box-shadow: $shadowIn;
+  }
+
+  div:last-child label {
+    border-right: 0;
+  }
+
+  input:checked + label {
+    background: #ffce31;
+    font-weight: bold;
+    color: #000;
+    box-shadow: none;
+  }
+}

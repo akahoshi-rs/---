@@ -74,7 +74,6 @@ interact('.drag-drop')
 
 function Area1(event) {
     event.relatedTarget.classList.add('area1');
-    // event.relatedTarget.style.border = "3px solid" + Sub1Color.value;
     if (event.relatedTarget.classList.contains('area2')) {
         event.relatedTarget.classList.remove('area2');
     } else if (event.relatedTarget.classList.contains('area3')) {
@@ -84,7 +83,6 @@ function Area1(event) {
 
 function Area2(event) {
     event.relatedTarget.classList.add('area2');
-    // event.relatedTarget.style.border = "3px solid" + Sub2Color.value;
     if (event.relatedTarget.classList.contains('area1')) {
         event.relatedTarget.classList.remove('area1');
     } else if (event.relatedTarget.classList.contains('area3')) {
@@ -94,7 +92,6 @@ function Area2(event) {
 
 function Area3(event) {
     event.relatedTarget.classList.add('area3');
-    // event.relatedTarget.style.border = "3px solid" + Sub3Color.value;
     if (event.relatedTarget.classList.contains('area2')) {
         event.relatedTarget.classList.remove('area2');
     } else if (event.relatedTarget.classList.contains('area1')) {

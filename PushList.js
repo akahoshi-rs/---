@@ -423,5 +423,4 @@ loading.addEventListener('click', function () {
 
 });
 
-// やること:
-// 6: テキスト書き出し実装
+//テキスト書き出しの実装
