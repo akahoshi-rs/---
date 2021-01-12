@@ -103,7 +103,6 @@ function WordPush() {
 
     //LISTとTERMのVALUEをARRAYから持ってくる
     TermBoxes[_length].innerHTML = _ContentsTextArray[_length];
-    console.log(_length);
     // TermBoxesと同じクラス名を持つListPushesに代入
     for (let i = 0; i < _ContentsTextArray.length; i++) {
         if (ListPushes[i].classList.contains(TermBoxes[_length].classList[2])) {
@@ -134,10 +133,8 @@ function WordPush() {
             //メニューをblockで表示
             con.classList.add('show');
             e.target.classList.add('delete');
-            console.log(e.target);
             for (let i = 0; i < _ContentsTextArray.length; i++) {
                 let ListPushes = document.querySelectorAll('#TermList .Term-List');
-                // console.log(ListPushes[i]);
                 let _ListIn = ListPushes[i].classList.contains(e.target.classList[2]);
                 if (_ListIn == true) {
                     ListPushes[i].classList.add('delete-list');
@@ -154,7 +151,6 @@ function WordPush() {
             Sakuzyo.addEventListener('click', function () {
                 let result = _ContentsTextArray.splice(i, TermDelete.length);
                 result = _ContentsTextArray;
-                console.log(result);
                 if (ListDelete.length > 0) {
                     ListDelete[0].remove();
                 }
@@ -212,7 +208,6 @@ function WordPush() {
             Sakuzyo.addEventListener('click', function () {
                 let result = _ContentsTextArray.splice(i, TermDelete.length);
                 result = _ContentsTextArray;
-                console.log(result);
                 if (ListDelete.length > 0) {
                     ListDelete[0].remove();
                 }
