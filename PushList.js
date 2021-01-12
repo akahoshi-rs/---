@@ -61,17 +61,20 @@ CloseWindow.addEventListener('mouseup', function () {
 });
 
 //second-termのdivをつくる
+let _classCount = 1;
 function clone() {
     const TermBox = document.createElement('div');
     TermBox.draggable = true;
-    TermBox.className = 'second-term drag-drop';
+    TermBox.className = 'second-term drag-drop term_' + _classCount;
+    //管理番号を追加
     ContentsArea.appendChild(TermBox);
 }
 
 //TermListのliの追加
 function ListPush() {
     const ListPush = document.createElement('li');
-    ListPush.className = 'Term-List';
+    ListPush.className = 'Term-List term_' + _classCount;
+    //管理番号を追加
     BlankList.appendChild(ListPush);
 };
 //ListPushの取得
@@ -90,30 +93,30 @@ const innyou = document.getElementById('innyou');
 function WordPush() {
     //_ContentsTextArrayに追加する
     _ContentsTextArray[_ContentsTextArray.length] = [Contents.value];
+    let _length = _ContentsTextArray.length - 1;
     //second-termに追加する
     clone();
-    const TermBoxes = document.querySelectorAll(".second-term");
+    let TermBoxes = document.querySelectorAll(".second-term");
     //TermListに追加する
     ListPush();
-    const ListPushes = document.querySelectorAll('#TermList .Term-List');
+    let ListPushes = document.querySelectorAll('#TermList .Term-List');
 
-    //管理番号を追加
+    //LISTとTERMのVALUEをARRAYから持ってくる
+    TermBoxes[_classCount - 1].innerHTML = _ContentsTextArray[_length];
+    // TermBoxesと同じクラス名を持つListPushesに代入
     for (let i = 0; i < _ContentsTextArray.length; i++) {
-        TermBoxes[i].classList.add('term_' + (i + 1));
-        ListPushes[i].classList.add('term_' + (i + 1));
-
-        //LISTとTERMのVALUEをARRAYから持ってくる
-        ListPushes[i].innerHTML = _ContentsTextArray[i];
-        TermBoxes[i].innerHTML = _ContentsTextArray[i];
-        //Previewコンテナに一時的に表示
-        Preview.textContent = _ContentsTextArray[i];
+        if (ListPushes[i].classList.contains(TermBoxes[_classCount - 1].classList[2])) {
+            ListPushes[i].innerHTML = _ContentsTextArray[_length];
+        }
     }
+    //Previewコンテナに一時的に表示
+    Preview.textContent = _ContentsTextArray[_length];
 
     //単語の取得
     for (let i = 0; i < _ContentsTextArray.length; i++) {
 
         //listからプレビューの表示
-        ListPushes[i].addEventListener('click', function (e) {
+        ListPushes[i].addEventListener('click', function () {
             Preview.textContent = this.innerHTML;
         });
 
@@ -122,58 +125,58 @@ function WordPush() {
         // 削除の実装(コンテンツエリアとtermリスト)
         // arrayの変容が確認されなかったのがわからん……じゃあなんでfor文が機能不全に？
         // 複数リスト内のtermが反応してしまう……
-        // term→array→listで逆引きすれば良い気がする。(同じvalueを持つlistをfor文で検索する)
+        // term→array→listで逆引きすれば良い気がする。(同じclassを持つlistをfor文で検索する)
         //2. テキスト書き出しは、submitで別のページに遷移させて、そこに_ConentsTextArrayと、none, 1, 2, 3エリア別に取得したarrayを表示すればいい。
 
 
-        //         TermBoxes[i].addEventListener('contextmenu', function (e) {
-        // プレビューの表示
-        //             Preview.textContent = TermBoxes[i].innerHTML;
-        //             //マウスの位置を使ってスタイルを設定する
-        //             con.style.left = e.pageX + 'px';
-        //             con.style.top = e.pageY + 'px';
-        //             //メニューをblockで表示
-        //             con.classList.add('show');
-        //             TermBoxes[i].classList.add('delete');
-        //             ListPushes[i].classList.add('delete-list');
+        TermBoxes[i].addEventListener('contextmenu', function (e) {
+            // プレビューの表示
+            //             Preview.textContent = TermBoxes[i].innerHTML;
+            //             //マウスの位置を使ってスタイルを設定する
+            //             con.style.left = e.pageX + 'px';
+            //             con.style.top = e.pageY + 'px';
+            //             //メニューをblockで表示
+            //             con.classList.add('show');
+            //             TermBoxes[i].classList.add('delete');
+            //             ListPushes[i].classList.add('delete-list');
 
-        //             const TermDelete = document.getElementsByClassName('delete');
-        //             const ListDelete = document.getElementsByClassName('delete-list');
-        //             let innerTerm = TermDelete[0].innerHTML;
+            //             const TermDelete = document.getElementsByClassName('delete');
+            //             const ListDelete = document.getElementsByClassName('delete-list');
+            //             let innerTerm = TermDelete[0].innerHTML;
 
-        //             innyou.addEventListener('click', function () {
-        //                 Contents.value = TermBoxes[i].innerHTML;
-        //             });
+            //             innyou.addEventListener('click', function () {
+            //                 Contents.value = TermBoxes[i].innerHTML;
+            //             });
 
-        //             Sakuzyo.addEventListener('click', function () {
-        //                 let result = _ContentsTextArray.filter(function (item, index, arr) {
-        //                     arr.pop()
-        //                     return item.innerHTML !== innerTerm;
-        //                 });
-        //                 result = _ContentsTextArray;
-        //                 if (ListDelete.length > 0) {
-        //                     ListDelete[0].remove();
-        //                 }
-        //                 if (TermDelete.length > 0) {
-        //                     TermDelete[0].remove();
-        //                 }
-        //             });
+            //             Sakuzyo.addEventListener('click', function () {
+            //                 let result = _ContentsTextArray.filter(function (item, index, arr) {
+            //                     arr.pop()
+            //                     return item.innerHTML !== innerTerm;
+            //                 });
+            //                 result = _ContentsTextArray;
+            //                 if (ListDelete.length > 0) {
+            //                     ListDelete[0].remove();
+            //                 }
+            //                 if (TermDelete.length > 0) {
+            //                     TermDelete[0].remove();
+            //                 }
+            // });
 
 
-        //             //左クリックで非表示に変更
-        //             body.addEventListener('click', function () {
-        //                 if (con.classList.contains('show')) {
-        //                     //非表示に戻す
-        //                     con.classList.remove('show');
-        //                 }
-        //                 if (TermBoxes[i].classList.contains('delete')) {
-        //                     TermBoxes[i].classList.remove('delete');
-        //                 }
-        //                 if (ListPushes[i].classList.contains('delete-list')) {
-        //                     ListPushes[i].classList.remove('delete-list');
-        //                 }
-        //             });
-        //         });
+            //左クリックで非表示に変更
+            body.addEventListener('click', function () {
+                if (con.classList.contains('show')) {
+                    //非表示に戻す
+                    con.classList.remove('show');
+                }
+                if (TermBoxes[i].classList.contains('delete')) {
+                    TermBoxes[i].classList.remove('delete');
+                }
+                if (ListPushes[i].classList.contains('delete-list')) {
+                    ListPushes[i].classList.remove('delete-list');
+                }
+            });
+        });
 
         //         ListPushes[i].addEventListener('contextmenu', function (e) {
         //             Preview.textContent = TermBoxes[i].innerHTML;
@@ -226,70 +229,121 @@ function WordPush() {
 
         //エリア移動の取得
         TermBoxes[i].addEventListener('mousedown', function () {
-            TermBoxes[i].classList.add('appending');//問題なし
+            TermBoxes[i].classList.add('appending');
         });
 
-        TermBoxes[i].addEventListener('mousemove', function () {
-            // if (TermBoxes[i].classList.contains('appending')) {
-            //     if (TermBoxes[i].classList.contains('area1')) {
-            //         // console.log(TermBoxes[i]);//問題なし
-            //         console.log(ListPushes[i]);
-            //         TermList[0].appendChild(ListPushes[i]);
-            //         TermBoxes[i].style.border = "3px solid" + Sub1Color.value;
-            //         ListPushes[i].style.boxShadow = "inset 0 2px 6px" + Sub1Color.value;
-            //     } else if (TermBoxes[i].classList.contains('area2')) {
-            //         // console.log(TermBoxes[i]);
-            //         console.log(ListPushes[i]);
-            //         TermList[1].appendChild(ListPushes[i]);
-            //         TermBoxes[i].style.border = "3px solid" + Sub2Color.value;
-            //         ListPushes[i].style.boxShadow = "inset 0 2px 6px" + Sub2Color.value;
-            //     } else if (TermBoxes[i].classList.contains('area3')) {
-            //         // console.log(TermBoxes[i]);
-            //         console.log(ListPushes[i]);
-            //         TermList[2].appendChild(ListPushes[i]);
-            //         TermBoxes[i].style.border = "3px solid" + Sub3Color.value;
-            //         ListPushes[i].style.boxShadow = "inset 0 2px 6px" + Sub3Color.value;
-            //     };
-            // }
+        TermBoxes[i].addEventListener('mousemove', function (e) {
+            if (TermBoxes[i].classList.contains('appending')) {
+                if (TermBoxes[i].classList.contains('area1')) {
+                    // リストをクラス名で判別
+                    for (let i = 0; i < _ContentsTextArray.length; i++) {
+                        let ListPushes = document.querySelectorAll('#TermList .Term-List');
+                        let _ListIn = ListPushes[i].classList.contains(e.target.classList[2]);
+                        if (_ListIn == true) {
+                            TermList[0].appendChild(ListPushes[i]);
+                            ListPushes[i].style.boxShadow = "inset 0 2px 6px" + Sub1Color.value;
+                            e.target.style.border = "3px solid" + Sub1Color.value;
+                        }
+                    }
+                } else if (TermBoxes[i].classList.contains('area2')) {
+                    for (let i = 0; i < _ContentsTextArray.length; i++) {
+                        let ListPushes = document.querySelectorAll('#TermList .Term-List');
+                        let _ListIn = ListPushes[i].classList.contains(e.target.classList[2]);
+                        if (_ListIn == true) {
+                            TermList[1].appendChild(ListPushes[i]);
+                            ListPushes[i].style.boxShadow = "inset 0 2px 6px" + Sub2Color.value;
+                            e.target.style.border = "3px solid" + Sub2Color.value;
+                        }
+                    }
+                } else if (TermBoxes[i].classList.contains('area3')) {
+                    for (let i = 0; i < _ContentsTextArray.length; i++) {
+                        let ListPushes = document.querySelectorAll('#TermList .Term-List');
+                        let _ListIn = ListPushes[i].classList.contains(e.target.classList[2]);
+                        if (_ListIn == true) {
+                            TermList[2].appendChild(ListPushes[i]);
+                            ListPushes[i].style.boxShadow = "inset 0 2px 6px" + Sub3Color.value;
+                            e.target.style.border = "3px solid" + Sub3Color.value;
+                        }
+                    }
+                };
+            }
         });
-        TermBoxes[i].addEventListener('mouseup', function () {
-            // if (TermBoxes[i].classList.contains('appending')) {
-            //     if (TermBoxes[i].classList.contains('area1')) {
-            //         TermList[0].appendChild(ListPushes[i]);
-            //         TermBoxes[i].style.border = "3px solid" + Sub1Color.value;
-            //         ListPushes[i].style.boxShadow = "inset 0 2px 6px" + Sub1Color.value;
-            //     } else if (TermBoxes[i].classList.contains('area2')) {
-            //         TermList[1].appendChild(ListPushes[i]);
-            //         TermBoxes[i].style.border = "3px solid" + Sub2Color.value;
-            //         ListPushes[i].style.boxShadow = "inset 0 2px 6px" + Sub2Color.value;
-            //     } else if (TermBoxes[i].classList.contains('area3')) {
-            //         TermList[2].appendChild(ListPushes[i]);
-            //         TermBoxes[i].style.border = "3px solid" + Sub3Color.value;
-            //         ListPushes[i].style.boxShadow = "inset 0 2px 6px" + Sub3Color.value;
-            //     };
-            // }
+        TermBoxes[i].addEventListener('mouseup', function (e) {
+            if (TermBoxes[i].classList.contains('appending')) {
+                if (TermBoxes[i].classList.contains('area1')) {
+                    // リストをクラス名で判別
+                    for (let i = 0; i < _ContentsTextArray.length; i++) {
+                        let ListPushes = document.querySelectorAll('#TermList .Term-List');
+                        let _ListIn = ListPushes[i].classList.contains(e.target.classList[2]);
+                        if (_ListIn == true) {
+                            TermList[0].appendChild(ListPushes[i]);
+                            ListPushes[i].style.boxShadow = "inset 0 2px 6px" + Sub1Color.value;
+                            e.target.style.border = "3px solid" + Sub1Color.value;
+                        }
+                    }
+                } else if (TermBoxes[i].classList.contains('area2')) {
+                    for (let i = 0; i < _ContentsTextArray.length; i++) {
+                        let ListPushes = document.querySelectorAll('#TermList .Term-List');
+                        let _ListIn = ListPushes[i].classList.contains(e.target.classList[2]);
+                        if (_ListIn == true) {
+                            TermList[1].appendChild(ListPushes[i]);
+                            ListPushes[i].style.boxShadow = "inset 0 2px 6px" + Sub2Color.value;
+                            e.target.style.border = "3px solid" + Sub2Color.value;
+                        }
+                    }
+                } else if (TermBoxes[i].classList.contains('area3')) {
+                    for (let i = 0; i < _ContentsTextArray.length; i++) {
+                        let ListPushes = document.querySelectorAll('#TermList .Term-List');
+                        let _ListIn = ListPushes[i].classList.contains(e.target.classList[2]);
+                        if (_ListIn == true) {
+                            TermList[2].appendChild(ListPushes[i]);
+                            ListPushes[i].style.boxShadow = "inset 0 2px 6px" + Sub3Color.value;
+                            e.target.style.border = "3px solid" + Sub3Color.value;
+                        }
+                    }
+                };
+            }
             setTimeout(function () {
                 if (TermBoxes[i].classList.contains('appending')) {
                     TermBoxes[i].classList.remove('appending');
                 }
             }, 750);
         });
-        TermBoxes[i].addEventListener('mouseout', function () {
-            // if (TermBoxes[i].classList.contains('appending')) {
-            //     if (TermBoxes[i].classList.contains('area1')) {
-            //         TermList[0].appendChild(ListPushes[i]);
-            //         TermBoxes[i].style.border = "3px solid" + Sub1Color.value;
-            //         ListPushes[i].style.boxShadow = "inset 0 2px 6px" + Sub1Color.value;
-            //     } else if (TermBoxes[i].classList.contains('area2')) {
-            //         TermList[1].appendChild(ListPushes[i]);
-            //         TermBoxes[i].style.border = "3px solid" + Sub2Color.value;
-            //         ListPushes[i].style.boxShadow = "inset 0 2px 6px" + Sub2Color.value;
-            //     } else if (TermBoxes[i].classList.contains('area3')) {
-            //         TermList[2].appendChild(ListPushes[i]);
-            //         TermBoxes[i].style.border = "3px solid" + Sub3Color.value;
-            //         ListPushes[i].style.boxShadow = "inset 0 2px 6px" + Sub3Color.value;
-            //     };
-            // }
+        TermBoxes[i].addEventListener('mouseout', function (e) {
+            if (TermBoxes[i].classList.contains('appending')) {
+                if (TermBoxes[i].classList.contains('area1')) {
+                    // リストをクラス名で判別
+                    for (let i = 0; i < _ContentsTextArray.length; i++) {
+                        let ListPushes = document.querySelectorAll('#TermList .Term-List');
+                        let _ListIn = ListPushes[i].classList.contains(e.target.classList[2]);
+                        if (_ListIn == true) {
+                            TermList[0].appendChild(ListPushes[i]);
+                            ListPushes[i].style.boxShadow = "inset 0 2px 6px" + Sub1Color.value;
+                            e.target.style.border = "3px solid" + Sub1Color.value;
+                        }
+                    }
+                } else if (TermBoxes[i].classList.contains('area2')) {
+                    for (let i = 0; i < _ContentsTextArray.length; i++) {
+                        let ListPushes = document.querySelectorAll('#TermList .Term-List');
+                        let _ListIn = ListPushes[i].classList.contains(e.target.classList[2]);
+                        if (_ListIn == true) {
+                            TermList[1].appendChild(ListPushes[i]);
+                            ListPushes[i].style.boxShadow = "inset 0 2px 6px" + Sub2Color.value;
+                            e.target.style.border = "3px solid" + Sub2Color.value;
+                        }
+                    }
+                } else if (TermBoxes[i].classList.contains('area3')) {
+                    for (let i = 0; i < _ContentsTextArray.length; i++) {
+                        let ListPushes = document.querySelectorAll('#TermList .Term-List');
+                        let _ListIn = ListPushes[i].classList.contains(e.target.classList[2]);
+                        if (_ListIn == true) {
+                            TermList[2].appendChild(ListPushes[i]);
+                            ListPushes[i].style.boxShadow = "inset 0 2px 6px" + Sub3Color.value;
+                            e.target.style.border = "3px solid" + Sub3Color.value;
+                        }
+                    }
+                };
+            }
             setTimeout(function () {
                 if (TermBoxes[i].classList.contains('appending')) {
                     TermBoxes[i].classList.remove('appending');
@@ -307,14 +361,15 @@ Contents.addEventListener("keydown", function () {
     if (event.shiftKey == true) {
         if (event.keyCode == 13) {
             WordPush();
+            _classCount = _classCount + 1;
         }
     }
 });
 
 Button.addEventListener("click", function () {
     WordPush();
+    _classCount = _classCount + 1;
 });
-
 
 //op-formのテキストと色を読み込み
 const MainTermColor = document.getElementById("color");
