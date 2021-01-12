@@ -120,47 +120,56 @@ function WordPush() {
             Preview.textContent = this.innerHTML;
         });
 
-        //1. previewコンテナへの代入
-        // テキストエリアへの引用
-        // 削除の実装(コンテンツエリアとtermリスト)
-        // arrayの変容が確認されなかったのがわからん……じゃあなんでfor文が機能不全に？
-        // 複数リスト内のtermが反応してしまう……
         // term→array→listで逆引きすれば良い気がする。(同じclassを持つlistをfor文で検索する)
         //2. テキスト書き出しは、submitで別のページに遷移させて、そこに_ConentsTextArrayと、none, 1, 2, 3エリア別に取得したarrayを表示すればいい。
 
 
         TermBoxes[i].addEventListener('contextmenu', function (e) {
             // プレビューの表示
-            //             Preview.textContent = TermBoxes[i].innerHTML;
-            //             //マウスの位置を使ってスタイルを設定する
-            //             con.style.left = e.pageX + 'px';
-            //             con.style.top = e.pageY + 'px';
-            //             //メニューをblockで表示
-            //             con.classList.add('show');
-            //             TermBoxes[i].classList.add('delete');
-            //             ListPushes[i].classList.add('delete-list');
+            Preview.textContent = TermBoxes[i].innerHTML;
+            //マウスの位置を使ってスタイルを設定する
+            con.style.left = e.pageX + 'px';
+            con.style.top = e.pageY + 'px';
+            //メニューをblockで表示
+            con.classList.add('show');
+            TermBoxes[i].classList.add('delete');
+            for (let i = 0; i < _ContentsTextArray.length; i++) {
+                let ListPushes = document.querySelectorAll('#TermList .Term-List');
+                let _ListIn = ListPushes[i].classList.contains(e.target.classList[2]);
+                if (_ListIn == true) {
+                    ListPushes[i].classList.add('delete-list');
+                }
+            }
 
-            //             const TermDelete = document.getElementsByClassName('delete');
-            //             const ListDelete = document.getElementsByClassName('delete-list');
-            //             let innerTerm = TermDelete[0].innerHTML;
+            const TermDelete = document.getElementsByClassName('delete');
+            const ListDelete = document.getElementsByClassName('delete-list');
+            let innerTerm = TermDelete[0].innerHTML;
 
-            //             innyou.addEventListener('click', function () {
-            //                 Contents.value = TermBoxes[i].innerHTML;
-            //             });
+            innyou.addEventListener('click', function () {
+                Contents.value = TermBoxes[i].innerHTML;
+            });
 
-            //             Sakuzyo.addEventListener('click', function () {
-            //                 let result = _ContentsTextArray.filter(function (item, index, arr) {
-            //                     arr.pop()
-            //                     return item.innerHTML !== innerTerm;
-            //                 });
-            //                 result = _ContentsTextArray;
-            //                 if (ListDelete.length > 0) {
-            //                     ListDelete[0].remove();
-            //                 }
-            //                 if (TermDelete.length > 0) {
-            //                     TermDelete[0].remove();
-            //                 }
-            // });
+            Sakuzyo.addEventListener('click', function () {
+                let result = _ContentsTextArray.filter(function (item, index, arr) {
+                    arr.pop()
+                    return item.innerHTML !== innerTerm;
+                });
+                result = _ContentsTextArray;
+                if (ListDelete.length > 0) {
+                    ListDelete[0].remove();
+                }
+                if (TermDelete.length > 0) {
+                    TermDelete[0].remove();
+                }
+                //LISTとTERMのVALUEをARRAYから持ってくる
+                TermBoxes[_length].innerHTML = _ContentsTextArray[_length];
+                // TermBoxesと同じクラス名を持つListPushesに代入
+                for (let i = 0; i < _ContentsTextArray.length; i++) {
+                    if (ListPushes[i].classList.contains(TermBoxes[_length].classList[2])) {
+                        ListPushes[i].innerHTML = _ContentsTextArray[_length];
+                    }
+                }
+            });
 
 
             //左クリックで非表示に変更
@@ -172,60 +181,86 @@ function WordPush() {
                 if (TermBoxes[i].classList.contains('delete')) {
                     TermBoxes[i].classList.remove('delete');
                 }
-                if (ListPushes[i].classList.contains('delete-list')) {
-                    ListPushes[i].classList.remove('delete-list');
+                for (let i = 0; i < _ContentsTextArray.length; i++) {
+                    let ListPushes = document.querySelectorAll('#TermList .Term-List');
+                    let _ListIn = ListPushes[i].classList.contains(e.target.classList[2]);
+                    if (_ListIn == true) {
+                        if (ListPushes[i].classList.contains('delete-list')) {
+                            ListPushes[i].classList.remove('delete-list');
+                        }
+                    }
                 }
             });
         });
 
-        //         ListPushes[i].addEventListener('contextmenu', function (e) {
-        //             Preview.textContent = TermBoxes[i].innerHTML;
-        //             //マウスの位置を使ってスタイルを設定する
-        //             con.style.left = e.pageX + 'px';
-        //             con.style.top = e.pageY + 'px';
-        //             //メニューをblockで表示
-        //             con.classList.add('show');
-        //             TermBoxes[i].classList.add('delete');
-        //             ListPushes[i].classList.add('delete-list');
+        ListPushes[i].addEventListener('contextmenu', function (e) {
+            Preview.textContent = TermBoxes[i].innerHTML;
+            //マウスの位置を使ってスタイルを設定する
+            con.style.left = e.pageX + 'px';
+            con.style.top = e.pageY + 'px';
+            //メニューをblockで表示
+            con.classList.add('show');
+            ListPushes[i].classList.add('delete-list');
+            for (let i = 0; i < _ContentsTextArray.length; i++) {
+                let TermBoxes = document.querySelectorAll(".second-term");
+                let _ListIn = TermBoxes[i].classList.contains(e.target.classList[1]);
+                if (_ListIn == true) {
+                    TermBoxes[i].classList.add('delete');
+                }
+            }
 
-        //             const TermDelete = document.getElementsByClassName('delete');
-        //             const ListDelete = document.getElementsByClassName('delete-list');
-        //             let innerTerm = TermDelete[0].innerHTML;
+            const TermDelete = document.getElementsByClassName('delete');
+            const ListDelete = document.getElementsByClassName('delete-list');
+            let innerTerm = ListDelete[0].innerHTML;
 
-        //             innyou.addEventListener('click', function () {
-        //                 Contents.value = TermBoxes[i].innerHTML;
-        //             });
+            innyou.addEventListener('click', function () {
+                Contents.value = ListPushes[i].innerHTML;
+            });
 
-        //             Sakuzyo.addEventListener('click', function () {
-        //                 let result = _ContentsTextArray.filter(function (item, index, arr) {
-        //                     arr.pop()
-        //                     return item.innerHTML !== innerTerm;
-        //                 });
-        //                 result = _ContentsTextArray;
-        //                 if (ListDelete.length > 0) {
-        //                     ListDelete[0].remove();
-        //                 }
-        //                 if (TermDelete.length > 0) {
-        //                     TermDelete[0].remove();
-        //                 }
-        //             });
+            Sakuzyo.addEventListener('click', function () {
+                let result = _ContentsTextArray.filter(function (item, index, arr) {
+                    arr.pop()
+                    return item.innerHTML !== innerTerm;
+                });
+                result = _ContentsTextArray;
+                if (ListDelete.length > 0) {
+                    ListDelete[0].remove();
+                }
+                if (TermDelete.length > 0) {
+                    TermDelete[0].remove();
+                }
+                //LISTとTERMのVALUEをARRAYから持ってくる
+                TermBoxes[_length].innerHTML = _ContentsTextArray[_length];
+                // TermBoxesと同じクラス名を持つListPushesに代入
+                for (let i = 0; i < _ContentsTextArray.length; i++) {
+                    if (ListPushes[i].classList.contains(TermBoxes[_length].classList[2])) {
+                        ListPushes[i].innerHTML = _ContentsTextArray[_length];
+                    }
+                }
+            });
 
 
-        //             //左クリックで非表示に変更
-        //             body.addEventListener('click', function () {
-        //                 if (con.classList.contains('show')) {
-        //                     //非表示に戻す
-        //                     con.classList.remove('show');
-        //                 }
-        //                 if (TermBoxes[i].classList.contains('delete')) {
-        //                     TermBoxes[i].classList.remove('delete');
-        //                 }
-        //                 if (ListPushes[i].classList.contains('delete-list')) {
-        //                     ListPushes[i].classList.remove('delete-list');
-        //                 }
-        //             });
+            //左クリックで非表示に変更
+            body.addEventListener('click', function () {
+                if (con.classList.contains('show')) {
+                    //非表示に戻す
+                    con.classList.remove('show');
+                }
+                for (let i = 0; i < _ContentsTextArray.length; i++) {
+                    let TermBoxes = document.querySelectorAll(".second-term");
+                    let _ListIn = TermBoxes[i].classList.contains(e.target.classList[1]);
+                    if (_ListIn == true) {
+                        if (TermBoxes[i].classList.contains('delete')) {
+                            TermBoxes[i].classList.remove('delete');
+                        }
+                    }
+                }
+                if (ListPushes[i].classList.contains('delete-list')) {
+                    ListPushes[i].classList.remove('delete-list');
+                }
+            });
 
-        //         });
+        });
 
         //エリア移動の取得
         TermBoxes[i].addEventListener('mousedown', function () {
@@ -268,6 +303,7 @@ function WordPush() {
                 };
             }
         });
+
         TermBoxes[i].addEventListener('mouseup', function (e) {
             if (TermBoxes[i].classList.contains('appending')) {
                 if (TermBoxes[i].classList.contains('area1')) {
@@ -351,7 +387,8 @@ function WordPush() {
             }, 750);
         });
 
-    };
+    }
+
     //textboxを空にする
     Contents.value = "";
 }
