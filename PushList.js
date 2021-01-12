@@ -100,21 +100,22 @@ function WordPush() {
     //管理番号を追加
     for (let i = 0; i < _ContentsTextArray.length; i++) {
         TermBoxes[i].classList.add('term_' + (i + 1));
-        ListPushes[i].classList.add('list_' + (i + 1));
-    }
+        ListPushes[i].classList.add('term_' + (i + 1));
 
-    // console.log(_ContentsTextArray);
-    // console.log(ListPushes);
-    // console.log(TermBoxes);
-    //代入するやつ
-
-    //listとTermのvalueをarrayで比べる
-    for (let i = 0; i < _ContentsTextArray.length; i++) {
         //LISTとTERMのVALUEをARRAYから持ってくる
         ListPushes[i].innerHTML = _ContentsTextArray[i];
         TermBoxes[i].innerHTML = _ContentsTextArray[i];
         //Previewコンテナに一時的に表示
         Preview.textContent = _ContentsTextArray[i];
+    }
+
+    //単語の取得
+    for (let i = 0; i < _ContentsTextArray.length; i++) {
+
+        //listからプレビューの表示
+        ListPushes[i].addEventListener('click', function (e) {
+            Preview.textContent = this.innerHTML;
+        });
 
         //1. previewコンテナへの代入
         // テキストエリアへの引用
@@ -124,11 +125,6 @@ function WordPush() {
         // term→array→listで逆引きすれば良い気がする。(同じvalueを持つlistをfor文で検索する)
         //2. テキスト書き出しは、submitで別のページに遷移させて、そこに_ConentsTextArrayと、none, 1, 2, 3エリア別に取得したarrayを表示すればいい。
 
-
-        //listからプレビューの表示
-        // ListPushes[i].addEventListener('click', function () {
-        //     Preview.textContent = ListPushes[i].innerHTML;
-        // });
 
         //         TermBoxes[i].addEventListener('contextmenu', function (e) {
         // プレビューの表示

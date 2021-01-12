@@ -4,14 +4,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>もくもく(仮)</title>
+    <title>plotter</title>
+    <link rel="icon" href="images/favicon.ico">
     <link rel="stylesheet" href="css/ress.min.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
     <header>
-        <h1><img src="" alt="もくもく(仮)"></h1>
+        <h1><img src="images/logo.svg" alt="plotter"></h1>
         <p><small>&copy; 2020 akahoshi</small></p>
     </header>
     <main>
@@ -24,8 +25,8 @@
             </nav>
             <div id="firstTermWindow" class="show">
                 <form id="op-form">
-                    <div><label for="Main">Main Term</label>
-                        <input type="text" id="Main">
+                    <div class="form-group"><label for="Main">Main Term</label>
+                        <input type="text" id="Main" placeholder="中央の単語">
                         <input type="color" id="color" value="#ffffff" list="color-list">
                         <datalist id="color-list">
                             <option value="#ffffff">
@@ -44,46 +45,41 @@
                             <option value="#ffcc99">
                         </datalist>
                     </div>
-                    <div><label for="Sub-1">Sub Area 1</label>
-                        <input type="text" id="Sub-1">
+                    <div class="form-group"><label for="Sub-1">Sub Area 1</label>
+                        <input type="text" id="Sub-1" placeholder="エリア1">
                         <input type="color" id="color1" value="#99ccff" list="color-list">
                     </div>
-                    <div><label for="Sub-2">Sub Area 2</label>
-                        <input type="text" id="Sub-2">
+                    <div class="form-group"><label for="Sub-2">Sub Area 2</label>
+                        <input type="text" id="Sub-2" placeholder="エリア2">
                         <input type="color" id="color2" value="#9999ff" list="color-list">
                     </div>
-                    <div><label for="Sub-3">Sub Area 3</label>
-                        <input type="text" id="Sub-3">
+                    <div class="form-group"><label for="Sub-3">Sub Area 3</label>
+                        <input type="text" id="Sub-3" placeholder="エリア3">
                         <input type="color" id="color3" value="#99ffff" list="color-list">
                     </div>
                     <div id="batu">×</div>
                 </form>
             </div>
-            <div class="contents">
+            <div class="contents" id="contentsArea">
                 <div id="first-term"></div>
             </div>
             <div class="NavTools">
                 <div class="tools">
                     <div class="edit" style="display: block;">
-                        <div class="preview output_div"></div>
+                        <div class="preview"></div>
                         <form>
                             <div class="textarea">
                                 <div class="FlexTextarea input_textarea">
                                     <div class="FlexTextarea__dummy" aria-hidden="true"></div>
                                     <textarea id="flexTextarea__textarea" class="FlexTextarea__textarea"
-                                        onkeypress="if(event.shiftKey==true){if(event.keyCode==13){event.returnValue=false}}"></textarea>
+                                        onkeypress="if(event.shiftKey==true){if(event.keyCode==13){event.returnValue=false}}"
+                                        placeholder="本文を入力"></textarea>
                                 </div>
                                 <div class="Button btn-enter">Shift + Enter</div>
                             </div>
                         </form>
 
                         <form class="shape" action="#" method="post">
-                            <!-- <p>シェイプ：</p>
-                            <select id="select-shape" name="shape">
-                                <option value="1">かどまる</option>
-                                <option value="2">もくもく</option>
-                                <option value="3">とげとげ</option>
-                            </select> -->
                             <p>スペース：</p>
                             <select id="select_space" name="space">
                             </select>
@@ -112,22 +108,92 @@
                         </div>
                     </div>
                     <div class="save" style="display: none;">
-                        <div class="Button btn-newsave">名前をつけて保存</div>
+                        <h2>保 存</h2>
+                        <!-- <div class="Button btn-newsave">名前をつけて保存</div>
                         <div class="Button btn-save">上書き保存</div>
 
-                        <form class="shape" action="#" method="post">
-                            <!-- <p>書き出し:</p>
+                        <form class="shape" action="#" method="post"> -->
+                        <!-- <p>書き出し:</p>
                             <select name="sample">
                                 <option value="1">PNG</option>
                                 <option value="2">JPEG</option>
                                 <option value="3">PDF</option>
                             </select> -->
+                        <div class="save-top">
                             <p>PNG書き出し</p>
-                            <button type="submit" class="download" style="width: 100%;">ダウンロード</button>
+                            <div class="Button" id="loading">更新</div>
+                        </div>
+                        <img src="" id="result" alt="" />
+                        <a href="" class="download" id="plotter" download="html_plotter.png">ダウンロード</a>
                         </form>
                     </div>
                     <div class="help" style="display: none;">
-                        <a href="https://osora.work/blog/363" target="_blank" rel="noopener noreferrer">解説ブログのリンク</a>
+                        <h2>使 い 方</h2>
+                        <ul class="Method">
+                            <li>
+                                <details id="Method1">
+                                    <summary>
+                                        モーダルウィンドウ
+                                    </summary>
+                                    <div>
+                                        <p>中心の単語と</p>
+                                        <p>エリアの名前を書こう</p>
+                                        <img src="images/1.png" alt="">
+                                        <p>終わったら「×」で閉じよう</p>
+                                    </div>
+                                </details>
+                            </li>
+                            <li>
+                                <details id="Method2">
+                                    <summary>編集タブ</summary>
+                                    <div>
+                                        <p>表示させたい単語を書いたら</p>
+                                        <p>「Shift + Enter」で表示しよう</p>
+                                        <img src="images/2.png" alt="">
+                                        <p>単語は自由に移動できるよ</p>
+                                    </div>
+                                    <div class="margin">
+                                        <p>右クリックで</p>
+                                        <p>「引用」「削除」ができるよ</p>
+                                        <img src="images/3.png" alt="">
+                                    </div>
+                                    <div class="margin">
+                                        <p>エリアの数を変えてみよう</p>
+                                        <img src="images/4.png" alt="">
+                                    </div>
+                                </details>
+                            </li>
+                            <li>
+                                <details id="Method3">
+                                    <summary>一覧タブ</summary>
+                                    <div>
+                                        <p>エリアの名前や</p>
+                                        <p>単語の一覧を確認しよう</p>
+                                        <img src="images/5.png" alt="">
+                                    </div>
+                                    <div class="margin">
+                                        <p>右クリックで</p>
+                                        <p>「引用」「削除」ができるよ</p>
+                                        <img src="images/6.png" alt="">
+                                    </div>
+                                </details>
+                            </li>
+                            <li>
+                                <details id="Method4">
+                                    <summary>保存タブ</summary>
+                                    <div>
+                                        <p>画面をPNGとして保存できるよ</p>
+                                        <img src="images/7.png" alt="">
+                                        <p>画面が反映されていないときは</p>
+                                        <p>更新ボタンを押そう</p>
+                                    </div>
+                                </details>
+                            </li>
+                            <li class="link">
+                                <a href="https://osora.work/blog/363" target="_blank"
+                                    rel="noopener noreferrer">制作ブログのリンク</a>
+                            </li>
+                        </ul>
                     </div>
                     <div class="list" style="display: none;">
                         <ul id="TermList">
@@ -159,14 +225,21 @@
                     <nav>
                         <ul>
                             <li data-open="open" id="btn-edit" class="open" title="Edit"><img src="images/edit.svg"
-                                    alt="編集"></li>
+                                    alt="編集">
+                                <p>編集する</p>
+                            </li>
                             <li data-open="close" id="btn-list" class="open" title="list"><img src="images/List1.svg"
                                     alt="単語リスト">
+                                <p>一覧を見る</p>
                             </li>
                             <li data-open="close" id="btn-save" class="open" title="save"><img src="images/save.svg"
-                                    alt="保存"></li>
+                                    alt="保存">
+                                <p>保存する</p>
+                            </li>
                             <li data-open="close" id="btn-help" class="open" title="help"><img src="images/help.svg"
-                                    alt="ヘルプ"></li>
+                                    alt="ヘルプ">
+                                <p>使い方</p>
+                            </li>
                         </ul>
                     </nav>
                 </div>
@@ -175,18 +248,25 @@
         </div>
         <!--wrapper-->
     </main>
-
-
+    <!-- <div id="form-input-recover-confirm-modal">
+        <div>
+            <div>
+                <p>入力データを復元する？</p>
+                <ul>
+                    <li><button class="buttonRecover">復元</button></li>
+                    <li><button class="buttonDestroy">破棄</button></li>
+                    <li><button class="buttonClose">閉じる</button></li>
+                </ul>
+            </div>
+        </div>
+    </div> -->
 
     <script src="BtnOpen.js"></script>
     <script src="PushList.js"></script>
     <script src="https://unpkg.com/interactjs/dist/interact.min.js"></script>
     <script src="DragAndDrop.js"></script>
     <script src="space(devide).js"></script>
-
-    <script>
-
-    </script>
+    <script src="html2canvas.min.js"></script>
 </body>
 
 </html>
