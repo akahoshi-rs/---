@@ -8,10 +8,15 @@ function flexTextarea(el) {
 document.querySelectorAll('.FlexTextarea').forEach(flexTextarea)
 ////////////////////////////////////////////////////////////////////
 
-const MainAppend = window.opener.document.getElementById('Main');
+
+const MainTermColorAppend = window.opener.document.getElementById("color");
 const Sub1ColorAppend = window.opener.document.getElementById("color1");
 const Sub2ColorAppend = window.opener.document.getElementById("color2");
 const Sub3ColorAppend = window.opener.document.getElementById("color3");
+const MainAppend = window.opener.document.getElementById('Main');
+const Sub1TextAppend = window.opener.document.getElementById("Sub-1");
+const Sub2TextAppend = window.opener.document.getElementById("Sub-2");
+const Sub3TextAppend = window.opener.document.getElementById("Sub-3");
 const EditText = window.opener.document.getElementsByClassName('edit-text')[0];
 
 //space-check
@@ -23,6 +28,11 @@ const EAall = document.getElementsByClassName('editArea-all')[0];
 const EA1 = document.getElementsByClassName('editArea-1')[0];
 const EA2 = document.getElementsByClassName('editArea-2')[0];
 const EA3 = document.getElementsByClassName('editArea-3')[0];
+const Titleall = document.getElementById('title-all');
+const Title1 = document.getElementById('title-1');
+const Title2 = document.getElementById('title-2');
+const Title3 = document.getElementById('title-3');
+
 const FlexTextarea = document.getElementsByClassName('FlexTextarea__textarea');
 const CheckBox0 = document.getElementsByName('display_0');
 const CheckBox1 = document.getElementsByName('display_1');
@@ -34,10 +44,14 @@ document.body.style.backgroundColor = MainAppend.value;
 FlexTextarea[1].style.backgroundColor = Sub1ColorAppend.value;
 FlexTextarea[2].style.backgroundColor = Sub2ColorAppend.value;
 FlexTextarea[3].style.backgroundColor = Sub3ColorAppend.value;
+Titleall.value = MainAppend.value;
+Title1.value = Sub1TextAppend.value;
+Title2.value = Sub2TextAppend.value;
+Title3.value = Sub3TextAppend.value;
 
 //色の取得
-MainAppend.addEventListener('input', function () {
-    document.body.style.backgroundColor = MainAppend.value;
+MainTermColorAppend.addEventListener('input', function () {
+    document.body.style.backgroundColor = MainTermColorAppend.value;
 });
 
 Sub1ColorAppend.addEventListener('input', function () {
@@ -53,7 +67,7 @@ Sub3ColorAppend.addEventListener('input', function () {
     FlexTextarea[3].style.backgroundColor = Sub3ColorAppend.value;
 });
 
-// チェックボックス
+// ラジオボタン
 
 for (let i = 0; i <= 1; i++) {
     CheckBox0[i].addEventListener('change', function () {
@@ -86,19 +100,21 @@ for (let i = 0; i <= 1; i++) {
     });
 }
 
+//表示数
 window.onload = function () {
     let _CurrentSpace = window.opener.document.querySelectorAll('#outer-dropzone');
-    if (_CurrentSpace.length == 0) {
+    console.log(_CurrentSpace);
+    if (_CurrentSpace.length == 1) {
         Inner[0].style.display = 'block';
         Inner[1].style.display = 'block';
         Inner[2].style.display = 'none';
         Inner[3].style.display = 'none';
-    } else if (_CurrentSpace.length == 1) {
+    } else if (_CurrentSpace.length == 2) {
         Inner[0].style.display = 'block';
         Inner[1].style.display = 'block';
         Inner[2].style.display = 'block';
         Inner[3].style.display = 'none';
-    } else if (_CurrentSpace.length == 2) {
+    } else if (_CurrentSpace.length == 3) {
         for (let i = 0; i <= 3; i++) {
             Inner[i].style.display = 'block';
         }
@@ -123,15 +139,29 @@ window.onload = function () {
     });
 };
 
+//タイトルの取得
+
+MainAppend.addEventListener('input', function () {
+    Titleall.value = MainAppend.value;
+});
+
+Sub1TextAppend.addEventListener('input', function () {
+    Title1.value = Sub1TextAppend.value;
+
+});
+
+Sub2TextAppend.addEventListener('input', function () {
+    Title2.value = Sub2TextAppend.value;
+
+});
+
+
+Sub3TextAppend.addEventListener('input', function () {
+    Title3.value = Sub3TextAppend.value;
+});
+
+
 //存在確認はspaceJSを参考に。
-
-// (Current見て操作)
-// boxShadowをSubColorから引き出す。
-// タイトルをh2に突っ込む。
-// 無ければデフォルトはColorValue。
-
-// h2はta: c。
-// groupをpo: aにして右側に寄せる。
 
 // _ContentsTextArrayからarea - allは出せそうな気がする。
 // 他はそれぞれのolからqueryselectorで引き出して出力。
