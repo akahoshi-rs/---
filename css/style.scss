@@ -675,20 +675,44 @@ details[open] summary.ListName{
 #text-body {
     overflow-y: scroll;
     height: calc(100vh - 40px);
+    padding: 0 0 80px 0;
+
+    & .inner {
+        width: 90%;
+        max-width: 800px;
+        min-width: 440px;
+        margin: 0 auto;
+    }
+    // textareaはダミーを流用
+    & .FlexTextarea {
+        border-radius: 24px;
+        min-height: 200px;
+    }
+    & .FlexTextarea__dummy {
+        padding: 20px;
+    }
+    & .FlexTextarea__textarea {
+        border-radius: 24px;
+        min-height: 200px;
+        padding: 20px;
+        box-shadow: $shadowIn-large;
+        border: none;
+        filter: opacity(80%);
+    }
 }
 
-// textareaはダミーを流用
-
-.FlexTextarea__textarea {
-    border-radius: 24px;
-    min-height: 200px;
-    padding: 12px;
-    box-shadow: $shadowIn-large;
-}
-.FlexTextarea {
-    border-radius: 24px;
-    min-height: 200px;
-    width: 94%;
+.title-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 80px auto 0;
+    width: 96%;
+    & input[type="text"] {
+        box-shadow: $shadowIn;
+        border-radius: 8px;
+        padding: 6px 10px;
+        color: $L-text-color;
+    }
 }
 
 // radiobutton
@@ -697,7 +721,7 @@ details[open] summary.ListName{
   display: flex;
   border-radius: 10px;
   overflow: hidden;
-width: 200px;
+  width: 200px;
 
   div {
     width: 60px;
