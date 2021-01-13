@@ -1,6 +1,9 @@
 //textareaの動作(コピペ)
 function flexTextarea(el) {
     const dummy = el.querySelector('.FlexTextarea__dummy')
+    el.querySelector('.FlexTextarea__textarea').addEventListener('focus', e => {
+        dummy.textContent = e.target.value + '\u200b'
+    })
     el.querySelector('.FlexTextarea__textarea').addEventListener('input', e => {
         dummy.textContent = e.target.value + '\u200b'
     })
@@ -103,7 +106,6 @@ for (let i = 0; i <= 1; i++) {
 //表示数
 window.onload = function () {
     let _CurrentSpace = window.opener.document.querySelectorAll('#outer-dropzone');
-    console.log(_CurrentSpace);
     if (_CurrentSpace.length == 1) {
         Inner[0].style.display = 'block';
         Inner[1].style.display = 'block';
@@ -160,9 +162,76 @@ Sub3TextAppend.addEventListener('input', function () {
     Title3.value = Sub3TextAppend.value;
 });
 
+//テキストの取得
+let _TermList0 = window.opener.document.querySelectorAll('#blank-list .Term-List');
+let _TermList1 = window.opener.document.querySelectorAll('#List1 li');
+let _TermList2 = window.opener.document.querySelectorAll('#List2 li');
+let _TermList3 = window.opener.document.querySelectorAll('#List3 li');
 
-//存在確認はspaceJSを参考に。
+//
+let _array0 = [];
+for (let i = 0; i < _TermList0.length; i++) {
+    _array0.push(_TermList0[i].innerHTML);
+}
+let _string0 = _array0.join('\n');
 
-// _ContentsTextArrayからarea - allは出せそうな気がする。
-// 他はそれぞれのolからqueryselectorで引き出して出力。
-// これらはtextJSからwindow.openerで抜き出す
+//
+let _array1 = [];
+for (let i = 0; i < _TermList1.length; i++) {
+    _array1.push(_TermList1[i].innerHTML);
+}
+let _string1 = _array1.join('\n');
+
+FlexTextarea[1].innerHTML = _string0 + '\n' + _string1;
+
+//
+let _array2 = [];
+for (let i = 0; i < _TermList2.length; i++) {
+    _array2.push(_TermList2[i].innerHTML);
+}
+let _string2 = _array2.join('\n');
+
+FlexTextarea[2].innerHTML = _string0 + '\n' + _string2;
+
+//
+let _array3 = [];
+for (let i = 0; i < _TermList3.length; i++) {
+    _array3.push(_TermList3[i].innerHTML);
+}
+let _string3 = _array3.join('\n');
+
+FlexTextarea[3].innerHTML = _string0 + '\n' + _string3;
+
+//
+FlexTextarea[0].innerHTML = _string0 + '\n' + _string1 + '\n' + _string2 + '\n' + _string3;
+
+if (_TermList0.length == 0) {
+    FlexTextarea[0].innerHTML = _string1 + '\n' + _string2 + '\n' + _string3;
+    FlexTextarea[1].innerHTML = _string1;
+    FlexTextarea[2].innerHTML = _string2;
+    FlexTextarea[3].innerHTML = _string3;
+    if (_TermList1.length == 0) {
+        FlexTextarea[0].innerHTML = _string2 + '\n' + _string3;
+    } else if (_TermList2.length == 0) {
+        FlexTextarea[0].innerHTML = _string1 + '\n' + _string3;
+    } else if (_TermList3.length == 0) {
+        FlexTextarea[0].innerHTML = _string1 + '\n' + _string2;
+    }
+} else if (_TermList1.length == 0) {
+    FlexTextarea[0].innerHTML = _string0 + '\n' + _string2 + '\n' + _string3;
+    if (_TermList2.length == 0) {
+        FlexTextarea[0].innerHTML = _string0 + '\n' + _string3;
+        if (_TermList3.length == 0) {
+            FlexTextarea[0].innerHTML = _string0;
+        }
+    } else if (_TermList3.length == 0) {
+        lexTextarea[0].innerHTML = _string0 + '\n' + _string2;
+    }
+} else if (_TermList2.length == 0) {
+    FlexTextarea[0].innerHTML = _string0 + '\n' + _string1 + '\n' + _string3;
+    if (_TermList3.length == 0) {
+        FlexTextarea[0].innerHTML = _string0 + '\n' + _string1;
+    }
+} else if (_TermList3.length == 0) {
+    FlexTextarea[0].innerHTML = _string0 + '\n' + _string1 + '\n' + _string2;
+}
