@@ -214,50 +214,211 @@ let _blob1 = Title1.value + '\n' + _string1;
 let _blob2 = Title2.value + '\n' + _string2;
 let _blob3 = Title3.value + '\n' + _string3;
 
-FlexTextarea[0].innerHTML = _blob0123;
 FlexTextarea[1].innerHTML = _string1;
 FlexTextarea[2].innerHTML = _string2;
 FlexTextarea[3].innerHTML = _string3;
 
 if (_TermList0.length == 0) {
-    FlexTextarea[0].innerHTML = _blob123;
     if (_TermList1.length == 0) {
-        FlexTextarea[0].innerHTML = _blob23;
         if (_TermList2.length == 0) {
-            FlexTextarea[0].innerHTML = _blob3;
+            if (_TermList3.length == 0) {
+
+            } else {
+                FlexTextarea[0].innerHTML = _blob3;
+            }
         } else if (_TermList3.length == 0) {
             FlexTextarea[0].innerHTML = _blob2;
+        } else {
+            FlexTextarea[0].innerHTML = _blob23;
         }
     } else if (_TermList2.length == 0) {
-        FlexTextarea[0].innerHTML = _blob13;
         if (_TermList1.length == 0) {
             FlexTextarea[0].innerHTML = _blob1;
         } else if (_TermList3.length == 0) {
             FlexTextarea[0].innerHTML = _blob3;
+        } else {
+            FlexTextarea[0].innerHTML = _blob13;
         }
     } else if (_TermList3.length == 0) {
-        FlexTextarea[0].innerHTML = _blob12;
         if (_TermList1.length == 0) {
             FlexTextarea[0].innerHTML = _blob1;
         } else if (_TermList2.length == 0) {
             FlexTextarea[0].innerHTML = _blob2;
+        } else {
+            FlexTextarea[0].innerHTML = _blob12;
         }
+    } else {
+        FlexTextarea[0].innerHTML = _blob123;
     }
 } else if (_TermList1.length == 0) {
-    FlexTextarea[0].innerHTML = _blob023;
     if (_TermList2.length == 0) {
-        FlexTextarea[0].innerHTML = _blob03;
         if (_TermList3.length == 0) {
             FlexTextarea[0].innerHTML = _blob0;
+        } else {
+            FlexTextarea[0].innerHTML = _blob03;
         }
     } else if (_TermList3.length == 0) {
         lexTextarea[0].innerHTML = _blob02;
+    } else {
+        FlexTextarea[0].innerHTML = _blob023;
     }
 } else if (_TermList2.length == 0) {
-    FlexTextarea[0].innerHTML = _blob013;
     if (_TermList3.length == 0) {
         FlexTextarea[0].innerHTML = _blob01;
+    } else {
+        FlexTextarea[0].innerHTML = _blob013;
     }
 } else if (_TermList3.length == 0) {
     FlexTextarea[0].innerHTML = _blob012;
+} else {
+    FlexTextarea[0].innerHTML = _blob0123;
+}
+
+
+
+//ダウンロード
+if (_TermList0.length == 0) {
+    if (_TermList1.length == 0) {
+        if (_TermList2.length == 0) {
+            if (_TermList3.length == 0) {
+                alert('値を入力してください');
+            } else {
+                let _blobout = new Blob([_blob3], { type: "text/plan" });
+                let link = document.createElement('a');
+                link.href = URL.createObjectURL(_blobout);
+                link.download = (FirstTerm.innerHTML + '.txt');
+                document.body.appendChild(link);
+                link.click();
+            }
+        } else if (_TermList3.length == 0) {
+            let _blobout = new Blob([_blob2], { type: "text/plan" });
+            let link = document.createElement('a');
+            link.href = URL.createObjectURL(_blobout);
+            link.download = FirstTerm.innerHTML + '.txt';
+            document.body.appendChild(link);
+            link.click();
+        } else {
+            let _blobout = new Blob([_blob23], { type: "text/plan" });
+            let link = document.createElement('a');
+            link.href = URL.createObjectURL(_blobout);
+            link.download = FirstTerm.innerHTML + '.txt';
+            document.body.appendChild(link);
+            link.click();
+        }
+    } else if (_TermList2.length == 0) {
+        if (_TermList1.length == 0) {
+            let _blobout = new Blob([_blob1], { type: "text/plan" });
+            let link = document.createElement('a');
+            link.href = URL.createObjectURL(_blobout);
+            link.download = FirstTerm.innerHTML + '.txt';
+            document.body.appendChild(link);
+            link.click();
+        } else if (_TermList3.length == 0) {
+            let _blobout = new Blob([_blob3], { type: "text/plan" });
+            let link = document.createElement('a');
+            link.href = URL.createObjectURL(_blobout);
+            link.download = FirstTerm.innerHTML + '.txt';
+            document.body.appendChild(link);
+            link.click();
+        } else {
+            let _blobout = new Blob([_blob13], { type: "text/plan" });
+            let link = document.createElement('a');
+            link.href = URL.createObjectURL(_blobout);
+            link.download = FirstTerm.innerHTML + '.txt';
+            document.body.appendChild(link);
+            link.click();
+        }
+    } else if (_TermList3.length == 0) {
+        if (_TermList1.length == 0) {
+            let _blobout = new Blob([_blob1], { type: "text/plan" });
+            let link = document.createElement('a');
+            link.href = URL.createObjectURL(_blobout);
+            link.download = FirstTerm.innerHTML + '.txt';
+            document.body.appendChild(link);
+            link.click();
+        } else if (_TermList2.length == 0) {
+            let _blobout = new Blob([_blob2], { type: "text/plan" });
+            let link = document.createElement('a');
+            link.href = URL.createObjectURL(_blobout);
+            link.download = FirstTerm.innerHTML + '.txt';
+            document.body.appendChild(link);
+            link.click();
+        } else {
+            let _blobout = new Blob([_blob12], { type: "text/plan" });
+            let link = document.createElement('a');
+            link.href = URL.createObjectURL(_blobout);
+            link.download = FirstTerm.innerHTML + '.txt';
+            document.body.appendChild(link);
+            link.click();
+        }
+    } else {
+        let _blobout = new Blob([_blob123], { type: "text/plan" });
+        let link = document.createElement('a');
+        link.href = URL.createObjectURL(_blobout);
+        link.download = FirstTerm.innerHTML + '.txt';
+        document.body.appendChild(link);
+        link.click();
+    }
+} else if (_TermList1.length == 0) {
+    if (_TermList2.length == 0) {
+        if (_TermList3.length == 0) {
+            let _blobout = new Blob([_blob0], { type: "text/plan" });
+            let link = document.createElement('a');
+            link.href = URL.createObjectURL(_blobout);
+            link.download = FirstTerm.innerHTML + '.txt';
+            document.body.appendChild(link);
+            link.click();
+        } else if (_TermList3.length == 0) {
+            let _blobout = new Blob([_blob02], { type: "text/plan" });
+            let link = document.createElement('a');
+            link.href = URL.createObjectURL(_blobout);
+            link.download = FirstTerm.innerHTML + '.txt';
+            document.body.appendChild(link);
+            link.click();
+        } else {
+            let _blobout = new Blob([_blob03], { type: "text/plan" });
+            let link = document.createElement('a');
+            link.href = URL.createObjectURL(_blobout);
+            link.download = FirstTerm.innerHTML + '.txt';
+            document.body.appendChild(link);
+            link.click();
+        }
+    } else if (_TermList2.length == 0) {
+        if (_TermList3.length == 0) {
+            let _blobout = new Blob([_blob01], { type: "text/plan" });
+            let link = document.createElement('a');
+            link.href = URL.createObjectURL(_blobout);
+            link.download = FirstTerm.innerHTML + '.txt';
+            document.body.appendChild(link);
+            link.click();
+        } else {
+            let _blobout = new Blob([_blob013], { type: "text/plan" });
+            let link = document.createElement('a');
+            link.href = URL.createObjectURL(_blobout);
+            link.download = FirstTerm.innerHTML + '.txt';
+            document.body.appendChild(link);
+            link.click();
+        }
+    } else if (_TermList3.length == 0) {
+        let _blobout = new Blob([_blob012], { type: "text/plan" });
+        let link = document.createElement('a');
+        link.href = URL.createObjectURL(_blobout);
+        link.download = FirstTerm.innerHTML + '.txt';
+        document.body.appendChild(link);
+        link.click();
+    } else {
+        let _blobout = new Blob([_blob023], { type: "text/plan" });
+        let link = document.createElement('a');
+        link.href = URL.createObjectURL(_blobout);
+        link.download = FirstTerm.innerHTML + '.txt';
+        document.body.appendChild(link);
+        link.click();
+    }
+} else {
+    let _blobout = new Blob([_blob0123], { type: "text/plan" });
+    let link = document.createElement('a');
+    link.href = URL.createObjectURL(_blobout);
+    link.download = (FirstTerm.innerHTML + '.txt');
+    document.body.appendChild(link);
+    link.click();
 }

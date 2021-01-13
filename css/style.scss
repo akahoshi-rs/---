@@ -708,6 +708,7 @@ details[open] summary.ListName{
     margin: 80px auto 0;
     width: 96%;
     & input[type="text"] {
+        width: 80%;
         box-shadow: $shadowIn;
         border-radius: 8px;
         padding: 6px 10px;
