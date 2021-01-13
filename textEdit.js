@@ -14,6 +14,11 @@ const Sub2ColorAppend = window.opener.document.getElementById("color2");
 const Sub3ColorAppend = window.opener.document.getElementById("color3");
 const EditText = window.opener.document.getElementsByClassName('edit-text')[0];
 
+//space-check
+const select_space = window.opener.document.getElementById('select_space');
+let _CurrentSpace = window.opener.document.querySelectorAll('#outer-dropzone');
+
+const Inner = document.getElementsByClassName('inner');
 const EAall = document.getElementsByClassName('editArea-all')[0];
 const EA1 = document.getElementsByClassName('editArea-1')[0];
 const EA2 = document.getElementsByClassName('editArea-2')[0];
@@ -80,16 +85,50 @@ for (let i = 0; i <= 1; i++) {
         }
     });
 }
+
+window.onload = function () {
+    let _CurrentSpace = window.opener.document.querySelectorAll('#outer-dropzone');
+    if (_CurrentSpace.length == 0) {
+        Inner[0].style.display = 'block';
+        Inner[1].style.display = 'block';
+        Inner[2].style.display = 'none';
+        Inner[3].style.display = 'none';
+    } else if (_CurrentSpace.length == 1) {
+        Inner[0].style.display = 'block';
+        Inner[1].style.display = 'block';
+        Inner[2].style.display = 'block';
+        Inner[3].style.display = 'none';
+    } else if (_CurrentSpace.length == 2) {
+        for (let i = 0; i <= 3; i++) {
+            Inner[i].style.display = 'block';
+        }
+    }
+    select_space.addEventListener('change', function () {
+        let _CurrentSpace = window.opener.document.querySelectorAll('#outer-dropzone');
+        if (_CurrentSpace.length == 0) {
+            Inner[0].style.display = 'block';
+            Inner[1].style.display = 'block';
+            Inner[2].style.display = 'none';
+            Inner[3].style.display = 'none';
+        } else if (_CurrentSpace.length == 1) {
+            Inner[0].style.display = 'block';
+            Inner[1].style.display = 'block';
+            Inner[2].style.display = 'block';
+            Inner[3].style.display = 'none';
+        } else if (_CurrentSpace.length == 2) {
+            for (let i = 0; i <= 3; i++) {
+                Inner[i].style.display = 'block';
+            }
+        }
+    });
+};
+
 //存在確認はspaceJSを参考に。
-// (CurrentSpaceで引っ張れそうな希ガス)
-// 1ならdisplay: noneが2つ。
 
 // (Current見て操作)
 // boxShadowをSubColorから引き出す。
 // タイトルをh2に突っ込む。
 // 無ければデフォルトはColorValue。
-
-// checkBoxの操作(多分ループで書ける)
 
 // h2はta: c。
 // groupをpo: aにして右側に寄せる。
