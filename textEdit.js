@@ -182,16 +182,12 @@ for (let i = 0; i < _TermList1.length; i++) {
 }
 let _string1 = _array1.join('\n');
 
-FlexTextarea[1].innerHTML = _string0 + '\n' + _string1;
-
 //
 let _array2 = [];
 for (let i = 0; i < _TermList2.length; i++) {
     _array2.push(_TermList2[i].innerHTML);
 }
 let _string2 = _array2.join('\n');
-
-FlexTextarea[2].innerHTML = _string0 + '\n' + _string2;
 
 //
 let _array3 = [];
@@ -200,38 +196,56 @@ for (let i = 0; i < _TermList3.length; i++) {
 }
 let _string3 = _array3.join('\n');
 
-FlexTextarea[3].innerHTML = _string0 + '\n' + _string3;
-
 //
-FlexTextarea[0].innerHTML = _string0 + '\n' + _string1 + '\n' + _string2 + '\n' + _string3;
+
+let _blob0123 = _string0 + '\n' + _string1 + '\n' + _string2 + '\n' + _string3;
+let _blob012 = _string0 + '\n' + _string1 + '\n' + _string2;
+let _blob013 = _string0 + '\n' + _string1 + '\n' + _string3;
+let _blob023 = _string0 + '\n' + _string2 + '\n' + _string3;
+let _blob123 = _string1 + '\n' + _string2 + '\n' + _string3;
+let _blob01 = _string0 + '\n' + _string1;
+let _blob02 = _string0 + '\n' + _string2;
+let _blob03 = _string0 + '\n' + _string3;
+let _blob12 = _string1 + '\n' + _string2;
+let _blob13 = _string1 + '\n' + _string3;
+let _blob23 = _string2 + '\n' + _string3;
+let _blob0 = _string0;
+let _blob1 = _string1;
+let _blob2 = _string2;
+let _blob3 = _string3;
+
+FlexTextarea[0].innerHTML = _blob0123;
+FlexTextarea[1].innerHTML = _blob01;
+FlexTextarea[2].innerHTML = _blob02;
+FlexTextarea[3].innerHTML = _blob03;
 
 if (_TermList0.length == 0) {
-    FlexTextarea[0].innerHTML = _string1 + '\n' + _string2 + '\n' + _string3;
-    FlexTextarea[1].innerHTML = _string1;
-    FlexTextarea[2].innerHTML = _string2;
-    FlexTextarea[3].innerHTML = _string3;
+    FlexTextarea[0].innerHTML = _blob123;
+    FlexTextarea[1].innerHTML = _blob1;
+    FlexTextarea[2].innerHTML = _blob2;
+    FlexTextarea[3].innerHTML = _blob3;
     if (_TermList1.length == 0) {
-        FlexTextarea[0].innerHTML = _string2 + '\n' + _string3;
+        FlexTextarea[0].innerHTML = _blob23;
     } else if (_TermList2.length == 0) {
-        FlexTextarea[0].innerHTML = _string1 + '\n' + _string3;
+        FlexTextarea[0].innerHTML = _blob13;
     } else if (_TermList3.length == 0) {
-        FlexTextarea[0].innerHTML = _string1 + '\n' + _string2;
+        FlexTextarea[0].innerHTML = _blob12;
     }
 } else if (_TermList1.length == 0) {
-    FlexTextarea[0].innerHTML = _string0 + '\n' + _string2 + '\n' + _string3;
+    FlexTextarea[0].innerHTML = _blob023;
     if (_TermList2.length == 0) {
-        FlexTextarea[0].innerHTML = _string0 + '\n' + _string3;
+        FlexTextarea[0].innerHTML = _blob03;
         if (_TermList3.length == 0) {
-            FlexTextarea[0].innerHTML = _string0;
+            FlexTextarea[0].innerHTML = _blob0;
         }
     } else if (_TermList3.length == 0) {
-        lexTextarea[0].innerHTML = _string0 + '\n' + _string2;
+        lexTextarea[0].innerHTML = _blob02;
     }
 } else if (_TermList2.length == 0) {
-    FlexTextarea[0].innerHTML = _string0 + '\n' + _string1 + '\n' + _string3;
+    FlexTextarea[0].innerHTML = _blob013;
     if (_TermList3.length == 0) {
-        FlexTextarea[0].innerHTML = _string0 + '\n' + _string1;
+        FlexTextarea[0].innerHTML = _blob01;
     }
 } else if (_TermList3.length == 0) {
-    FlexTextarea[0].innerHTML = _string0 + '\n' + _string1 + '\n' + _string2;
+    FlexTextarea[0].innerHTML = _blob012;
 }
