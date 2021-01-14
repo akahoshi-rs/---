@@ -52,7 +52,6 @@ CloseWindow.addEventListener('mousedown', function () {
         FirstTermList.innerHTML = _firstterm;
         FirstTerm.innerHTML = _firstterm;
         Preview.textContent = _firstterm;
-        Contents.value = _firstterm;
     } else if (Main.value.length == 0) {
 
     }
