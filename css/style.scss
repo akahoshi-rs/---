@@ -680,7 +680,9 @@ details[open] summary.ListName{
     overflow-y: scroll;
     height: calc(100vh - 40px);
     padding: 0 0 80px 0;
-
+    & .explain {
+        margin-top: 20px;
+    }
     & .inner {
         width: 90%;
         max-width: 800px;
@@ -704,8 +706,10 @@ details[open] summary.ListName{
         filter: opacity(80%);
     }
     & .add-right {
-        text-align: right;
-        padding-right: 10px;
+        display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+        padding: 0 10px;
     }
 
     & .download {

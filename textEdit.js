@@ -409,8 +409,16 @@ if (_TermList0.length == 0) {
     FlexTextarea[0].innerHTML = _blob0123
 }
 
+//文字数の表示
+let _Counter = document.getElementsByClassName('counter');
+let _Row = document.getElementsByClassName('row');
 
-
+for (let i = 0; i < FlexTextarea.length; i++) {
+    let _textValueBefore = FlexTextarea[i].innerHTML;
+    let _textValueAfter = _textValueBefore.replace(/\n/g, "");
+    _Counter[i].innerHTML = _textValueAfter.length;
+    _Row[i].innerHTML = (_textValueBefore.length - _textValueAfter.length) + 1;
+}
 //ダウンロード
 const BtnDL = document.getElementsByClassName('download');
 
@@ -442,6 +450,15 @@ Title3.addEventListener('input', function () {
 for (let i = 0; i < FlexTextarea.length; i++) {
     FlexTextarea[i].addEventListener('input', function () {
         FlexTextarea[i].innerHTML = document.getElementsByClassName('FlexTextarea__dummy')[i].innerHTML;
+        let _textValueBefore = FlexTextarea[i].innerHTML;
+        let _textValueAfter = _textValueBefore.replace(/\n/g, "");
+        if (FlexTextarea[i].innerHTML.length >= 1) {
+            _Counter[i].innerHTML = (_textValueAfter.length - 1);
+            _Row[i].innerHTML = (_textValueBefore.length - _textValueAfter.length) + 1;
+        } else {
+            _Counter[i].innerHTML = _textValueAfter.length;
+            _Row[i].innerHTML = (_textValueBefore.length - _textValueAfter.length) + 1;
+        }
     });
 }
 
