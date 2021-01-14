@@ -451,18 +451,22 @@ details[open] summary.ListName{
 }
 .save-text {
     margin: 20px 0;
+
+    & .download {
+        margin-top: 30px;
+    }
     & .small {
         font-size: 14px;
         color: red;
         text-align: right;
-        margin-top: -20px;
+        margin-top: -10px;
     }
     & .edit-text {
         text-decoration: none;
         display: inline-block;
         width: 240px;
         text-align: center;
-        margin: 20px auto;
+        margin: 10px auto;
         padding: 4px;
         border-radius: 50px;
         background-color: #ffce31;
