@@ -698,6 +698,15 @@ details[open] summary.ListName {
   filter: opacity(80%);
 }
 
+#text-body .add-right {
+  text-align: right;
+  padding-right: 10px;
+}
+
+#text-body .download {
+  margin: 0;
+}
+
 .title-top {
   display: flex;
   justify-content: space-between;
@@ -712,6 +721,11 @@ details[open] summary.ListName {
   border-radius: 8px;
   padding: 6px 10px;
   color: #505055;
+}
+
+.title-top input[type="text"]::placeholder {
+  font-size: 20px;
+  color: lightgray;
 }
 
 .inline-radio {

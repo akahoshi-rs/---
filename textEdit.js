@@ -11,6 +11,7 @@ function flexTextarea(el) {
 document.querySelectorAll('.FlexTextarea').forEach(flexTextarea)
 ////////////////////////////////////////////////////////////////////
 
+//window.opener
 
 const MainTermColorAppend = window.opener.document.getElementById("color");
 const Sub1ColorAppend = window.opener.document.getElementById("color1");
@@ -26,6 +27,8 @@ const EditText = window.opener.document.getElementsByClassName('edit-text')[0];
 const select_space = window.opener.document.getElementById('select_space');
 let _CurrentSpace = window.opener.document.querySelectorAll('#outer-dropzone');
 
+
+//currentFile
 const Inner = document.getElementsByClassName('inner');
 const EAall = document.getElementsByClassName('editArea-all')[0];
 const EA1 = document.getElementsByClassName('editArea-1')[0];
@@ -277,148 +280,28 @@ if (_TermList0.length == 0) {
 
 
 //ダウンロード
-if (_TermList0.length == 0) {
-    if (_TermList1.length == 0) {
-        if (_TermList2.length == 0) {
-            if (_TermList3.length == 0) {
-                alert('値を入力してください');
-            } else {
-                let _blobout = new Blob([_blob3], { type: "text/plan" });
-                let link = document.createElement('a');
-                link.href = URL.createObjectURL(_blobout);
-                link.download = (FirstTerm.innerHTML + '.txt');
-                document.body.appendChild(link);
-                link.click();
-            }
-        } else if (_TermList3.length == 0) {
-            let _blobout = new Blob([_blob2], { type: "text/plan" });
-            let link = document.createElement('a');
-            link.href = URL.createObjectURL(_blobout);
-            link.download = FirstTerm.innerHTML + '.txt';
-            document.body.appendChild(link);
-            link.click();
-        } else {
-            let _blobout = new Blob([_blob23], { type: "text/plan" });
-            let link = document.createElement('a');
-            link.href = URL.createObjectURL(_blobout);
-            link.download = FirstTerm.innerHTML + '.txt';
-            document.body.appendChild(link);
-            link.click();
-        }
-    } else if (_TermList2.length == 0) {
-        if (_TermList1.length == 0) {
-            let _blobout = new Blob([_blob1], { type: "text/plan" });
-            let link = document.createElement('a');
-            link.href = URL.createObjectURL(_blobout);
-            link.download = FirstTerm.innerHTML + '.txt';
-            document.body.appendChild(link);
-            link.click();
-        } else if (_TermList3.length == 0) {
-            let _blobout = new Blob([_blob3], { type: "text/plan" });
-            let link = document.createElement('a');
-            link.href = URL.createObjectURL(_blobout);
-            link.download = FirstTerm.innerHTML + '.txt';
-            document.body.appendChild(link);
-            link.click();
-        } else {
-            let _blobout = new Blob([_blob13], { type: "text/plan" });
-            let link = document.createElement('a');
-            link.href = URL.createObjectURL(_blobout);
-            link.download = FirstTerm.innerHTML + '.txt';
-            document.body.appendChild(link);
-            link.click();
-        }
-    } else if (_TermList3.length == 0) {
-        if (_TermList1.length == 0) {
-            let _blobout = new Blob([_blob1], { type: "text/plan" });
-            let link = document.createElement('a');
-            link.href = URL.createObjectURL(_blobout);
-            link.download = FirstTerm.innerHTML + '.txt';
-            document.body.appendChild(link);
-            link.click();
-        } else if (_TermList2.length == 0) {
-            let _blobout = new Blob([_blob2], { type: "text/plan" });
-            let link = document.createElement('a');
-            link.href = URL.createObjectURL(_blobout);
-            link.download = FirstTerm.innerHTML + '.txt';
-            document.body.appendChild(link);
-            link.click();
-        } else {
-            let _blobout = new Blob([_blob12], { type: "text/plan" });
-            let link = document.createElement('a');
-            link.href = URL.createObjectURL(_blobout);
-            link.download = FirstTerm.innerHTML + '.txt';
-            document.body.appendChild(link);
-            link.click();
-        }
-    } else {
-        let _blobout = new Blob([_blob123], { type: "text/plan" });
-        let link = document.createElement('a');
-        link.href = URL.createObjectURL(_blobout);
-        link.download = FirstTerm.innerHTML + '.txt';
-        document.body.appendChild(link);
-        link.click();
-    }
-} else if (_TermList1.length == 0) {
-    if (_TermList2.length == 0) {
-        if (_TermList3.length == 0) {
-            let _blobout = new Blob([_blob0], { type: "text/plan" });
-            let link = document.createElement('a');
-            link.href = URL.createObjectURL(_blobout);
-            link.download = FirstTerm.innerHTML + '.txt';
-            document.body.appendChild(link);
-            link.click();
-        } else if (_TermList3.length == 0) {
-            let _blobout = new Blob([_blob02], { type: "text/plan" });
-            let link = document.createElement('a');
-            link.href = URL.createObjectURL(_blobout);
-            link.download = FirstTerm.innerHTML + '.txt';
-            document.body.appendChild(link);
-            link.click();
-        } else {
-            let _blobout = new Blob([_blob03], { type: "text/plan" });
-            let link = document.createElement('a');
-            link.href = URL.createObjectURL(_blobout);
-            link.download = FirstTerm.innerHTML + '.txt';
-            document.body.appendChild(link);
-            link.click();
-        }
-    } else if (_TermList2.length == 0) {
-        if (_TermList3.length == 0) {
-            let _blobout = new Blob([_blob01], { type: "text/plan" });
-            let link = document.createElement('a');
-            link.href = URL.createObjectURL(_blobout);
-            link.download = FirstTerm.innerHTML + '.txt';
-            document.body.appendChild(link);
-            link.click();
-        } else {
-            let _blobout = new Blob([_blob013], { type: "text/plan" });
-            let link = document.createElement('a');
-            link.href = URL.createObjectURL(_blobout);
-            link.download = FirstTerm.innerHTML + '.txt';
-            document.body.appendChild(link);
-            link.click();
-        }
-    } else if (_TermList3.length == 0) {
-        let _blobout = new Blob([_blob012], { type: "text/plan" });
-        let link = document.createElement('a');
-        link.href = URL.createObjectURL(_blobout);
-        link.download = FirstTerm.innerHTML + '.txt';
-        document.body.appendChild(link);
-        link.click();
-    } else {
-        let _blobout = new Blob([_blob023], { type: "text/plan" });
-        let link = document.createElement('a');
-        link.href = URL.createObjectURL(_blobout);
-        link.download = FirstTerm.innerHTML + '.txt';
-        document.body.appendChild(link);
-        link.click();
-    }
-} else {
-    let _blobout = new Blob([_blob0123], { type: "text/plan" });
-    let link = document.createElement('a');
-    link.href = URL.createObjectURL(_blobout);
-    link.download = (FirstTerm.innerHTML + '.txt');
-    document.body.appendChild(link);
-    link.click();
+const BtnDL = document.getElementsByClassName('download');
+
+Titleall.addEventListener('input', function () {
+    Titleall = document.getElementById('title-all');
+    Title1 = document.getElementById('title-1');
+    Title2 = document.getElementById('title-2');
+    Title3 = document.getElementById('title-3');
+});
+
+for (let i = 0; i < FlexTextarea.length; i++) {
+    FlexTextarea[i].addEventListener('input', function () {
+        FlexTextarea[0].innerHTML = document.getElementsByClassName('FlexTextarea__dummy')[0].innerHTML;
+    });
+
+    BtnDL[0].addEventListener('click', function () {
+
+    });
+
+    BtnDL[1].addEventListener('click', function () {
+    });
+    BtnDL[2].addEventListener('click', function () {
+    });
+    BtnDL[3].addEventListener('click', function () {
+    });
 }
