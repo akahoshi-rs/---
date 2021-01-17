@@ -390,6 +390,10 @@ details[open] summary.ListName {
   box-shadow: none;
 }
 
+.Method summary:focus {
+  outline-offset: -1px;
+}
+
 .Method li:nth-child(3) summary {
   background-image: url("../images/List1.svg");
 }

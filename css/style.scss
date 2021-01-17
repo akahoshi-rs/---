@@ -380,6 +380,9 @@ details[open] summary.ListName{
             background-color: #ffce31;
             box-shadow: none;
         }
+        &:focus {
+            outline-offset: -1px;
+        }
     }
     & li {
         &:nth-child(3) summary {
