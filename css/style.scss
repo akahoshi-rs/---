@@ -238,7 +238,7 @@ div.preview {
     position: fixed;
     top: 40px;
     right: 60px;
-    & .list, .help {
+    & .list, .help ,.edit {
         height: calc(100vh - 80px);
         overflow-y: scroll;
     }
@@ -327,6 +327,13 @@ details[open] summary.ListName{
     & h2 {
      @include h2();
     }
+    &::-webkit-scrollbar {  /* Chrome, Safari 対応 */
+        display:none;
+    }
+}
+
+.edit {
+    scrollbar-width: none;/* Firefox 対応 */
     &::-webkit-scrollbar {  /* Chrome, Safari 対応 */
         display:none;
     }

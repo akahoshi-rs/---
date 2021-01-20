@@ -228,7 +228,7 @@ div.preview {
   right: 60px;
 }
 
-.tools .list, .tools .help {
+.tools .list, .tools .help, .tools .edit {
   height: calc(100vh - 80px);
   overflow-y: scroll;
 }
@@ -330,6 +330,16 @@ details[open] summary.ListName {
 }
 
 .help::-webkit-scrollbar {
+  /* Chrome, Safari 対応 */
+  display: none;
+}
+
+.edit {
+  scrollbar-width: none;
+  /* Firefox 対応 */
+}
+
+.edit::-webkit-scrollbar {
   /* Chrome, Safari 対応 */
   display: none;
 }

@@ -467,7 +467,7 @@ BtnDL[0].addEventListener('click', function () {
     let _blobout = new Blob([_blob1], { type: "text/plan" });
     let link = document.createElement('a');
     link.href = URL.createObjectURL(_blobout);
-    link.download = (Title1.value + '.txt');
+    link.download = (Titleall.value + '.txt');
     document.body.appendChild(link);
     link.click();
 });
