@@ -17,7 +17,7 @@ function dragMoveListener(event) {
 interact('.dropzone').dropzone({
     // only accept elements matching this CSS selector
     accept: TermBoxes,
-    // Require a 75% element overlap for a drop to be possible
+    // Require a 75% element overlap for a drop to be possible.
     overlap: 0.5,
 
     // listen for drop related events:

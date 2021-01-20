@@ -8,7 +8,7 @@ function flexTextarea(el) {
 }
 
 document.querySelectorAll('.FlexTextarea').forEach(flexTextarea)
-/////////////////////////////////////////
+////////////////////////////////////////
 
 //右クリックの非表示
 document.oncontextmenu = function () { return false; }
