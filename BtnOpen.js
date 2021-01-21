@@ -1,4 +1,8 @@
 console.log("プロッターをご覧いただき" + '\n' + "ありがとうございます");
+function message() {
+    console.log("GitHubのポジトリのリンクは" + '\n' + "こちらになります" + '\n' + "https://github.com/akahoshi-rs/WorkFor0113")
+};
+setTimeout(message, 3000);
 
 //btnの開閉
 const EditContainer = document.getElementsByClassName('tools')[0];
@@ -84,3 +88,11 @@ ListBtn.addEventListener('click', function () {
 });
 
 //////////////////////////////////////////////
+// 就職情報センター
+// 履歴書の購入
+// F81スキャン(PDF化)
+// ポートフォリオ(vivit)
+// ブログ
+// GitHubページ
+// 進級点作品
+// デザイン作品
