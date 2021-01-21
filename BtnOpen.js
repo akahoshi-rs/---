@@ -1,3 +1,5 @@
+console.log("プロッターをご覧いただき" + '\n' + "ありがとうございます");
+
 //btnの開閉
 const EditContainer = document.getElementsByClassName('tools')[0];
 const EditContainerOpen = document.getElementsByClassName('open')[0];
