@@ -110,39 +110,39 @@ for (let i = 0; i <= 1; i++) {
 window.onload = function () {
     let _CurrentSpace = window.opener.document.querySelectorAll('#outer-dropzone');
     if (_CurrentSpace.length == 1) {
-        Inner[0].style.display = 'block';
-        Inner[1].style.display = 'block';
-        Inner[2].style.display = 'none';
-        Inner[3].style.display = 'none';
-    } else if (_CurrentSpace.length == 2) {
-        Inner[0].style.display = 'block';
         Inner[1].style.display = 'block';
         Inner[2].style.display = 'block';
         Inner[3].style.display = 'none';
+        Inner[4].style.display = 'none';
+    } else if (_CurrentSpace.length == 2) {
+        Inner[1].style.display = 'block';
+        Inner[2].style.display = 'block';
+        Inner[3].style.display = 'block';
+        Inner[4].style.display = 'none';
     } else if (_CurrentSpace.length == 3) {
-        for (let i = 0; i <= 3; i++) {
+        for (let i = 1; i <= 4; i++) {
             Inner[i].style.display = 'block';
         }
     }
-    select_space.addEventListener('change', function () {
-        let _CurrentSpace = window.opener.document.querySelectorAll('#outer-dropzone');
-        if (_CurrentSpace.length == 0) {
-            Inner[0].style.display = 'block';
-            Inner[1].style.display = 'block';
-            Inner[2].style.display = 'none';
-            Inner[3].style.display = 'none';
-        } else if (_CurrentSpace.length == 1) {
-            Inner[0].style.display = 'block';
-            Inner[1].style.display = 'block';
-            Inner[2].style.display = 'block';
-            Inner[3].style.display = 'none';
-        } else if (_CurrentSpace.length == 2) {
-            for (let i = 0; i <= 3; i++) {
-                Inner[i].style.display = 'block';
-            }
-        }
-    });
 };
+select_space.addEventListener('change', function () {
+    let _CurrentSpace = window.opener.document.querySelectorAll('#outer-dropzone');
+    if (_CurrentSpace.length == 1) {
+        Inner[1].style.display = 'block';
+        Inner[2].style.display = 'block';
+        Inner[3].style.display = 'none';
+        Inner[4].style.display = 'none';
+    } else if (_CurrentSpace.length == 2) {
+        Inner[1].style.display = 'block';
+        Inner[2].style.display = 'block';
+        Inner[3].style.display = 'block';
+        Inner[4].style.display = 'none';
+    } else if (_CurrentSpace.length == 3) {
+        for (let i = 1; i <= 4; i++) {
+            Inner[i].style.display = 'block';
+        }
+    }
+});
 
 //タイトルの取得
 
