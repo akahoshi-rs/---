@@ -11,8 +11,7 @@ function flexTextarea(el) {
 document.querySelectorAll('.FlexTextarea').forEach(flexTextarea)
 ////////////////////////////////////////////////////////////
 
-//window.opener
-
+// window.opener
 const MainTermColorAppend = window.opener.document.getElementById("color");
 const Sub1ColorAppend = window.opener.document.getElementById("color1");
 const Sub2ColorAppend = window.opener.document.getElementById("color2");
@@ -23,7 +22,7 @@ const Sub2TextAppend = window.opener.document.getElementById("Sub-2");
 const Sub3TextAppend = window.opener.document.getElementById("Sub-3");
 const EditText = window.opener.document.getElementsByClassName('edit-text')[0];
 
-//space-check
+// space-check
 const select_space = window.opener.document.getElementById('select_space');
 let _CurrentSpace = window.opener.document.querySelectorAll('#outer-dropzone');
 
