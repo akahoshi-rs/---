@@ -125,10 +125,6 @@ function WordPush() {
             Preview.textContent = this.innerHTML;
         });
 
-        // term→array→listで逆引きすれば良い気がする。(同じclassを持つlistをfor文で検索する)
-        //2. テキスト書き出しは、submitで別のページに遷移させて、そこに_ConentsTextArrayと、none, 1, 2, 3エリア別に取得したarrayを表示すればいい。
-
-
         TermBoxes[i].addEventListener('contextmenu', function (e) {
             // プレビューの表示
             Preview.textContent = TermBoxes[i].innerHTML;

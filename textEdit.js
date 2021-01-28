@@ -1,30 +1,7 @@
-//textareaの動作(コピペ)
-function flexTextarea(el) {
-    const dummy = el.querySelector('.FlexTextarea__dummy')
-    el.querySelector('.FlexTextarea__textarea').addEventListener('focus', e => {
-        dummy.textContent = e.target.value + '\u200b'
-    })
-    el.querySelector('.FlexTextarea__textarea').addEventListener('input', e => {
-        dummy.textContent = e.target.value + '\u200b'
-    })
-}
-document.querySelectorAll('.FlexTextarea').forEach(flexTextarea)
-////////////////////////////////////////////////////////////
 
-// window.opener
-const MainTermColorAppend = window.opener.document.getElementById("color");
-const Sub1ColorAppend = window.opener.document.getElementById("color1");
-const Sub2ColorAppend = window.opener.document.getElementById("color2");
-const Sub3ColorAppend = window.opener.document.getElementById("color3");
-const MainAppend = window.opener.document.getElementById('Main');
-const Sub1TextAppend = window.opener.document.getElementById("Sub-1");
-const Sub2TextAppend = window.opener.document.getElementById("Sub-2");
-const Sub3TextAppend = window.opener.document.getElementById("Sub-3");
-const EditText = window.opener.document.getElementsByClassName('edit-text')[0];
+const EditText = document.getElementsByClassName('edit-text')[0];
 
-// space-check
-const select_space = window.opener.document.getElementById('select_space');
-let _CurrentSpace = window.opener.document.querySelectorAll('#outer-dropzone');
+// let currentSpace = document.querySelectorAll('#outer-dropzone');
 
 
 //currentFile
@@ -38,38 +15,38 @@ let Title1 = document.getElementById('title-1');
 let Title2 = document.getElementById('title-2');
 let Title3 = document.getElementById('title-3');
 
-const FlexTextarea = document.getElementsByClassName('FlexTextarea__textarea');
+const FlexTextarea = document.getElementsByClassName('all-area');
 const CheckBox0 = document.getElementsByName('display_0');
 const CheckBox1 = document.getElementsByName('display_1');
 const CheckBox2 = document.getElementsByName('display_2');
 const CheckBox3 = document.getElementsByName('display_3');
 
 //初期読み込み
-document.body.style.backgroundColor = MainAppend.value;
-FlexTextarea[1].style.backgroundColor = Sub1ColorAppend.value;
-FlexTextarea[2].style.backgroundColor = Sub2ColorAppend.value;
-FlexTextarea[3].style.backgroundColor = Sub3ColorAppend.value;
-Titleall.value = MainAppend.value;
-Title1.value = Sub1TextAppend.value;
-Title2.value = Sub2TextAppend.value;
-Title3.value = Sub3TextAppend.value;
+document.body.style.backgroundColor = Main.value;
+FlexTextarea[1].style.backgroundColor = Sub1Color.value;
+FlexTextarea[2].style.backgroundColor = Sub2Color.value;
+FlexTextarea[3].style.backgroundColor = Sub3Color.value;
+Titleall.value = Main.value;
+Title1.value = Sub1Text.value;
+Title2.value = Sub2Text.value;
+Title3.value = Sub3Text.value;
 
 //色の取得
-MainTermColorAppend.addEventListener('input', function () {
-    document.body.style.backgroundColor = MainTermColorAppend.value;
+MainTermColor.addEventListener('input', function () {
+    document.body.style.backgroundColor = MainTermColor.value;
 });
 
-Sub1ColorAppend.addEventListener('input', function () {
-    FlexTextarea[1].style.backgroundColor = Sub1ColorAppend.value;
+Sub1Color.addEventListener('input', function () {
+    FlexTextarea[1].style.backgroundColor = Sub1Color.value;
 });
 
-Sub2ColorAppend.addEventListener('input', function () {
-    FlexTextarea[2].style.backgroundColor = Sub2ColorAppend.value;
+Sub2Color.addEventListener('input', function () {
+    FlexTextarea[2].style.backgroundColor = Sub2Color.value;
 });
 
 
-Sub3ColorAppend.addEventListener('input', function () {
-    FlexTextarea[3].style.backgroundColor = Sub3ColorAppend.value;
+Sub3Color.addEventListener('input', function () {
+    FlexTextarea[3].style.backgroundColor = Sub3Color.value;
 });
 
 // ラジオボタン
@@ -107,36 +84,36 @@ for (let i = 0; i <= 1; i++) {
 
 //表示数
 window.onload = function () {
-    let _CurrentSpace = window.opener.document.querySelectorAll('#outer-dropzone');
-    if (_CurrentSpace.length == 1) {
+    let currentSpace = document.querySelectorAll('#outer-dropzone');
+    if (currentSpace.length == 1) {
         Inner[1].style.display = 'block';
         Inner[2].style.display = 'block';
         Inner[3].style.display = 'none';
         Inner[4].style.display = 'none';
-    } else if (_CurrentSpace.length == 2) {
+    } else if (currentSpace.length == 2) {
         Inner[1].style.display = 'block';
         Inner[2].style.display = 'block';
         Inner[3].style.display = 'block';
         Inner[4].style.display = 'none';
-    } else if (_CurrentSpace.length == 3) {
+    } else if (currentSpace.length == 3) {
         for (let i = 1; i <= 4; i++) {
             Inner[i].style.display = 'block';
         }
     }
 };
 select_space.addEventListener('change', function () {
-    let _CurrentSpace = window.opener.document.querySelectorAll('#outer-dropzone');
-    if (_CurrentSpace.length == 1) {
+    let currentSpace = document.querySelectorAll('#outer-dropzone');
+    if (currentSpace.length == 1) {
         Inner[1].style.display = 'block';
         Inner[2].style.display = 'block';
         Inner[3].style.display = 'none';
         Inner[4].style.display = 'none';
-    } else if (_CurrentSpace.length == 2) {
+    } else if (currentSpace.length == 2) {
         Inner[1].style.display = 'block';
         Inner[2].style.display = 'block';
         Inner[3].style.display = 'block';
         Inner[4].style.display = 'none';
-    } else if (_CurrentSpace.length == 3) {
+    } else if (currentSpace.length == 3) {
         for (let i = 1; i <= 4; i++) {
             Inner[i].style.display = 'block';
         }
@@ -145,30 +122,30 @@ select_space.addEventListener('change', function () {
 
 //タイトルの取得
 
-MainAppend.addEventListener('input', function () {
-    Titleall.value = MainAppend.value;
+Main.addEventListener('input', function () {
+    Titleall.value = Main.value;
 });
 
-Sub1TextAppend.addEventListener('input', function () {
-    Title1.value = Sub1TextAppend.value;
-
-});
-
-Sub2TextAppend.addEventListener('input', function () {
-    Title2.value = Sub2TextAppend.value;
+Sub1Text.addEventListener('input', function () {
+    Title1.value = Sub1Text.value;
 
 });
 
+Sub2Text.addEventListener('input', function () {
+    Title2.value = Sub2Text.value;
 
-Sub3TextAppend.addEventListener('input', function () {
-    Title3.value = Sub3TextAppend.value;
+});
+
+
+Sub3Text.addEventListener('input', function () {
+    Title3.value = Sub3Text.value;
 });
 
 //テキストの取得
-let _TermList0 = window.opener.document.querySelectorAll('#blank-list .Term-List');
-let _TermList1 = window.opener.document.querySelectorAll('#List1 li');
-let _TermList2 = window.opener.document.querySelectorAll('#List2 li');
-let _TermList3 = window.opener.document.querySelectorAll('#List3 li');
+let _TermList0 = document.querySelectorAll('#blank-list .Term-List');
+let _TermList1 = document.querySelectorAll('#List1 li');
+let _TermList2 = document.querySelectorAll('#List2 li');
+let _TermList3 = document.querySelectorAll('#List3 li');
 
 //
 let _array0 = [];
@@ -414,9 +391,11 @@ let _Row = document.getElementsByClassName('row');
 
 for (let i = 0; i < FlexTextarea.length; i++) {
     let _textValueBefore = FlexTextarea[i].innerHTML;
-    let _textValueAfter = _textValueBefore.replace(/\n/g, "");
-    _Counter[i].innerHTML = _textValueAfter.length;
-    _Row[i].innerHTML = (_textValueBefore.length - _textValueAfter.length) + 1;
+    if (_textValueBefore.length != 0) {
+        let _textValueAfter = _textValueBefore.replace(/\n/g, "");
+        _Counter[i].innerHTML = _textValueAfter.length;
+        _Row[i].innerHTML = (_textValueBefore.length - _textValueAfter.length) + 1;
+    }
 }
 //ダウンロード
 const BtnDL = document.getElementsByClassName('download');

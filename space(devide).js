@@ -110,10 +110,7 @@ function space_create() {
 
 space_num();
 
-window.onload = function () {
-    select_space.addEventListener('change', space_create);
-    let _dropzone = document.getElementsByClassName('space');
-};
+select_space.addEventListener('change', space_create);
 
 function Color1() {
     Sub1Color.addEventListener('input', function () {
