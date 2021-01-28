@@ -25,7 +25,7 @@
         <h1><img src="images/logo.svg" alt="plotter"></h1>
         <p><small>&copy; 2021 akahoshi</small></p>
     </header>
-    <main>
+    <main id="plotter-main">
         <div class="wrapper">
             <nav id="conmenu">
                 <ul>
@@ -132,7 +132,7 @@
                         <div class="save-text">
                             <p>テキスト書き出し</p>
                             <a id="plotter-text" class="download">このままダウンロード</a>
-                            <a href="text.html" target="_blank" class="edit-text">編集してダウンロード</a>
+                            <a href="#text-body" class="edit-text">編集してダウンロード</a>
                             <p class="small">※ 編集ページに移動します</p>
                         </div>
                     </div>
@@ -269,6 +269,107 @@
             <!--NavTools-->
         </div>
         <!--wrapper-->
+        <div id="text-body">
+            <div class="inner return">
+                <a href="#plotter-main">▲ 戻る</a>
+            </div>
+            <section class="inner">
+                <div class="title-top">
+                    <h2 class="title"><input placeholder="title" type="text" name="title" id="title-all">:</h2>
+                    <group class="inline-radio">
+                        <div><input type="radio" name="display_0" value="0" checked><label>Display</label></div>
+                        <div><input type="radio" name="display_0" value="1"><label>Hide</label></div>
+                    </group>
+                </div>
+                <div class="textarea editArea-all">
+                    <div class="FlexTextarea input_textarea">
+                        <div class="FlexTextarea__dummy" aria-hidden="true"></div>
+                        <textarea id="flexTextarea__textarea" class="FlexTextarea__textarea all-area"
+                            onkeypress="if(event.shiftKey==true){if(event.keyCode==13){event.returnValue=false}}"
+                            placeholder=""></textarea>
+                    </div>
+                    <div class="add-right">
+                        <div>
+                            <p><span class="counter">0</span>文字</p>
+                            <p><span class="row">1</span>行</p>
+                        </div>
+                        <a id="plotter-text" class="download">.txtファイルをダウンロード</a>
+                    </div>
+                </div>
+            </section>
+            <section class="inner">
+                <div class="title-top">
+                    <h2 class="title"><input placeholder="title" type="text" name="title" id="title-1">:</h2>
+                    <group class="inline-radio">
+                        <div><input type="radio" name="display_1" value="0" checked><label>Display</label></div>
+                        <div><input type="radio" name="display_1" value="1"><label>Hide</label></div>
+                    </group>
+                </div>
+                <div class="textarea editArea-1">
+                    <div class="FlexTextarea input_textarea">
+                        <div class="FlexTextarea__dummy" aria-hidden="true"></div>
+                        <textarea id="flexTextarea__textarea" class="FlexTextarea__textarea all-area"
+                            onkeypress="if(event.shiftKey==true){if(event.keyCode==13){event.returnValue=false}}"
+                            placeholder=""></textarea>
+                    </div>
+                    <div class="add-right">
+                        <div>
+                            <p><span class="counter">0</span>文字</p>
+                            <p><span class="row">1</span>行</p>
+                        </div>
+                        <a id="plotter-text" class="download">.txtファイルをダウンロード</a>
+                    </div>
+                </div>
+            </section>
+            <section class="inner">
+                <div class="title-top">
+                    <h2 class="title"><input placeholder="title" type="text" name="title" id="title-2">:</h2>
+                    <group class="inline-radio">
+                        <div><input type="radio" name="display_2" value="0" checked><label>Display</label></div>
+                        <div><input type="radio" name="display_2" value="1"><label>Hide</label></div>
+                    </group>
+                </div>
+                <div class="textarea editArea-2">
+                    <div class="FlexTextarea input_textarea">
+                        <div class="FlexTextarea__dummy" aria-hidden="true"></div>
+                        <textarea id="flexTextarea__textarea" class="FlexTextarea__textarea all-area"
+                            onkeypress="if(event.shiftKey==true){if(event.keyCode==13){event.returnValue=false}}"
+                            placeholder=""></textarea>
+                    </div>
+                    <div class="add-right">
+                        <div>
+                            <p><span class="counter">0</span>文字</p>
+                            <p><span class="row">1</span>行</p>
+                        </div>
+                        <a id="plotter-text" class="download">.txtファイルをダウンロード</a>
+                    </div>
+                </div>
+            </section>
+            <section class="inner">
+                <div class="title-top">
+                    <h2 class="title"><input placeholder="title" type="text" name="title" id="title-3">:</h2>
+                    <group class="inline-radio">
+                        <div><input type="radio" name="display_3" value="0" checked><label>Display</label></div>
+                        <div><input type="radio" name="display_3" value="1"><label>Hide</label></div>
+                    </group>
+                </div>
+                <div class="textarea editArea-3">
+                    <div class="FlexTextarea input_textarea">
+                        <div class="FlexTextarea__dummy" aria-hidden="true"></div>
+                        <textarea id="flexTextarea__textarea" class="FlexTextarea__textarea all-area"
+                            onkeypress="if(event.shiftKey==true){if(event.keyCode==13){event.returnValue=false}}"
+                            placeholder=""></textarea>
+                    </div>
+                    <div class="add-right">
+                        <div>
+                            <p><span class="counter">0</span>文字</p>
+                            <p><span class="row">1</span>行</p>
+                        </div>
+                        <a id="plotter-text" class="download">.txtファイルをダウンロード</a>
+                    </div>
+                </div>
+            </section>
+        </div>
     </main>
     <!-- <div id="form-input-recover-confirm-modal">
         <div>

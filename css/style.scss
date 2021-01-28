@@ -43,6 +43,9 @@ $Second-color: #206;
 }
 
 //
+html {
+    scroll-behavior: smooth;
+}
 
 body {
     height: 100vh;
@@ -66,6 +69,10 @@ input::placeholder,textarea::placeholder {
 }
 
 //header---------------------------
+#plotter-main {
+    margin-top: -40px;
+    padding-top: 40px;
+}
 
 header {
     height: 40px;
@@ -75,7 +82,10 @@ header {
     align-items: center;
     background-color: #ffffff;
     box-shadow: 0 2px 6px rgba(34,0,102,0.2);
-    z-index: 3;
+    z-index: 1000;
+    position: fixed;
+    margin-top: 40px;
+    width: 100%;
     & img {
         margin-bottom: 3px;
         height: 30px;
@@ -96,7 +106,7 @@ header {
     flex-wrap: wrap;
     z-index: 3;
     height: calc(100vh - 40px);
-    position: fixed;
+    position: absolute;
     top: 40px;
     right: 0px;
 }
@@ -235,8 +245,8 @@ div.preview {
     width: 280px;
     padding: 20px;
     z-index: 3;
-    position: fixed;
-    top: 40px;
+    position: absolute;
+    // top: 40px;
     right: 60px;
     & .list, .help ,.edit {
         height: calc(100vh - 80px);
@@ -318,8 +328,10 @@ details[open] summary.ListName{
     min-height: 10px;
 }
 //保存
-.save h2 {
-    @include h2();
+.save{
+    h2 {
+        @include h2();
+    }
 }
 // 使い方
 .help {
@@ -602,6 +614,7 @@ details[open] summary.ListName{
         flex-direction: column;
         justify-content: center;
         position: relative;
+        width: 320px;
         &:after {
             content: '※空白可';
             position: absolute;
@@ -687,9 +700,10 @@ details[open] summary.ListName{
 // select-area
 
 #text-body {
+    margin-top: 40px;
     overflow-y: scroll;
     height: calc(100vh - 40px);
-    padding: 0 0 80px 0;
+    padding: 0 0 160px 0;
     & .explain {
         margin-top: 20px;
     }
@@ -743,6 +757,30 @@ details[open] summary.ListName{
     & input[type="text"]::placeholder {
     font-size: 20px;
     color: lightgray;
+    }
+}
+
+.return {
+    padding-top: 40px;
+     & a{
+        width: 100%;
+        text-align: center;
+        display: inline-block;
+        color: #fff;
+        text-decoration: none;
+        margin: 20px auto;
+        padding: 4px;
+        background-color: #7188aa;
+        border-radius: 50px;
+        box-shadow: $shadow;
+        transition: all .3s;
+        &:hover {
+            background-color: #607494;
+        }
+        &:active {
+            box-shadow: inset $shadow;
+            background-color: #7188aa;
+        }
     }
 }
 
