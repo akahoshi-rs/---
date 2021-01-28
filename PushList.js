@@ -427,11 +427,17 @@ loading.addEventListener('click', function () {
 //テキスト書き出しの実装
 const PlotterText = document.getElementById('plotter-text');
 
+let _TermList0 = document.querySelectorAll('#blank-list .Term-List');
+let _TermList1 = document.querySelectorAll('#List1 li');
+let _TermList2 = document.querySelectorAll('#List2 li');
+let _TermList3 = document.querySelectorAll('#List3 li');
+
+
 PlotterText.addEventListener('click', function () {
-    let _TermList0 = document.querySelectorAll('#blank-list .Term-List');
-    let _TermList1 = document.querySelectorAll('#List1 li');
-    let _TermList2 = document.querySelectorAll('#List2 li');
-    let _TermList3 = document.querySelectorAll('#List3 li');
+    _TermList0 = document.querySelectorAll('#blank-list .Term-List');
+    _TermList1 = document.querySelectorAll('#List1 li');
+    _TermList2 = document.querySelectorAll('#List2 li');
+    _TermList3 = document.querySelectorAll('#List3 li');
 
     //
     let _array0 = [];
