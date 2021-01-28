@@ -736,7 +736,25 @@ details[open] summary.ListName{
         padding: 0 10px;
     }
 
-    & .download {
+    & .downloads {
+        text-decoration: none;
+        display: inline-block;
+        width: 240px;
+        text-align: center;
+        margin: 20px auto;
+        padding: 4px;
+        background-color: #7188aa;
+        color: #fff;
+        border-radius: 50px;
+        box-shadow: $shadow;
+        transition: all .3s;
+        &:hover {
+            background-color: #607494;
+        }
+        &:active {
+            box-shadow: inset $shadow;
+            background-color: #7188aa;
+        }
         margin: 0;
     }
 }

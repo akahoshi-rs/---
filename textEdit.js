@@ -147,6 +147,12 @@ let _TermList1 = document.querySelectorAll('#List1 li');
 let _TermList2 = document.querySelectorAll('#List2 li');
 let _TermList3 = document.querySelectorAll('#List3 li');
 
+EditText.addEventListener('click', () => {
+    _TermList0 = document.querySelectorAll('#blank-list .Term-List');
+    _TermList1 = document.querySelectorAll('#List1 li');
+    _TermList2 = document.querySelectorAll('#List2 li');
+    _TermList3 = document.querySelectorAll('#List3 li');
+});
 //
 let _array0 = [];
 for (let i = 0; i < _TermList0.length; i++) {
@@ -398,7 +404,7 @@ for (let i = 0; i < FlexTextarea.length; i++) {
     }
 }
 //ダウンロード
-const BtnDL = document.getElementsByClassName('download');
+const BtnDL = document.getElementsByClassName('downloads');
 
 Titleall.addEventListener('input', function () {
     Titleall = document.getElementById('title-all');
